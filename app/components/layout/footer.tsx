@@ -134,8 +134,8 @@ export function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <Mail size={18} className="text-primary-soft mt-0.5 shrink-0" />
-                <a href="mailto:hello@Nexiqo.co.uk" className="text-white/70 hover:text-primary-soft transition-colors text-sm">
-                  hello@Nexiqo.co.uk
+                <a href="info@nexiqo.co" className="text-white/70 hover:text-primary-soft transition-colors text-sm">
+                  info@nexiqo.co
                 </a>
               </li>
               <li className="flex items-start gap-3">
