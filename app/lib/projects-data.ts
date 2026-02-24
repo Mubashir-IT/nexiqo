@@ -11,6 +11,7 @@ export const projects = [
     category: "Sports",
     description: "Complete Cricket League Website & Platform",
     img: "/images/npl-1.png",
+    logo: "/images/logos/npl.png",
     url: "https://nplt20league.com/",
     images: ["/images/npl-1.png", "/images/npl-2.png", "/images/npl-3.png"],
     detailedDescription: "Nepal Premier League (NPL) is Nepal's premier professional Twenty20 cricket tournament. We developed a comprehensive website platform that provides complete coverage of the league, including match schedules, live scores, team information, player statistics, and ticket booking.",
@@ -43,6 +44,7 @@ export const projects = [
     category: "Tech & SaaS",
     description: "AI-Powered Catalan Language Correction Tool",
     img: "/images/catala-1.png",
+    logo: "/images/logos/catala.png",
     url: "https://correctorcatala.es/",
     images: ["/images/catala-1.png", "/images/catala-2.png", "/images/catala-3.png", "/images/catala-4.png"],
     detailedDescription: "Corrector Català is a professional AI-powered online tool for spelling and grammar correction in Catalan. This free web application helps users improve the quality of their Catalan texts with real-time corrections, intelligent suggestions, and an easy-to-use interface. It's an essential tool for Catalan learners and native speakers who want to enhance their language skills.",
@@ -70,6 +72,60 @@ export const projects = [
       "Word and character counter",
       "Error statistics",
       "Easy-to-use interface"
+    ]
+  },
+  {
+    id: 3,
+    name: "Bangladesh Premier League",
+    category: "Sports",
+    description: "Bangladesh Premier League Cricket Website",
+    img: "/images/bpl-1.png",
+    logo: "/images/logos/bpl-logo.png",
+    url: "https://bplt20league.com.bd/",
+    images: ["/images/bpl-1.png"],
+    detailedDescription: "Bangladesh Premier League (BPL) is Bangladesh's premier Twenty20 cricket tournament. We developed a comprehensive website platform for the league with match schedules, live scores, team information, and player statistics.",
+    projectPurpose: "To provide cricket fans with a central hub for all BPL activities, including match information, team standings, and player statistics.",
+    workDone: [
+      "Full stack website development with responsive design",
+      "Match fixtures and results management system",
+      "Points table with real-time updates",
+      "Team and player profile pages",
+      "News and updates section",
+      "SEO optimization for better search visibility"
+    ],
+    features: [
+      "Live match scores and updates",
+      "Team and player statistics",
+      "Interactive points table",
+      "Match schedule and fixtures",
+      "News and blog section",
+      "Responsive mobile-first design"
+    ]
+  },
+  {
+    id: 4,
+    name: "NPL Schedule",
+    category: "Sports",
+    description: "Nepal Premier League Schedule & Fixtures",
+    img: "/images/cpl-1.png",
+    logo: "/images/logos/nplschedule.png",
+    url: "https://nplschedule.com/",
+    images: ["/images/cpl-1.png"],
+    detailedDescription: "NPL Schedule is a comprehensive platform for the Nepal Premier League, providing match schedules, fixtures, team information, and live updates for cricket fans across Nepal and worldwide.",
+    projectPurpose: "To help cricket fans stay updated with NPL match schedules, fixtures, and league information in one convenient platform.",
+    workDone: [
+      "Full stack website development with responsive design",
+      "Match schedule and fixtures management",
+      "Team and venue information",
+      "News and updates section",
+      "SEO optimization for better search visibility"
+    ],
+    features: [
+      "Match schedule and fixtures",
+      "Team information",
+      "Venue details",
+      "News and updates",
+      "Responsive mobile-first design"
     ]
   },
   // {

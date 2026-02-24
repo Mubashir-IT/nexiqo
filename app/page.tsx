@@ -91,13 +91,14 @@ export default function Home() {
         </div>
 
         {/* Scroll Indicator */}
-        <div
+        {/* <div
           className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
           style={{ animation: "heroFadeIn 0.6s 0.3s ease both" }}
         >
           <span className="text-[10px] uppercase tracking-[0.2em] text-white/30">Scroll</span>
           <div className="w-px h-12 bg-gradient-to-b from-primary-soft to-transparent" />
-        </div>
+        </div> */}
+        {/* Logo Loop */}
         <div className="w-full mt-20">
           <div className="opacity-80" style={{ height: '40px' }}>
             <LogoLoop

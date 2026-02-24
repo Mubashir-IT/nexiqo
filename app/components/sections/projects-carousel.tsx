@@ -1,12 +1,26 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { projects } from "@/lib/projects-data";
 
 const activeProjects = projects.filter((p) => p.url);
 // Duplicate for seamless infinite loop
 const loopedProjects = [...activeProjects, ...activeProjects, ...activeProjects];
+
+function LogoImage({ src, alt }: { src: string; alt: string }) {
+    const [loaded, setLoaded] = useState(true);
+    return (
+        <div className={`relative w-10 h-10 shrink-0 ${!loaded ? "hidden" : ""}`}>
+            <img
+                src={src}
+                alt={`${alt} logo`}
+                className="w-full h-full object-contain"
+                onError={() => setLoaded(false)}
+            />
+        </div>
+    );
+}
 
 export function ProjectsCarousel() {
     const trackRef = useRef<HTMLDivElement>(null);
@@ -21,9 +35,8 @@ export function ProjectsCarousel() {
 
         const animate = () => {
             pos += speed;
-            // Each card is 50% of the container width + gap (24px)
-            const cardWidth = track.parentElement!.offsetWidth / 2 + 12;
-            const resetAt = cardWidth * activeProjects.length;
+            // Reset when we've scrolled through one full set (we have 3 copies)
+            const resetAt = track.scrollWidth / 3;
 
             if (pos >= resetAt) pos = 0;
 
@@ -43,26 +56,25 @@ export function ProjectsCarousel() {
                 </h2>
             </div>
 
-            {/* Marquee Carousel */}
+            {/* Marquee - logos + names */}
             <div className="overflow-hidden">
-                <div ref={trackRef} className="flex gap-6" style={{ width: "max-content" }}>
+                <div ref={trackRef} className="flex gap-0 items-center" style={{ width: "max-content" }}>
                     {loopedProjects.map((project, i) => (
-                        <div
+                        <a
                             key={i}
-                            onClick={() => project.url && window.open(project.url, "_blank")}
-                            className="relative flex-shrink-0 overflow-hidden rounded-3xl cursor-pointer group shadow-md hover:shadow-xl transition-shadow duration-300"
-                            style={{ width: "calc(50vw - 3.5rem)", maxWidth: "640px", aspectRatio: "16/9" }}
+                            href={project.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="shrink-0 flex items-center gap-2 px-4 py-4 rounded-2xl hover:shadow-md transition-all duration-300 group cursor-pointer"
                         >
-                            <img
-                                src={project.img}
-                                alt={project.name}
-                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/5 to-transparent" />
-                            <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white flex items-center justify-center opacity-0 group-hover:opacity-100 -translate-y-2 group-hover:translate-y-0 transition-all duration-300 shadow-lg">
-                                <ArrowUpRight size={18} className="text-foreground" />
-                            </div>
-                        </div>
+                            {project.logo && (
+                                <LogoImage src={project.logo} alt={project.name} />
+                            )}
+                            <span className="text-xl md:text-2xl font-bold text-foreground group-hover:text-primary">
+                                {project.name}
+                            </span>
+                            <ArrowUpRight size={20} className="text-foreground/60 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                        </a>
                     ))}
                 </div>
             </div>
