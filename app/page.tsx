@@ -25,7 +25,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background font-sans selection:bg-primary-soft selection:text-foreground">
       {/* Hero Section */}
-      <section className="relative min-h-screen bg-foreground text-white pt-32 pb-20 px-6 overflow-hidden flex flex-col justify-center items-center">
+      <section className="relative min-h-screen bg-foreground text-white pt-32 pb-10 px-0 overflow-hidden flex flex-col justify-center items-center">
         {/* Three.js Background Scene - Positioned absolute behind content */}
         <div className="absolute inset-0 z-0">
           <HeroScene />
@@ -98,12 +98,8 @@ export default function Home() {
           <span className="text-[10px] uppercase tracking-[0.2em] text-white/30">Scroll</span>
           <div className="w-px h-12 bg-gradient-to-b from-primary-soft to-transparent" />
         </div>
-      </section>
-
-      {/* Logos Section */}
-      <section className="py-12 bg-foreground border-t border-white/5 overflow-hidden">
-        <div className="w-full">
-          <div className="opacity-80" style={{ height: '60px' }}>
+        <div className="w-full mt-20">
+          <div className="opacity-80" style={{ height: '40px' }}>
             <LogoLoop
               logos={[
                 { node: <SiWordpress className="text-primary-soft" />, title: "WordPress", href: "https://wordpress.org" },
@@ -115,8 +111,8 @@ export default function Home() {
               ]}
               speed={80}
               direction="left"
-              logoHeight={48}
-              gap={60}
+              logoHeight={40}
+              gap={40}
               hoverSpeed={20}
               scaleOnHover
               fadeOut
@@ -147,6 +143,12 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Logos Section */}
+      {/* <section className="relative py-4 bg-foreground overflow-hidden z-10">
+      <ParticleCardBackground/>
+
+      </section> */}
 
       {/* Intro Section */}
       <div className="relative">
