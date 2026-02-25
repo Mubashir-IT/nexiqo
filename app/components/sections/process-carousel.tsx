@@ -1,7 +1,16 @@
 "use client";
 
 import useEmblaCarousel from "embla-carousel-react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Compass,
+  PenTool,
+  MonitorSmartphone,
+  ServerCog,
+  BadgeCheck,
+  Wrench,
+} from "lucide-react";
 import { useCallback, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 
@@ -9,32 +18,38 @@ const steps = [
   {
     number: "01",
     title: "Project Discovery",
-    desc: "We start by understanding your business goals, target audience, and project requirements. Through discussions and analysis, we define the scope and objectives for your website development project."
+    desc: "We start by understanding your business goals, target audience, and project requirements. Through discussions and analysis, we define the scope and objectives for your website development project.",
+    icon: Compass,
   },
   {
     number: "02",
     title: "Design & Planning",
-    desc: "We create website designs and plan the architecture. This includes wireframes, user flows, and visual designs that align with your brand and provide excellent user experiences."
+    desc: "We create website designs and plan the architecture. This includes wireframes, user flows, and visual designs that align with your brand and provide excellent user experiences.",
+    icon: PenTool,
   },
   {
     number: "03",
     title: "Frontend Development",
-    desc: "We build the user interface using modern frontend technologies. We create responsive, interactive websites that work seamlessly across all devices and browsers."
+    desc: "We build the user interface using modern frontend technologies. We create responsive, interactive websites that work seamlessly across all devices and browsers.",
+    icon: MonitorSmartphone,
   },
   {
     number: "04",
     title: "Backend Development",
-    desc: "We develop the server-side systems, APIs, and databases. We handle authentication, data management, integrations, and all the technical infrastructure your website needs."
+    desc: "We develop the server-side systems, APIs, and databases. We handle authentication, data management, integrations, and all the technical infrastructure your website needs.",
+    icon: ServerCog,
   },
   {
     number: "05",
     title: "Testing & Launch",
-    desc: "We thoroughly test your website for functionality, performance, and compatibility. Once everything is ready, we deploy your website and ensure it's live and running smoothly."
+    desc: "We thoroughly test your website for functionality, performance, and compatibility. Once everything is ready, we deploy your website and ensure it's live and running smoothly.",
+    icon: BadgeCheck,
   },
   {
     number: "06",
     title: "Maintenance & Support",
-    desc: "We provide post-launch support and regular maintenance to keep your website secure and up-to-date. We also help with optimizations and new feature additions as your business grows."
+    desc: "We provide post-launch support and regular maintenance to keep your website secure and up-to-date. We also help with optimizations and new feature additions as your business grows.",
+    icon: Wrench,
   }
 ];
 
@@ -77,9 +92,16 @@ export function ProcessCarousel() {
                 key={index}
                 className="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0 pl-8"
               >
-                <div className="bg-card rounded-3xl p-8 h-full flex flex-col justify-between min-h-[220px] transition-transform duration-300 hover:-translate-y-1">
+                <div className="bg-card rounded-3xl p-8 h-full flex flex-col justify-between min-h-[220px] transition-transform duration-300 hover:-translate-y-1 shadow-lg shadow-foreground/5">
                   <div>
-                    <span className="text-4xl font-bold text-primary mb-8 block">{step.number}</span>
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="w-11 h-11 rounded-2xl bg-primary-soft/20 text-primary flex items-center justify-center border border-primary-soft/40">
+                        <step.icon className="w-6 h-6" />
+                      </div>
+                      <span className="text-3xl font-bold text-primary">
+                        {step.number}
+                      </span>
+                    </div>
                     <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4 leading-tight">
                       {step.title}
                     </h3>
@@ -95,13 +117,13 @@ export function ProcessCarousel() {
         <div className="flex gap-4 justify-end mr-5 mt-10">
           <button
             onClick={scrollPrev}
-            className="w-12 h-12 rounded-full border border-foreground/20 flex items-center justify-center text-foreground hover:bg-foreground hover:text-primary-soft transition-colors"
+            className="w-12 h-12 rounded-full border border-foreground/10 bg-card flex items-center justify-center text-foreground/80 hover:bg-foreground hover:text-primary-soft shadow-sm transition-colors"
           >
             <ArrowLeft size={24} />
           </button>
           <button
             onClick={scrollNext}
-            className="w-12 h-12 rounded-full border border-foreground/20 flex items-center justify-center text-foreground hover:bg-foreground hover:text-primary-soft transition-colors"
+            className="w-12 h-12 rounded-full border border-foreground/10 bg-card flex items-center justify-center text-foreground/80 hover:bg-foreground hover:text-primary-soft shadow-sm transition-colors"
           >
             <ArrowRight size={24} />
           </button>

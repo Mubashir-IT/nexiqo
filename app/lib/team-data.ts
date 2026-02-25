@@ -12,16 +12,16 @@ export const teamMembers = [
   //   img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" 
   // },
   { 
-    name: "Shahzad Ali", 
-    role: "Full Stack Developer", 
-    bio: "Specializes in full stack development, creating scalable websites with modern technologies and best practices.",
-    img: "/images/developer-2.jpg" 
-  },
-  { 
     name: "Muhammad Iqbal", 
     role: "SEO Specialist", 
     bio: "Specializes in SEO optimization and search engine strategies to improve website visibility and rankings.",
     img: "/images/developer-3.png" 
+  },
+  { 
+    name: "Shahzad Ali", 
+    role: "Full Stack Developer", 
+    bio: "Specializes in full stack development, creating scalable websites with modern technologies and best practices.",
+    img: "/images/developer-2.jpg" 
   },
   
 ];

@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { Menu, X, Cloud, Building2, Factory, HeartPulse, Users, Wallet, ChevronDown, Code, FileCode, Globe, Smartphone, Server, Shield } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
@@ -11,10 +10,6 @@ import dynamic from "next/dynamic";
 const ParticleCardBackground = dynamic(() => import("@/components/ParticleCardBackground"), { ssr: false, loading: () => null });
 
 export function Navbar() {
-  const pathname = usePathname();
-  const isCaseStudiesPage = pathname === "/case-studies";
-  const ActionPlanPage = pathname === "/action-plan";
-  const isProcessPage = pathname === "/process";
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
@@ -39,10 +34,6 @@ export function Navbar() {
     setMobileTechnologiesOpen(false);
   };
 
-  // On case studies page, links should always be black
-  // On home page, links should be white initially, black on scroll
-  const shouldUseBlackText = isCaseStudiesPage || ActionPlanPage || isProcessPage || isMenuOpen || isScrolled;
-
   return (
     <nav
       onMouseLeave={() => setActiveMenu(null)}
@@ -51,7 +42,7 @@ export function Navbar() {
       )}
     >
       <ParticleCardBackground spreadX={60} spreadY={2} disableRotation={true} />
-      <div className="max-w-[1400px] mx-auto pr-8 flex items-center justify-between relative z-50">
+      <div className="max-w-[1400px] mx-auto px-6 flex items-center justify-between relative z-50">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2" onClick={closeAll}>
           <img
@@ -137,7 +128,7 @@ export function Navbar() {
 
         {/* Mobile Toggle */}
         <button
-          className={cn("lg:hidden relative z-50 transition-colors", shouldUseBlackText ? "text-foreground" : "text-white")}
+          className="lg:hidden relative z-50 text-white"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
