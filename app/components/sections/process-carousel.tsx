@@ -63,11 +63,11 @@ export function ProcessCarousel() {
     <section id="process" className="py-10 bg-primary-soft overflow-hidden">
       <div className="max-w-[1500px] mx-auto px-0">
         <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-6">
-          <h2 className="text-5xl md:text-7xl font-bold text-foreground tracking-tight">
+          <h2 className="pl-8 text-5xl md:text-7xl font-bold text-foreground tracking-tight">
             Process Overview
           </h2>
 
-          
+
         </div>
 
         <div className="overflow-hidden cursor-grab active:cursor-grabbing px-6" ref={emblaRef}>
@@ -93,19 +93,19 @@ export function ProcessCarousel() {
           </div>
         </div>
         <div className="flex gap-4 justify-end mr-5 mt-10">
-            <button
-              onClick={scrollPrev}
-              className="w-12 h-12 rounded-full border border-foreground/20 flex items-center justify-center text-foreground hover:bg-foreground hover:text-primary-soft transition-colors"
-            >
-              <ArrowLeft size={24} />
-            </button>
-            <button
-              onClick={scrollNext}
-              className="w-12 h-12 rounded-full border border-foreground/20 flex items-center justify-center text-foreground hover:bg-foreground hover:text-primary-soft transition-colors"
-            >
-              <ArrowRight size={24} />
-            </button>
-          </div>
+          <button
+            onClick={scrollPrev}
+            className="w-12 h-12 rounded-full border border-foreground/20 flex items-center justify-center text-foreground hover:bg-foreground hover:text-primary-soft transition-colors"
+          >
+            <ArrowLeft size={24} />
+          </button>
+          <button
+            onClick={scrollNext}
+            className="w-12 h-12 rounded-full border border-foreground/20 flex items-center justify-center text-foreground hover:bg-foreground hover:text-primary-soft transition-colors"
+          >
+            <ArrowRight size={24} />
+          </button>
+        </div>
       </div>
     </section>
   );

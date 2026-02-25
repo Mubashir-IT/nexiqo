@@ -81,7 +81,7 @@ export const projects = [
     description: "Bangladesh Premier League Cricket Website",
     img: "/images/bpl-1.png",
     logo: "/images/logos/bpl-logo.png",
-    url: "https://bplt20league.com.bd/",
+    url: "https://bplt20league.com/",
     images: ["/images/bpl-1.png"],
     detailedDescription: "Bangladesh Premier League (BPL) is Bangladesh's premier Twenty20 cricket tournament. We developed a comprehensive website platform for the league with match schedules, live scores, team information, and player statistics.",
     projectPurpose: "To provide cricket fans with a central hub for all BPL activities, including match information, team standings, and player statistics.",
