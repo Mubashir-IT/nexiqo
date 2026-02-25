@@ -138,12 +138,12 @@ export function Footer() {
                   info@nexiqo.co
                 </a>
               </li>
-              <li className="flex items-start gap-3">
+              {/* <li className="flex items-start gap-3">
                 <Phone size={18} className="text-primary-soft mt-0.5 shrink-0" />
                 <a href="tel:+441234567890" className="text-white/70 hover:text-primary-soft transition-colors text-sm">
                   +44 123 456 7890
                 </a>
-              </li>
+              </li> */}
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-primary-soft mt-0.5 shrink-0" />
                 <span className="text-white/70 text-sm">
