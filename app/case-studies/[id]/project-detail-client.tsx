@@ -42,9 +42,9 @@ export function ProjectDetailClient() {
 
   if (!project) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
+      <div className="min-h-screen bg-transparent flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-foreground mb-4">Project Not Found</h1>
+          <h1 className="text-4xl font-bold text-white mb-4">Project Not Found</h1>
           <Link href="/case-studies">
             <Button className="mt-4">Back to Projects</Button>
           </Link>
@@ -66,7 +66,7 @@ export function ProjectDetailClient() {
   };
 
   return (
-    <div className="min-h-screen bg-background font-sans">
+    <div className="min-h-screen bg-transparent font-sans">
       {/* Header */}
       <div className="sticky top-0 bg-white border-b border-gray-200 z-50 px-6 py-4">
         <div className="max-w-full mx-auto flex items-center justify-between">
@@ -102,10 +102,10 @@ export function ProjectDetailClient() {
               {project.category}
             </span>
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
             {project.name}
           </h1>
-          <p className="text-xl text-gray-700 leading-relaxed max-w-3xl">
+          <p className="text-xl text-white/80 leading-relaxed max-w-3xl">
             {project.description}
           </p>
         </motion.div>
@@ -163,7 +163,7 @@ export function ProjectDetailClient() {
                     key={index}
                     onClick={() => setCurrentImageIndex(index)}
                     className={`shrink-0 w-24 h-16 rounded-lg overflow-hidden border-2 transition-all ${currentImageIndex === index
-                        ? "border-foreground ring-2 ring-foreground/20"
+                        ? "border-primary-soft ring-2 ring-primary-soft/20"
                         : "border-transparent opacity-60 hover:opacity-100"
                       }`}
                   >

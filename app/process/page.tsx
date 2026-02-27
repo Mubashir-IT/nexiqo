@@ -4,8 +4,6 @@ import { Search, Users, GitBranch, Layout, Palette, Code, Settings, Globe, FileC
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
-import dynamic from "next/dynamic";
-const ParticleCardBackground = dynamic(() => import("@/components/ParticleCardBackground"), { ssr: false, loading: () => null });
 
 const processSteps = [
   {
@@ -244,25 +242,19 @@ export default function ProcessPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background font-sans pt-8">
+    <div className="min-h-screen bg-transparent font-sans pt-8">
       {/* Hero Section */}
-      <section className="relative min-h-[40vh] bg-primary-soft text-foreground pt-26 pb-10 px-6 overflow-hidden flex flex-col justify-center items-center">
-        {/* Background Effects */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute top-[-20%] left-[10%] w-[60vw] h-[60vw] bg-foreground/5 rounded-full blur-[120px]" />
-          <div className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-foreground/3 rounded-full blur-[100px]" />
-        </div>
-
+      <section className="relative min-h-[40vh] bg-transparent text-white pt-26 pb-10 px-6 overflow-hidden flex flex-col justify-center items-center">
         <div className="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center gap-4">
           <h1 style={{ animation: "heroFadeUp 0.45s 0.05s ease both" }}
-            className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] md:leading-[1.05] text-foreground"
+            className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] md:leading-[1.05] text-white"
           >
             Our development <br className="hidden md:block" />
-            <span className="text-foreground">process</span>
+            <span className="text-white">process</span>
           </h1>
 
           <p style={{ animation: "heroFadeUp 0.45s 0.1s ease both" }}
-            className="max-w-md text-sm md:text-md text-foreground/80 leading-relaxed"
+            className="max-w-md text-sm md:text-md text-white/80 leading-relaxed"
           >
             Our full stack development process from discovery to launch. We build custom websites with frontend and backend development, tailored to your business needs.
           </p>
@@ -286,7 +278,7 @@ export default function ProcessPage() {
                 <div
                   className="transition-all duration-500"
                 >
-                  <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+                  <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                     {step.content.title}
                   </h2>
 
@@ -299,7 +291,7 @@ export default function ProcessPage() {
                     />
                   </div>
 
-                  <div className="space-y-6 text-gray-700 leading-relaxed text-lg">
+                  <div className="space-y-6 text-white leading-relaxed text-lg">
                     <p>
                       {step.content.description}
                     </p>
@@ -310,10 +302,10 @@ export default function ProcessPage() {
                     )}
                     {step.content.details && (
                       <div className="mt-8 space-y-4">
-                        <h3 className="text-xl font-bold text-foreground mb-4">What This Includes:</h3>
+                        <h3 className="text-xl font-bold text-white mb-4">What This Includes:</h3>
                         <ul className="space-y-3">
                           {step.content.details.map((detail, idx) => (
-                            <li key={idx} className="flex items-start gap-3">
+                            <li key={idx} className="flex items-start gap-3 text-white">
                               <span className="text-primary-soft font-bold mt-1 shrink-0">•</span>
                               <span>{detail}</span>
                             </li>
@@ -338,8 +330,8 @@ export default function ProcessPage() {
 
           {/* Right Navigation Sidebar */}
           <div className="lg:sticky lg:top-18">
-            <div className="bg-white rounded-3xl p-4 shadow-sm border border-gray-100">
-              <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-1">
+            <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-4 shadow-sm border border-white/20">
+              <h3 className="text-sm font-bold text-white/70 uppercase tracking-wider mb-1">
                 Process Steps
               </h3>
               <nav className="space-y-2 relative">
@@ -354,7 +346,7 @@ export default function ProcessPage() {
                           w-full flex items-center gap-2 p-2 rounded-xl transition-all duration-200 text-left relative z-10
                           ${isActive
                             ? "bg-primary-soft text-foreground font-bold shadow-sm"
-                            : "text-gray-600 hover:bg-gray-50 hover:text-foreground"
+                            : "text-white/80 hover:bg-white/10 hover:text-white"
                           }
                         `}
                       >
@@ -362,7 +354,7 @@ export default function ProcessPage() {
                           w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 relative
                           ${isActive
                             ? "bg-foreground text-primary-soft"
-                            : "bg-gray-200 text-gray-600"
+                            : "bg-white/20 text-white"
                           }
                         `}>
                           <IconComponent size={18} />
@@ -373,7 +365,7 @@ export default function ProcessPage() {
                         <div
                           className={`
                             absolute left-[29px] top-[56px] w-0.5 h-8 z-0
-                            ${isActive ? "bg-foreground/20" : "bg-gray-200"}
+                            ${isActive ? "bg-primary-soft/50" : "bg-white/30"}
                           `}
                         />
                       )}
@@ -386,8 +378,7 @@ export default function ProcessPage() {
         </div>
 
         {/* CTA Section */}
-        <div className="mt-20 bg-foreground rounded-[3rem] p-12 md:p-16 text-center   relative z-10">
-          <ParticleCardBackground />
+        <div className="mt-20 bg-transparent rounded-[3rem] p-12 md:p-16 text-center relative z-10">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
             Ready to work with us?
           </h2>

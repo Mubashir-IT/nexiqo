@@ -71,7 +71,7 @@ export function BookingSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-7xl font-bold text-foreground leading-tight"
+            className="text-5xl md:text-7xl font-bold text-white leading-tight"
           >
             Unlock Possibilities <br />
             <span className="text-primary-soft bg-foreground px-4 leading-tight inline-block transform -rotate-1 mt-2">Book a Meeting</span>
@@ -82,7 +82,7 @@ export function BookingSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-gray-600 max-w-md leading-relaxed"
+            className="text-xl text-white/80 max-w-md leading-relaxed"
           >
             Ready to explore how Nexiqo's strategy-led design can help your business grow? Let's chat!
           </motion.p>

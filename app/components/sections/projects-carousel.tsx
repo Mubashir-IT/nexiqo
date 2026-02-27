@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { projects } from "@/lib/projects-data";
 
@@ -49,9 +50,15 @@ export function ProjectsCarousel() {
     }, []);
 
     return (
-        <section className="py-10 px-6 max-w-full mx-auto border-t border-gray-200">
+        <motion.section
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="py-10 px-6 max-w-full mx-auto border-t border-white/10"
+        >
             <div className="mb-10">
-                <h2 className="text-4xl md:text-6xl font-bold text-foreground tracking-tight">
+                <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight">
                     Our Recent Projects
                 </h2>
             </div>
@@ -70,14 +77,14 @@ export function ProjectsCarousel() {
                             {project.logo && (
                                 <LogoImage src={project.logo} alt={project.name} />
                             )}
-                            <span className="text-xl md:text-2xl font-bold text-foreground group-hover:text-primary">
+                            <span className="text-xl md:text-2xl font-bold text-white group-hover:text-primary-soft">
                                 {project.name}
                             </span>
-                            <ArrowUpRight size={20} className="text-foreground/60 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                            <ArrowUpRight size={20} className="text-white/60 group-hover:text-primary-soft group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                         </a>
                     ))}
                 </div>
             </div>
-        </section>
+        </motion.section>
     );
 }

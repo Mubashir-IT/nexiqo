@@ -4,21 +4,12 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Search, BarChart, TrendingUp, FileText, Globe, Target, TrendingDown, AlertCircle, RefreshCw, Shield } from "lucide-react";
-import dynamic from "next/dynamic";
-const ParticleCardBackground = dynamic(() => import("@/components/ParticleCardBackground"), { ssr: false, loading: () => null });
 
 export default function SEOToolsPage() {
   return (
-    <div className="min-h-screen bg-background font-sans pt-8">
+    <div className="min-h-screen bg-transparent font-sans pt-8">
       {/* Hero Section */}
-      <section className="relative min-h-[40vh] bg-foreground text-white pt-22 pb-10 px-6 overflow-hidden flex flex-col justify-center items-center z-10">
-        <ParticleCardBackground />
-        {/* Background Effects */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute top-[-20%] left-[10%] w-[60vw] h-[60vw] bg-primary-soft/10 rounded-full blur-[120px]" />
-          <div className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-primary-soft/5 rounded-full blur-[100px]" />
-        </div>
-
+      <section className="relative min-h-[40vh] bg-transparent text-white pt-22 pb-10 px-6 overflow-hidden flex flex-col justify-center items-center z-10">
         <div className="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center gap-4">
           <div style={{ animation: "heroFadeUp 0.4s ease both" }}
             className="flex items-center justify-center gap-2 mb-6"
@@ -49,13 +40,13 @@ export default function SEOToolsPage() {
         <section className="py-16 sm:py-20 md:py-24 lg:py-32 px-6 sm:px-12 md:px-20 lg:px-40 max-w-full mx-auto relative z-10">
           <div className="flex flex-col text-center justify-center items-center relative">
             <div className="relative w-full">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-[950] tracking-tight text-foreground leading-tight sm:leading-none mb-6 sm:mb-8 relative z-10 px-4 sm:px-0">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-[950] tracking-tight text-white leading-tight sm:leading-none mb-6 sm:mb-8 relative z-10 px-4 sm:px-0">
                 Data-driven SEO <br className="hidden md:block" />
                 optimization & analytics
               </h2>
             </div>
             <div className="space-y-4 sm:space-y-6 max-w-2xl px-4 sm:px-0">
-              <p className="text-sm sm:text-base md:text-md text-gray-600 leading-relaxed sm:leading-tight">
+              <p className="text-sm sm:text-base md:text-md text-white/80 leading-relaxed sm:leading-tight">
                 We leverage industry-leading SEO tools and analytics platforms to optimize your website's search engine visibility, track performance, and make data-driven decisions. Our comprehensive toolkit provides insights into search performance, user behavior, and optimization opportunities.
               </p>
             </div>
@@ -67,8 +58,7 @@ export default function SEOToolsPage() {
       <section className="py-20 px-6 max-w-full mx-auto">
         <div className="flex flex-col gap-8">
           {/* Dark Panel */}
-          <div className="relative bg-foreground rounded-[3rem] p-4 md:p-8 lg:p-12 flex flex-col justify-between min-h-[200px] overflow-hidden z-10">
-            <ParticleCardBackground />
+          <div className="relative bg-transparent rounded-[3rem] p-4 md:p-8 lg:p-12 flex flex-col justify-between min-h-[200px] overflow-hidden z-10">
             <div className="flex flex-col items-center justify-center h-full">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-soft mb-12 leading-tight text-center">
                 professional seo toolkit
@@ -146,11 +136,7 @@ export default function SEOToolsPage() {
 
       {/* Google Updates Recovery Section */}
       <section className="py-20 px-6 max-w-full mx-auto">
-        <div className="bg-gradient-to-br from-foreground to-foreground/90 rounded-[3rem] p-8 md:p-12 lg:p-16 overflow-hidden relative">
-          {/* Background Effects */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-primary-soft/10 rounded-full blur-[100px]" />
-          <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary-soft/5 rounded-full blur-[80px]" />
-
+        <div className="bg-transparent rounded-[3rem] p-8 md:p-12 lg:p-16 overflow-hidden relative">
           <div className="relative z-10">
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
               <div className="flex-1">
@@ -224,10 +210,10 @@ export default function SEOToolsPage() {
       {/* Additional Features Section */}
       <section className="py-20 px-6 max-w-full mx-auto">
         <div className="max-w-4xl mx-auto mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 text-center">
             Why Professional SEO Tools?
           </h2>
-          <p className="text-muted-foreground leading-relaxed text-center text-lg">
+          <p className="text-white/80 leading-relaxed text-center text-lg">
             Data-driven SEO decisions lead to measurable improvements in search rankings and business outcomes.
           </p>
         </div>
@@ -268,8 +254,7 @@ export default function SEOToolsPage() {
 
       {/* CTA Section */}
       <section className="py-20 px-6 max-w-full mx-auto">
-        <div className="relative bg-foreground rounded-[3rem] p-12 md:p-16 text-center z-10">
-          <ParticleCardBackground />
+        <div className="relative bg-transparent rounded-[3rem] p-12 md:p-16 text-center z-10">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
             Ready to improve your SEO?
           </h2>

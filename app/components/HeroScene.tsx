@@ -261,7 +261,11 @@ function AnimatedSphere({ isMobile = false }: { isMobile?: boolean }) {
   );
 }
 
-export default function HeroScene() {
+interface HeroSceneProps {
+  onReady?: () => void;
+}
+
+export default function HeroScene({ onReady }: HeroSceneProps) {
   const [mounted, setMounted] = useState(false);
   const [contextLost, setContextLost] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -281,6 +285,14 @@ export default function HeroScene() {
     return () => document.removeEventListener("visibilitychange", onVisible);
   }, [contextLost]);
 
+  // When showing fallback (context lost), still signal ready so content shows
+  useEffect(() => {
+    if (contextLost) {
+      const t = setTimeout(() => onReady?.(), 200);
+      return () => clearTimeout(t);
+    }
+  }, [contextLost, onReady]);
+
   const onCreated = useCallback((state: { gl: THREE.WebGLRenderer }) => {
     const canvas = state.gl.domElement;
     const handleLost = (e: Event) => {
@@ -290,8 +302,15 @@ export default function HeroScene() {
     const handleRestored = () => setContextLost(false);
     canvas.addEventListener("webglcontextlost", handleLost, false);
     canvas.addEventListener("webglcontextrestored", handleRestored, false);
-    (state.gl as THREE.WebGLRenderer & { forceContextLoss?: unknown }).forceContextLoss = null;
-  }, []);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (state.gl as any).forceContextLoss = null;
+    // Signal ready after first frames have rendered
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        onReady?.();
+      });
+    });
+  }, [onReady]);
 
   if (!mounted || contextLost) return <div className="absolute inset-0 w-full h-full pointer-events-none bg-[#0f1729]" />;
 

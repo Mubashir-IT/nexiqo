@@ -97,7 +97,8 @@ export default function ParticleCardBackground({ spreadX = 10, spreadY = 10, spr
         const handleRestored = () => setContextLost(false);
         canvas.addEventListener("webglcontextlost", handleLost, false);
         canvas.addEventListener("webglcontextrestored", handleRestored, false);
-        (state.gl as THREE.WebGLRenderer & { forceContextLoss?: unknown }).forceContextLoss = null;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (state.gl as any).forceContextLoss = null;
     }, []);
 
     if (!mounted || contextLost) return <div className="absolute inset-0 w-full h-full pointer-events-none" />;

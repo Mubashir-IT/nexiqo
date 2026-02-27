@@ -4,13 +4,13 @@ import { Home, ArrowLeft } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-background px-6">
+    <div className="min-h-screen w-full flex items-center justify-center bg-transparent px-6">
       <div className="max-w-2xl mx-auto text-center">
-        <h1 className="text-6xl md:text-8xl font-bold text-foreground mb-4">404</h1>
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+        <h1 className="text-6xl md:text-8xl font-bold text-white mb-4">404</h1>
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
           Page Not Found
         </h2>
-        <p className="text-muted-foreground text-lg mb-8 max-w-md mx-auto">
+        <p className="text-white/80 text-lg mb-8 max-w-md mx-auto">
           The page you're looking for doesn't exist or has been moved. Let's get you back on track.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -21,7 +21,7 @@ export default function NotFound() {
             </Button>
           </Link>
           <Link href="/case-studies">
-            <Button variant="outline" className="h-12 px-8 rounded-full border-foreground/20 text-foreground hover:bg-foreground/5 text-base font-medium flex items-center gap-2">
+            <Button variant="outline" className="h-12 px-8 rounded-full border-white/20 text-white hover:bg-white/10 text-base font-medium flex items-center gap-2">
               <ArrowLeft size={18} />
               View Projects
             </Button>

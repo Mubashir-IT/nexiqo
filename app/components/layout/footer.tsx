@@ -1,22 +1,30 @@
 "use client";
 
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from "lucide-react";
-import dynamic from "next/dynamic";
-import { useIsMobile } from "@/hooks/use-mobile";
-const ParticleCardBackground = dynamic(() => import("@/components/ParticleCardBackground"), { ssr: false, loading: () => null });
 
 export function Footer() {
-  const isMobile = useIsMobile();
   return (
-    <footer className="relative bg-foreground text-white overflow-hidden">
-      {isMobile === false && <ParticleCardBackground />}
+    <motion.footer
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+      className="relative bg-transparent text-white overflow-hidden"
+    >
       <div className="relative z-10 max-w-full mx-auto px-6 py-12 md:py-16">
 
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Logo & Description */}
-          <div className="lg:col-span-1">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.4 }}
+            className="lg:col-span-1"
+          >
             <Link href="/" className="inline-block mb-6">
               <img
                 src="/images/nexiqo.png"
@@ -61,10 +69,15 @@ export function Footer() {
                 <Instagram size={18} />
               </a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Services */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+          >
             <h3 className="text-lg font-bold mb-6 text-primary-soft">Services</h3>
             <ul className="space-y-3">
               <li>
@@ -98,10 +111,15 @@ export function Footer() {
                 </Link>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Company */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.15 }}
+          >
             <h3 className="text-lg font-bold mb-6 text-primary-soft">Company</h3>
             <ul className="space-y-3">
               <li>
@@ -130,10 +148,15 @@ export function Footer() {
                 </Link>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Contact */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+          >
             <h3 className="text-lg font-bold mb-6 text-primary-soft">Contact</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
@@ -155,7 +178,7 @@ export function Footer() {
                 </span>
               </li>
             </ul>
-          </div>
+          </motion.div>
         </div>
 
         {/* Bottom Bar */}
@@ -178,7 +201,7 @@ export function Footer() {
           </div>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 }
 

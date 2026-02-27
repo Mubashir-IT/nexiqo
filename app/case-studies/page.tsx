@@ -15,11 +15,11 @@ export default function CaseStudiesPage() {
     : projects.filter(project => project.category === activeCategory);
 
   return (
-    <div className="min-h-screen bg-primary-soft font-sans">
+    <div className="min-h-screen bg-transparent font-sans">
       {/* Main Content */}
       <section className="pt-32 pb-20 px-6 max-w-full mx-auto">
         {/* Heading */}
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-foreground text-center mb-16 tracking-tight">
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white text-center mb-16 tracking-tight">
           Our Recent Projects
         </h1>
 
@@ -32,8 +32,8 @@ export default function CaseStudiesPage() {
               className={`
                 text-sm md:text-base font-medium transition-all duration-200
                 ${activeCategory === category
-                  ? "text-foreground font-bold"
-                  : "text-foreground/50 hover:text-foreground/70"
+                  ? "text-white font-bold"
+                  : "text-white/50 hover:text-white/70"
                 }
               `}
             >
@@ -81,10 +81,10 @@ export default function CaseStudiesPage() {
                       </div>
                     )}
                   </div>
-                  <h3 className="text-2xl font-bold text-foreground mb-2 group-hover:text-foreground/70 transition-colors">
+                  <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-white/70 transition-colors">
                     {project.name}
                   </h3>
-                  <p className="text-foreground/60 text-base">
+                  <p className="text-white/60 text-base">
                     {project.description}
                   </p>
                 </Link>
@@ -105,7 +105,7 @@ export default function CaseStudiesPage() {
 
       {/* CTA Section */}
       <section className="py-20 px-6 max-w-full mx-auto">
-        <div className="bg-foreground rounded-[3rem] p-12 md:p-16 text-center">
+        <div className="bg-transparent rounded-[3rem] p-12 md:p-16 text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
             Ready to work with us?
           </h2>

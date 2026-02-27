@@ -72,7 +72,13 @@ export function TestimonialSlider() {
   const nextNextTestimonial = testimonials[(currentIndex + 2) % testimonials.length];
 
   return (
-    <section className="py-20 px-6 max-w-full mx-auto">
+    <motion.section
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+      className="py-20 px-6 max-w-full mx-auto"
+    >
       <div
         ref={containerRef}
         className="relative h-[250px] md:h-[350px] w-full cursor-none group"
@@ -142,6 +148,6 @@ export function TestimonialSlider() {
           )}
         </AnimatePresence>
       </div>
-    </section>
+    </motion.section>
   );
 }

@@ -6,6 +6,7 @@ import { Providers } from "./providers";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { NavigationProgressBar } from "@/components/layout/navigation-progress-bar";
+import { BackgroundWithLoader } from "@/components/BackgroundWithLoader";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -51,14 +52,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${plusJakartaSans.variable} ${poppins.variable} font-sans`} suppressHydrationWarning>
+      <body className={`${plusJakartaSans.variable} ${poppins.variable} font-sans min-h-screen`} suppressHydrationWarning>
         <Providers>
-          <Suspense fallback={null}>
-            <NavigationProgressBar />
-          </Suspense>
-          <Navbar />
-          {children}
-          <Footer />
+          <BackgroundWithLoader>
+            <Suspense fallback={null}>
+              <NavigationProgressBar />
+            </Suspense>
+            <Navbar />
+            {children}
+            <Footer />
+          </BackgroundWithLoader>
         </Providers>
       </body>
     </html>

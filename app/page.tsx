@@ -10,10 +10,6 @@ import { teamMembers } from "@/lib/team-data";
 import Link from "next/link";
 import Image from "next/image";
 
-// Lazy-load heavy Three.js + animation components — load AFTER hero text renders
-const HeroScene = dynamic(() => import("@/components/HeroScene"), { ssr: false, loading: () => null });
-const ParticleCardBackground = dynamic(() => import("@/components/ParticleCardBackground"), { ssr: false, loading: () => null });
-
 // Lazy-load below-fold section components
 const ProcessCarousel = dynamic(() => import("@/components/sections/process-carousel").then(m => ({ default: m.ProcessCarousel })), { ssr: false });
 const TestimonialSlider = dynamic(() => import("@/components/sections/testimonial-slider").then(m => ({ default: m.TestimonialSlider })), { ssr: false });
@@ -23,20 +19,9 @@ const ProjectsCarousel = dynamic(() => import("@/components/sections/projects-ca
 export default function Home() {
 
   return (
-    <div className="min-h-screen bg-background font-sans selection:bg-primary-soft selection:text-foreground">
+    <div className="min-h-screen bg-transparent font-sans selection:bg-primary-soft selection:text-foreground">
       {/* Hero Section */}
-      <section className="relative min-h-screen bg-foreground text-white pt-32 pb-10 px-0 overflow-hidden flex flex-col justify-center items-center">
-        {/* Three.js Background Scene - Positioned absolute behind content */}
-        <div className="absolute inset-0 z-0">
-          <HeroScene />
-        </div>
-
-        {/* Background Effects - Lower z-index than content */}
-        {/* <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
-          <div className="absolute top-[-20%] left-[10%] w-[60vw] h-[60vw] bg-primary-soft/10 rounded-full blur-[120px]" />
-          <div className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-primary-soft/5 rounded-full blur-[100px]" />
-        </div> */}
-
+      <section className="relative min-h-screen bg-transparent text-white pt-32 pb-10 px-0 overflow-hidden flex flex-col justify-center items-center">
         <div className="relative z-10 max-w-full mx-auto text-center flex flex-col items-center gap-8">
           {/* Tags */}
           <div
@@ -169,28 +154,51 @@ export default function Home() {
             className="w-full h-auto"
           />
         </div>
-        <section className="py-10 sm:py-12 md:py-16 lg:py-24 px-6 sm:px-12 md:px-20 lg:px-40 max-w-full mx-auto relative z-10">
+        <motion.section
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="py-10 sm:py-12 md:py-16 lg:py-24 px-6 sm:px-12 md:px-20 lg:px-40 max-w-full mx-auto relative z-10"
+        >
           <div className="flex flex-col text-center justify-center items-center relative">
             <div className="relative w-full">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-[950] tracking-tight text-foreground leading-tight sm:leading-none mb-6 sm:mb-8 relative z-10 px-4 sm:px-0">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-[950] tracking-tight text-white leading-tight sm:leading-none mb-6 sm:mb-8 relative z-10 px-4 sm:px-0">
                 We engineer digital experiences that think, adapt, and perform.
               </h2>
             </div>
-            <div className="space-y-4 sm:space-y-6 max-w-2xl px-4 sm:px-0">
-              <p className="text-sm sm:text-base md:text-md text-gray-600 leading-relaxed sm:leading-tight">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="space-y-4 sm:space-y-6 max-w-2xl px-4 sm:px-0"
+            >
+              <p className="text-sm sm:text-base md:text-md text-white/70 leading-relaxed sm:leading-tight">
                 Nexiqo is a full stack web agency built on a structured lifecycle — Perceive, Reason, Act, Learn. We don&apos;t just build websites; we craft scalable architectures, intelligent interfaces, and drive measurable growth through precision SEO — all under one roof.
               </p>
-            </div>
+            </motion.div>
           </div>
-        </section>
+        </motion.section>
       </div>
 
       {/* Benefits Grid */}
-      <section className="py-6 px-6 max-w-full mx-auto">
+      <motion.section
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.05 }}
+        transition={{ duration: 0.5 }}
+        className="py-6 px-6 max-w-full mx-auto"
+      >
         <div className="flex flex-col gap-8">
           {/* Top - Dark Panel */}
-          <div className="relative bg-foreground rounded-[3rem] p-4 md:p-8 lg:p-12 flex flex-col justify-between min-h-[200px] overflow-hidden">
-            <ParticleCardBackground />
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+            className="relative bg-transparent rounded-[3rem] p-4 md:p-8 lg:p-12 flex flex-col justify-between min-h-[200px] overflow-hidden"
+          >
             <div className="relative z-10 flex flex-col items-center justify-center h-full">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-soft mb-12 leading-tight text-center">
                 Your website is your hardest-working team member. We make it exceptional.
@@ -199,7 +207,7 @@ export default function Home() {
                 We engineer full stack web systems that attract, engage, and convert — then refine them continuously with data. Your growth is the product we&apos;re actually building.
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Bottom - White Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -227,7 +235,14 @@ export default function Home() {
             ].map((item, i) => {
               const IconComponent = item.icon;
               return (
-                <div key={i} className="bg-card rounded-3xl p-6 md:p-8 flex flex-col justify-between shadow-sm border border-input hover:shadow-md transition-shadow duration-300">
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 100 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.15 }}
+                  transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.15 + i * 0.12 }}
+                  className="bg-card rounded-3xl p-6 md:p-8 flex flex-col justify-between shadow-sm border border-input hover:shadow-md transition-shadow duration-300"
+                >
                   <div>
                     <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4">
                       {item.title}
@@ -239,12 +254,12 @@ export default function Home() {
                   <div className="flex justify-end">
                     <IconComponent className="w-8 h-8 text-foreground opacity-20" />
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* What We Do Section */}
       <WhatWeDo />
@@ -253,13 +268,19 @@ export default function Home() {
       <ProcessCarousel />
 
       {/* Team Section */}
-      <section className="py-10 px-6 max-w-full mx-auto">
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+        className="py-10 px-6 max-w-full mx-auto"
+      >
         <div className="flex justify-between items-end mb-12">
-          <h2 className="text-4xl md:text-6xl font-bold text-foreground tracking-tight">
+          <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight">
             Meet the team
           </h2>
           <Link href="/about">
-            <Button variant="link" className="text-foreground text-lg font-medium hidden md:flex items-center gap-2">
+            <Button variant="link" className="text-white text-lg font-medium hidden md:flex items-center gap-2">
               See all members <ArrowRight size={20} />
             </Button>
           </Link>
@@ -267,21 +288,28 @@ export default function Home() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {teamMembers.map((member, i) => (
-            <div key={i} className="group relative overflow-hidden rounded-3xl aspect-[4/5]">
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.1 + i * 0.08 }}
+              className="group relative overflow-hidden rounded-3xl aspect-[4/5]"
+            >
               <img
                 src={member.img}
                 alt={member.name}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-transparent to-transparent opacity-100" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-transparent to-transparent opacity-100" />
               <div className="absolute bottom-0 left-0 p-8 w-full">
                 <h3 className="text-2xl font-bold text-white mb-1">{member.name}</h3>
                 <p className="text-primary-soft font-medium">{member.role}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </section>
+      </motion.section>
 
       {/* Testimonials */}
       <TestimonialSlider />
@@ -290,9 +318,13 @@ export default function Home() {
       <ProjectsCarousel />
 
       {/* Footer CTA */}
-      <section className="relative py-10 bg-foreground text-white rounded-t-[3rem] mt-10 overflow-hidden">
-
-        <ParticleCardBackground />
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+        className="relative py-10 bg-transparent text-white rounded-t-[3rem] mt-10 overflow-hidden"
+      >
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-5xl md:text-7xl font-bold mb-8">
             Ready to start your <span className="text-primary-soft">website project</span>?
@@ -310,7 +342,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 }

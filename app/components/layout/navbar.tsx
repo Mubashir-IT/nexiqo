@@ -6,12 +6,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
-import dynamic from "next/dynamic";
-import { useIsMobile } from "@/hooks/use-mobile";
-const ParticleCardBackground = dynamic(() => import("@/components/ParticleCardBackground"), { ssr: false, loading: () => null });
-
 export function Navbar() {
-  const isMobile = useIsMobile();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
@@ -40,10 +35,9 @@ export function Navbar() {
     <nav
       onMouseLeave={() => setActiveMenu(null)}
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 bg-foreground",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 bg-transparent",
       )}
     >
-      {isMobile === false && <ParticleCardBackground spreadX={60} spreadY={2} disableRotation={true} />}
       <div className="max-w-[1400px] mx-auto px-6 flex items-center justify-between relative z-50">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2" onClick={closeAll}>

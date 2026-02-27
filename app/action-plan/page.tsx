@@ -4,30 +4,22 @@ import { motion } from "framer-motion";
 import { FileText, Target, CheckCircle, ArrowRight, FileCode, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import dynamic from "next/dynamic";
-const ParticleCardBackground = dynamic(() => import("@/components/ParticleCardBackground"), { ssr: false, loading: () => null });
 
 export default function ActionPlanPage() {
   return (
-    <div className="min-h-screen bg-background font-sans">
+    <div className="min-h-screen bg-transparent font-sans">
       {/* Hero Section */}
-      <section className="relative min-h-[40vh] bg-primary-soft text-foreground pt-32 pb-10 px-6 overflow-hidden flex flex-col justify-center items-center">
-        {/* Background Effects */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute top-[-20%] left-[10%] w-[60vw] h-[60vw] bg-foreground/5 rounded-full blur-[120px]" />
-          <div className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-foreground/3 rounded-full blur-[100px]" />
-        </div>
-
+      <section className="relative min-h-[40vh] bg-transparent text-white pt-32 pb-10 px-6 overflow-hidden flex flex-col justify-center items-center">
         <div className="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center gap-8">
           <h1 style={{ animation: "heroFadeUp 0.45s 0.05s ease both" }}
-            className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] md:leading-[1.05] text-foreground"
+            className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] md:leading-[1.05] text-white"
           >
             Your website <br className="hidden md:block" />
-            <span className="text-foreground">development roadmap</span>
+            <span className="text-white">development roadmap</span>
           </h1>
 
           <p style={{ animation: "heroFadeUp 0.45s 0.1s ease both" }}
-            className="max-w-md text-sm md:text-md text-foreground/80 leading-relaxed"
+            className="max-w-md text-sm md:text-md text-white/80 leading-relaxed"
           >
             Get a customized action plan for your website development project. We'll help you understand the steps needed to bring your vision to life.
           </p>
@@ -116,8 +108,7 @@ export default function ActionPlanPage() {
         </div>
 
         {/* CTA Section */}
-        <div className="relative z-10 bg-foreground rounded-[3rem] p-12 md:p-16 text-center">
-          <ParticleCardBackground />
+        <div className="relative z-10 bg-transparent rounded-[3rem] p-12 md:p-16 text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
             Ready to work with us?
           </h2>

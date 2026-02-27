@@ -58,13 +58,31 @@ export function WhatWeDo() {
   const [activeTab, setActiveTab] = useState(tabs[0]);
 
   return (
-    <section className="py-10 px-0 max-w-[1500px] mx-auto">
-      <div className="bg-primary-soft rounded-[3rem] p-4 sm:p-6 md:p-12">
-        <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-12 tracking-tight">
+    <motion.section
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.05 }}
+      transition={{ duration: 0.5 }}
+      className="py-10 px-0 max-w-[1500px] mx-auto"
+    >
+      <div className="bg-transparent rounded-[3rem] p-4 sm:p-6 md:p-12">
+        <motion.h2
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+          className="text-4xl md:text-5xl font-bold text-white mb-12 tracking-tight"
+        >
           Intelligent Web Services
-        </h2>
+        </motion.h2>
 
-        <div className="flex flex-row gap-3 lg:gap-8 mb-8">
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+          className="flex flex-row gap-3 lg:gap-8 mb-8"
+        >
           {/* Tabs Navigation - Icons on mobile, full labels on desktop */}
           <div className="flex flex-col gap-2 lg:gap-4 shrink-0">
             {tabs.map((tab) => {
@@ -138,7 +156,7 @@ export function WhatWeDo() {
               </motion.div>
             </AnimatePresence>
           </div>
-        </div>
+        </motion.div>
 
         {/* Bottom Cards Grid - Updated for Consistency */}
         <div className="grid md:grid-cols-3 gap-6">
@@ -159,7 +177,14 @@ export function WhatWeDo() {
               icon: FileText
             }
           ].map((item, i) => (
-            <div key={i} className="bg-card rounded-[2rem] p-10 min-h-[200px] flex flex-col justify-between hover:bg-foreground hover:text-white transition-all duration-500 group shadow-sm hover:shadow-2xl">
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.15 + i * 0.12 }}
+              className="bg-card rounded-[2rem] p-10 min-h-[200px] flex flex-col justify-between hover:bg-foreground hover:text-white transition-all duration-500 group shadow-sm hover:shadow-2xl"
+            >
               <div>
                 <h3 className="text-2xl font-extrabold mb-4">{item.title}</h3>
                 <p className="text-muted-foreground group-hover:text-white/70 text-sm leading-relaxed">
@@ -167,10 +192,10 @@ export function WhatWeDo() {
                 </p>
               </div>
               <item.icon className="w-10 h-10 text-primary-soft mt-8 opacity-40 group-hover:opacity-100 transition-opacity" />
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

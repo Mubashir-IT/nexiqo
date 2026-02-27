@@ -5,21 +5,12 @@ import { Users, Code, Target, Award, FileCode, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { teamMembers } from "@/lib/team-data";
-import dynamic from "next/dynamic";
-const ParticleCardBackground = dynamic(() => import("@/components/ParticleCardBackground"), { ssr: false, loading: () => null });
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-background font-sans pt-6">
+    <div className="min-h-screen bg-transparent font-sans pt-6">
       {/* Hero Section */}
-      <section className="relative min-h-[20vh] bg-foreground text-white pt-22 pb-10 px-6 overflow-hidden flex flex-col justify-center items-center z-10">
-        <ParticleCardBackground />
-        {/* Background Effects */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute top-[-20%] left-[10%] w-[60vw] h-[60vw] bg-primary-soft/10 rounded-full blur-[120px]" />
-          <div className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-primary-soft/5 rounded-full blur-[100px]" />
-        </div>
-
+      <section className="relative min-h-[20vh] bg-transparent text-white pt-22 pb-10 px-6 overflow-hidden flex flex-col justify-center items-center z-10">
         <div className="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center gap-4">
           <div style={{ animation: "heroFadeUp 0.4s ease both" }}
             className="flex items-center justify-center gap-2 mb-6"
@@ -46,13 +37,25 @@ export default function AboutPage() {
       </section>
 
       {/* Main Content */}
-      <section className="py-20 px-6 max-w-full mx-auto">
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+        className="py-20 px-6 max-w-full mx-auto"
+      >
         {/* About Text */}
-        <div className="max-w-4xl mx-auto mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5 }}
+          className="max-w-4xl mx-auto mb-20"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
             Who We Are
           </h2>
-          <div className="space-y-6 text-muted-foreground leading-relaxed">
+          <div className="space-y-6 text-white/80 leading-relaxed">
             <p className="text-lg">
               We are a team of full-stack developers dedicated to building high-performance websites and digital platforms.
             </p>
@@ -64,21 +67,37 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8 mt-16">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5 }}
+            className="text-4xl md:text-5xl font-bold text-white mb-8 mt-16"
+          >
             What We Specialize In
-          </h2>
-          <div className="space-y-10 text-muted-foreground leading-relaxed">
-            <div>
-              <h3 className="text-xl font-semibold text-foreground mb-4">
+          </motion.h2>
+          <div className="space-y-10 text-white/80 leading-relaxed">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.4 }}
+            >
+              <h3 className="text-xl font-semibold text-white mb-4">
                 Custom Full-Stack Development
               </h3>
               <p>
                 We create tailored web solutions engineered specifically for your business requirements. No templates, no shortcuts. Just clean, efficient, and scalable development.
               </p>
-            </div>
+            </motion.div>
 
-            <div>
-              <h3 className="text-xl font-semibold text-foreground mb-4">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.4, delay: 0.05 }}
+            >
+              <h3 className="text-xl font-semibold text-white mb-4">
                 WordPress Development & Design
               </h3>
               <p className="mb-4">
@@ -91,10 +110,15 @@ export default function AboutPage() {
                 <li>Performance optimization</li>
                 <li>Security hardening</li>
               </ul>
-            </div>
+            </motion.div>
 
-            <div>
-              <h3 className="text-xl font-semibold text-foreground mb-4">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+            >
+              <h3 className="text-xl font-semibold text-white mb-4">
                 SEO & Growth Optimization
               </h3>
               <p className="mb-4">
@@ -102,22 +126,22 @@ export default function AboutPage() {
               </p>
               <ul className="space-y-3 ml-2">
                 <li>
-                  <span className="font-medium text-foreground">On-Page SEO</span>
+                  <span className="font-medium text-white">On-Page SEO</span>
                   <br />
                   <span className="text-sm">Content structure, keyword optimization, meta tags, headings</span>
                 </li>
                 <li>
-                  <span className="font-medium text-foreground">Off-Page SEO</span>
+                  <span className="font-medium text-white">Off-Page SEO</span>
                   <br />
                   <span className="text-sm">Link building, authority signals, brand mentions</span>
                 </li>
                 <li>
-                  <span className="font-medium text-foreground">Technical SEO</span>
+                  <span className="font-medium text-white">Technical SEO</span>
                   <br />
                   <span className="text-sm">Site speed, mobile optimization, structured data, crawlability</span>
                 </li>
                 <li>
-                  <span className="font-medium text-foreground">Local SEO</span>
+                  <span className="font-medium text-white">Local SEO</span>
                   <br />
                   <span className="text-sm">Google Business Profile optimization, local citations, map visibility</span>
                 </li>
@@ -125,29 +149,41 @@ export default function AboutPage() {
               <p className="mt-4">
                 Our goal is simple: build websites that not only function flawlessly but also drive measurable growth.
               </p>
-            </div>
+            </motion.div>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8 mt-16">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5 }}
+            className="text-4xl md:text-5xl font-bold text-white mb-8 mt-16"
+          >
             How We Work
-          </h2>
-          <div className="space-y-6 text-muted-foreground leading-relaxed">
+          </motion.h2>
+          <div className="space-y-6 text-white/80 leading-relaxed">
             <p>
               We believe successful projects come from collaboration, transparency, and a clear understanding of business objectives. From planning to launch and beyond, we stay aligned with your vision and focused on delivering real results.
             </p>
           </div>
-        </div>
+        </motion.div>
 
         {/* Meet the Team Section */}
-        <div className="mb-20">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.6 }}
+          className="mb-20"
+        >
           <div className="max-w-4xl mx-auto mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Meet the Team
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+            <p className="text-lg text-white/80 leading-relaxed mb-8">
               Our team of full stack developers brings together expertise in frontend and backend development. We combine technical skills with a collaborative approach to deliver exceptional websites for our clients.
             </p>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-white/80 leading-relaxed">
               Each team member specializes in different aspects of website development, from creating beautiful user interfaces to building robust backend systems. Together, we work as a cohesive unit to bring your website vision to life.
             </p>
           </div>
@@ -176,11 +212,17 @@ export default function AboutPage() {
               </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Services Section */}
-        <div className="max-w-4xl mx-auto mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-12 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.6 }}
+          className="max-w-4xl mx-auto mb-20"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-12 text-center">
             Our Services
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
@@ -267,10 +309,16 @@ export default function AboutPage() {
               </p>
             </motion.div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Values Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.6 }}
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20"
+        >
           {[
             {
               icon: Code,
@@ -315,11 +363,16 @@ export default function AboutPage() {
               </motion.div>
             );
           })}
-        </div>
+        </motion.div>
 
         {/* CTA Section */}
-        <div className="relative z-10 bg-foreground rounded-[3rem] p-12 md:p-16 text-center">
-          <ParticleCardBackground />
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+          className="relative z-10 bg-transparent rounded-[3rem] p-12 md:p-16 text-center"
+        >
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
             Ready to work with us?
           </h2>
@@ -338,8 +391,8 @@ export default function AboutPage() {
               </Button>
             </Link>
           </div>
-        </div>
-      </section>
+        </motion.div>
+      </motion.section>
     </div>
   );
 }

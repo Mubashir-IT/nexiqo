@@ -12,6 +12,7 @@ import {
   Wrench,
 } from "lucide-react";
 import { useCallback, useEffect } from "react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 const steps = [
@@ -75,10 +76,17 @@ export function ProcessCarousel() {
   }, [emblaApi]);
 
   return (
-    <section id="process" className="py-10 bg-primary-soft overflow-hidden">
+    <motion.section
+      id="process"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+      className="py-10 bg-transparent overflow-hidden"
+    >
       <div className="max-w-[1500px] mx-auto px-0">
         <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-6">
-          <h2 className="pl-8 text-5xl md:text-7xl font-bold text-foreground tracking-tight">
+          <h2 className="pl-8 text-5xl md:text-7xl font-bold text-white tracking-tight">
             Process Overview
           </h2>
 
@@ -92,7 +100,13 @@ export function ProcessCarousel() {
                 key={index}
                 className="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0 pl-8"
               >
-                <div className="bg-card rounded-3xl p-8 h-full flex flex-col justify-between min-h-[220px] transition-transform duration-300 hover:-translate-y-1 shadow-lg shadow-foreground/5">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.5, delay: index * 0.08 }}
+                  className="bg-card rounded-3xl p-8 h-full flex flex-col justify-between min-h-[220px] transition-transform duration-300 hover:-translate-y-1 shadow-lg shadow-foreground/5"
+                >
                   <div>
                     <div className="flex items-center gap-4 mb-6">
                       <div className="w-11 h-11 rounded-2xl bg-primary-soft/20 text-primary flex items-center justify-center border border-primary-soft/40">
@@ -109,7 +123,7 @@ export function ProcessCarousel() {
                   <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
                     {step.desc}
                   </p>
-                </div>
+                </motion.div>
               </div>
             ))}
           </div>
@@ -129,6 +143,6 @@ export function ProcessCarousel() {
           </button>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

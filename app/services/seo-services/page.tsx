@@ -16,9 +16,6 @@ import {
   ArrowRight,
   CheckCircle2
 } from "lucide-react";
-import dynamic from "next/dynamic";
-const ParticleCardBackground = dynamic(() => import("@/components/ParticleCardBackground"), { ssr: false, loading: () => null });
-
 const lifecycleStages = [
   {
     icon: Eye,
@@ -48,16 +45,9 @@ const lifecycleStages = [
 
 export default function SEOServicesPage() {
   return (
-    <div className="min-h-screen bg-background font-sans">
+    <div className="min-h-screen bg-transparent font-sans">
       {/* Hero Section */}
-      <section className="relative min-h-[50vh] bg-foreground text-white pt-32 pb-20 px-6 overflow-hidden flex flex-col justify-center items-center z-10">
-        <ParticleCardBackground />
-        {/* Background Effects */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute top-[-20%] left-[10%] w-[60vw] h-[60vw] bg-primary-soft/10 rounded-full blur-[120px]" />
-          <div className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-primary-soft/5 rounded-full blur-[100px]" />
-        </div>
-
+      <section className="relative min-h-[50vh] bg-transparent text-white pt-32 pb-20 px-6 overflow-hidden flex flex-col justify-center items-center z-10">
         <div className="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center gap-4">
           <div style={{ animation: "heroFadeUp 0.4s ease both" }}
             className="flex items-center justify-center gap-2 mb-6"
@@ -91,7 +81,7 @@ export default function SEOServicesPage() {
       {/* Benefits Section */}
       <section className="py-24 px-6 max-w-full mx-auto relative">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
             Benefits of SEO with Nexiqo
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -176,8 +166,7 @@ export default function SEOServicesPage() {
 
       {/* Banner CTA */}
       <section className="py-24 px-6 max-w-full mx-auto text-center">
-        <div className="relative bg-foreground rounded-[3rem] p-12 md:p-20 overflow-hidden group">
-          <ParticleCardBackground spreadX={15} spreadY={10} spreadZ={5} />
+        <div className="relative bg-transparent rounded-[3rem] p-12 md:p-20 overflow-hidden group">
 
           <div className="relative z-10">
             <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-8 tracking-tight">
