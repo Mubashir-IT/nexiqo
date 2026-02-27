@@ -3,12 +3,14 @@
 import Link from "next/link";
 import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from "lucide-react";
 import dynamic from "next/dynamic";
+import { useIsMobile } from "@/hooks/use-mobile";
 const ParticleCardBackground = dynamic(() => import("@/components/ParticleCardBackground"), { ssr: false, loading: () => null });
 
 export function Footer() {
+  const isMobile = useIsMobile();
   return (
     <footer className="relative bg-foreground text-white overflow-hidden">
-      <ParticleCardBackground />
+      {isMobile === false && <ParticleCardBackground />}
       <div className="relative z-10 max-w-full mx-auto px-6 py-12 md:py-16">
 
 
@@ -50,7 +52,9 @@ export function Footer() {
                 <Facebook size={18} />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/nexiqo_official/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 hover:bg-primary-soft hover:text-foreground flex items-center justify-center transition-colors"
                 aria-label="Instagram"
               >

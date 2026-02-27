@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef, useState, useEffect } from "react";
+import { useMemo, useRef, useState, useEffect, useCallback } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
 import * as THREE from "three";
@@ -69,10 +69,56 @@ export function Particles({ count = 500, spreadX = 10, spreadY = 10, spreadZ = 1
 }
 
 export default function ParticleCardBackground({ spreadX = 10, spreadY = 10, spreadZ = 10, disableRotation = false, color = "#DAF9A0" }) {
+    const [contextLost, setContextLost] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+        const check = () => setIsMobile(typeof window !== "undefined" && (window.innerWidth < 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)));
+        check();
+        window.addEventListener("resize", check);
+        return () => window.removeEventListener("resize", check);
+    }, []);
+
+    useEffect(() => {
+        if (!contextLost) return;
+        const onVisible = () => setContextLost(false);
+        document.addEventListener("visibilitychange", onVisible);
+        return () => document.removeEventListener("visibilitychange", onVisible);
+    }, [contextLost]);
+
+    const onCreated = useCallback((state: { gl: THREE.WebGLRenderer }) => {
+        const canvas = state.gl.domElement;
+        const handleLost = (e: Event) => {
+            e.preventDefault();
+            setContextLost(true);
+        };
+        const handleRestored = () => setContextLost(false);
+        canvas.addEventListener("webglcontextlost", handleLost, false);
+        canvas.addEventListener("webglcontextrestored", handleRestored, false);
+        (state.gl as THREE.WebGLRenderer & { forceContextLoss?: unknown }).forceContextLoss = null;
+    }, []);
+
+    if (!mounted || contextLost) return <div className="absolute inset-0 w-full h-full pointer-events-none" />;
+
+    const particleCount = isMobile ? 120 : 500;
+    const dpr = isMobile ? 1 : Math.min(2, typeof window !== "undefined" ? window.devicePixelRatio : 2);
+
     return (
         <div className="absolute inset-0 w-full h-full pointer-events-none opacity-70">
-            <Canvas camera={{ position: [0, 0, 5], fov: 60 }}>
-                <Particles spreadX={spreadX} spreadY={spreadY} spreadZ={spreadZ} disableRotation={disableRotation} color={color} />
+            <Canvas
+                camera={{ position: [0, 0, 5], fov: 60 }}
+                dpr={[1, dpr]}
+                gl={{
+                    antialias: false,
+                    alpha: true,
+                    powerPreference: isMobile ? "low-power" : "default",
+                    failIfMajorPerformanceCaveat: false,
+                }}
+                onCreated={onCreated}
+            >
+                <Particles count={particleCount} spreadX={spreadX} spreadY={spreadY} spreadZ={spreadZ} disableRotation={disableRotation} color={color} />
             </Canvas>
         </div>
     );

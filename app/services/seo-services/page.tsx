@@ -23,25 +23,25 @@ const lifecycleStages = [
   {
     icon: Eye,
     title: "Perceive",
-    desc: "Every SEO strategy starts with Perception. We perform deep market research, competitor analysis, and technical audits to perceive your current standing and identify high-value opportunities.",
+    desc: "We begin with deep analysis: market research, competitor evaluation, keyword discovery, and technical audits to identify real opportunities.",
     color: "text-blue-500"
   },
   {
     icon: BrainCircuit,
     title: "Reason",
-    desc: "Next is Reasoning. We connect the dots between search intent and your content. We build a robust keyword strategy and content gap analysis to make informed, data-driven decisions.",
+    desc: "We connect search intent with your business goals. This stage defines keyword strategy, content planning, and structural improvements.",
     color: "text-purple-500"
   },
   {
     icon: Settings,
     title: "Act",
-    desc: "Nexiqo then moves to Act. We implement on-page optimizations, execute quality link-building campaigns, and setup local SEO. We turn strategy into measurable search engine visibility.",
+    desc: "We execute. On-page optimization, technical fixes, authority building, and local SEO implementation transform strategy into measurable visibility.",
     color: "text-orange-500"
   },
   {
     icon: TrendingUp,
     title: "Learn",
-    desc: "Finally, we Learn. We continuously track rankings and traffic patterns. By analyzing what works, we refine our approach, ensuring your search performance keeps growing with your business.",
+    desc: "We monitor rankings, traffic, and user behavior. Insights guide ongoing refinements so performance keeps improving.",
     color: "text-emerald-500"
   }
 ];
@@ -71,15 +71,19 @@ export default function SEOServicesPage() {
           <h1 style={{ animation: "heroFadeUp 0.45s 0.05s ease both" }}
             className="text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] md:leading-[1.05]"
           >
-            Intelligent visibility <br className="hidden md:block" />
-            <span className="text-primary-soft">built for growth</span>
+            Intelligent Visibility. <br className="hidden md:block" />
+            <span className="text-primary-soft">Built for Growth.</span>
           </h1>
 
           <p style={{ animation: "heroFadeUp 0.45s 0.1s ease both" }}
             className="max-w-2xl text-base md:text-lg text-white/70 leading-relaxed mt-6"
           >
-            We drive organic growth through a data-backed lifecycle that identifies,
-            executes, and learns from search trends to keep you ahead.
+            We drive sustainable organic growth through a data-driven SEO lifecycle designed to research, execute, measure, and continuously refine.
+          </p>
+          <p style={{ animation: "heroFadeUp 0.45s 0.15s ease both" }}
+            className="max-w-2xl text-base md:text-lg text-white/60 leading-relaxed"
+          >
+            Search is constantly evolving. Our strategies ensure your business stays visible, competitive, and positioned for long-term success.
           </p>
         </div>
       </section>
@@ -91,23 +95,27 @@ export default function SEOServicesPage() {
             Benefits of SEO with Nexiqo
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Experience the power of long-term organic growth driven by intelligent technical and content strategies.
+            Experience growth powered by precision, performance, and strategy.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
             {
               title: "Sustainable Traffic",
-              desc: "Build a foundation of organic traffic that continues to perform long after initial campaigns are completed."
+              desc: "We build a strong organic foundation that continues delivering results long after short-term campaigns end."
             },
             {
               title: "Data-Driven Targeting",
-              desc: "We don&apos;t guess. Our keyword and competitive reasoning ensures we target terms that actually convert."
+              desc: "No guesswork. Our keyword research and competitive analysis focus on terms that attract qualified, conversion-ready visitors."
             },
             {
               title: "Technical Excellence",
-              desc: "Beyond content, we ensure your site structure and performance are optimized for search engine crawlability."
+              desc: "Beyond content, we optimize site structure, speed, and crawlability so search engines can properly index and rank your website."
+            },
+            {
+              title: "Compounding Growth",
+              desc: "SEO is an asset. Each improvement builds momentum, increasing visibility and authority over time."
             }
           ].map((benefit, i) => (
             <motion.div
@@ -134,7 +142,7 @@ export default function SEOServicesPage() {
               Our SEO Lifecycle
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              A continuous loop of research, execution, and refinement to maximize your search visibility.
+              A continuous optimization loop built around research, execution, and learning.
             </p>
           </div>
 
@@ -173,14 +181,14 @@ export default function SEOServicesPage() {
 
           <div className="relative z-10">
             <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-8 tracking-tight">
-              Ready to improve <br /> your rankings?
+              Ready to Strengthen Your Rankings?
             </h2>
             <p className="text-white/60 mb-12 text-lg max-w-2xl mx-auto">
-              Let&apos;s build an SEO strategy that drives targeted traffic and grows your online authority sustainably.
+              Let&apos;s build an SEO strategy that attracts targeted traffic, increases authority, and drives consistent growth.
             </p>
             <Link href="/contact">
               <Button className="h-16 px-10 rounded-full bg-primary-soft text-foreground hover:bg-primary-hover text-xl font-bold shadow-2xl hover:scale-105 transition-all">
-                Let&apos;s Make It Happen!
+                Let&apos;s Make It Happen.
               </Button>
             </Link>
           </div>
@@ -191,30 +199,34 @@ export default function SEOServicesPage() {
       <section className="py-24 px-6 max-w-full mx-auto">
         <div className="mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Key Activities of Nexiqo&apos;s SEO Service
+            Key Activities of Nexiqo&apos;s SEO Services
           </h2>
           <p className="text-muted-foreground text-lg">
-            A comprehensive approach to modern search engine optimization.
+            A complete, modern SEO framework.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
           {[
             {
-              title: "On-Page & Content Strategy",
-              desc: "We optimize your content structure, meta tags, and internal linking to ensure search engines understand your value."
+              num: "01",
+              title: "On-Page & Content Optimization",
+              desc: "Content structure, keyword alignment, metadata, internal linking, and relevance improvements."
             },
             {
-              title: "Backlink & Authority Building",
-              desc: "We execute quality-driven outreach to gain authoritative links that boost your domain's credibility."
+              num: "02",
+              title: "Backlink & Authority Development",
+              desc: "Quality-focused outreach and link acquisition to strengthen domain credibility."
             },
             {
-              title: "Technical Site Optimization",
-              desc: "We fix crawl errors, improve site speed, and implement schema markup for better rich snippet performance."
+              num: "03",
+              title: "Technical SEO & Performance",
+              desc: "Site speed, indexing, crawlability, structured data, and error resolution."
             },
             {
-              title: "Local SEO & Visibility",
-              desc: "We manage Google Business Profiles and local citations to capture high-intent traffic in your geographical area."
+              num: "04",
+              title: "Local SEO & Map Visibility",
+              desc: "Google Business Profile optimization, local citations, and geo-targeted visibility."
             }
           ].map((activity, i) => (
             <motion.div
@@ -226,10 +238,10 @@ export default function SEOServicesPage() {
               className="flex gap-6 p-8 rounded-3xl border border-gray-100 hover:bg-gray-50 transition-colors"
             >
               <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary-soft/50 flex items-center justify-center font-bold text-foreground">
-                0{i + 1}
+                {activity.num}
               </div>
               <div>
-                <h3 className="text-xl font-bold text-foreground mb-2">{activity.title}</h3>
+                <h3 className="text-xl font-bold text-foreground mb-2">{activity.num} — {activity.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{activity.desc}</p>
               </div>
             </motion.div>

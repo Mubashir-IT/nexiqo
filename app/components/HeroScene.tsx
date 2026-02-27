@@ -97,7 +97,7 @@
 
 "use client";
 
-import { useRef, useMemo, useState, useEffect } from "react";
+import { useRef, useMemo, useState, useEffect, useCallback } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Float, MeshDistortMaterial, Sphere } from "@react-three/drei";
 import * as THREE from "three";
@@ -141,11 +141,15 @@ function Particles({ count = 1500, color = "#f7a042" }: { count?: number; color?
   );
 }
 
-function AnimatedSphere() {
+function AnimatedSphere({ isMobile = false }: { isMobile?: boolean }) {
   const group = useRef<THREE.Group>(null);
   const ring1 = useRef<THREE.Mesh>(null);
   const ring2 = useRef<THREE.Mesh>(null);
   const ring3 = useRef<THREE.Mesh>(null);
+
+  const sphereSegments = isMobile ? 48 : 128;
+  const torusSegments = isMobile ? 80 : 200;
+  const particleCount = isMobile ? 600 : 2000;
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
@@ -169,11 +173,11 @@ function AnimatedSphere() {
 
   return (
     <group ref={group}>
-      <Particles count={2000} color="#DAF9A0" />
+      <Particles count={particleCount} color="#DAF9A0" />
 
       {/* Main glowing sphere */}
       <Float speed={1.5} rotationIntensity={0.5} floatIntensity={0.8}>
-        <Sphere args={[1.2, 128, 128]} scale={1.4}>
+        <Sphere args={[1.2, sphereSegments, sphereSegments]} scale={1.4}>
           <MeshDistortMaterial
             color="#f7a042"
             speed={2.5}
@@ -186,7 +190,7 @@ function AnimatedSphere() {
       </Float>
 
       {/* Inner glow sphere */}
-      <Sphere args={[1.1, 64, 64]} scale={1.4}>
+      <Sphere args={[1.1, isMobile ? 32 : 64, isMobile ? 32 : 64]} scale={1.4}>
         <meshStandardMaterial
           color="#DAF9A0"
           emissive="#DAF9A0"
@@ -198,7 +202,7 @@ function AnimatedSphere() {
 
       {/* Orbital ring 1 */}
       <mesh ref={ring1} rotation={[Math.PI / 3, 0, 0]}>
-        <torusGeometry args={[2.8, 0.008, 16, 200]} />
+        <torusGeometry args={[2.8, 0.008, 16, torusSegments]} />
         <meshStandardMaterial
           color="#f7a042"
           emissive="#f7a042"
@@ -210,7 +214,7 @@ function AnimatedSphere() {
 
       {/* Orbital ring 2 */}
       <mesh ref={ring2} rotation={[-Math.PI / 5, Math.PI / 3, 0]}>
-        <torusGeometry args={[3.2, 0.006, 16, 200]} />
+        <torusGeometry args={[3.2, 0.006, 16, torusSegments]} />
         <meshStandardMaterial
           color="#A76B2A"
           emissive="#A76B2A"
@@ -222,7 +226,7 @@ function AnimatedSphere() {
 
       {/* Orbital ring 3 */}
       <mesh ref={ring3} rotation={[Math.PI / 2.5, -Math.PI / 6, Math.PI / 4]}>
-        <torusGeometry args={[3.6, 0.004, 16, 200]} />
+        <torusGeometry args={[3.6, 0.004, 16, torusSegments]} />
         <meshStandardMaterial
           color="#f7a042"
           emissive="#f7a042"
@@ -259,19 +263,52 @@ function AnimatedSphere() {
 
 export default function HeroScene() {
   const [mounted, setMounted] = useState(false);
+  const [contextLost, setContextLost] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setMounted(true);
+    const check = () => setIsMobile(typeof window !== "undefined" && (window.innerWidth < 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)));
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
   }, []);
 
-  if (!mounted) return null;
+  useEffect(() => {
+    if (!contextLost) return;
+    const onVisible = () => setContextLost(false);
+    document.addEventListener("visibilitychange", onVisible);
+    return () => document.removeEventListener("visibilitychange", onVisible);
+  }, [contextLost]);
+
+  const onCreated = useCallback((state: { gl: THREE.WebGLRenderer }) => {
+    const canvas = state.gl.domElement;
+    const handleLost = (e: Event) => {
+      e.preventDefault();
+      setContextLost(true);
+    };
+    const handleRestored = () => setContextLost(false);
+    canvas.addEventListener("webglcontextlost", handleLost, false);
+    canvas.addEventListener("webglcontextrestored", handleRestored, false);
+    (state.gl as THREE.WebGLRenderer & { forceContextLoss?: unknown }).forceContextLoss = null;
+  }, []);
+
+  if (!mounted || contextLost) return <div className="absolute inset-0 w-full h-full pointer-events-none bg-[#0f1729]" />;
+
+  const dpr = isMobile ? 1 : Math.min(2, typeof window !== "undefined" ? window.devicePixelRatio : 2);
 
   return (
     <div className="absolute inset-0 w-full h-full pointer-events-none">
       <Canvas
         camera={{ position: [0, 0, 8], fov: 45 }}
-        dpr={[1, 2]}
-        gl={{ antialias: true, alpha: true }}
+        dpr={[1, dpr]}
+        gl={{
+          antialias: !isMobile,
+          alpha: true,
+          powerPreference: isMobile ? "low-power" : "default",
+          failIfMajorPerformanceCaveat: false,
+        }}
+        onCreated={onCreated}
       >
         <color attach="background" args={["#0f1729"]} />
         <fog attach="fog" args={["#0f1729", 8, 20]} />
@@ -285,7 +322,7 @@ export default function HeroScene() {
           intensity={1}
           color="#DAF9A0"
         />
-        <AnimatedSphere />
+        <AnimatedSphere isMobile={isMobile} />
       </Canvas>
     </div>
   );

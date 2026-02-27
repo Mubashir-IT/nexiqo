@@ -54,13 +54,86 @@ export default function AboutPage() {
           </h2>
           <div className="space-y-6 text-muted-foreground leading-relaxed">
             <p className="text-lg">
-              We are a team of full stack developers who specialize in website creation and development. We build custom websites from the ground up, handling both frontend and backend development to deliver complete, functional solutions for your business.
+              We are a team of full-stack developers dedicated to building high-performance websites and digital platforms.
             </p>
             <p>
-              Our expertise spans modern frontend frameworks, robust backend systems, and seamless integrations. We work closely with clients to understand their unique needs and deliver websites that not only look great but perform exceptionally well.
+              We design and develop custom websites from the ground up, handling both frontend and backend to deliver complete, scalable, and reliable solutions. Every project is built with a strong focus on usability, speed, and long-term maintainability.
             </p>
             <p>
-              We specialize in both custom full stack development and WordPress design. Our WordPress services include custom theme development, plugin creation, WooCommerce integration, WordPress optimization, and security. Beyond development, we also provide comprehensive SEO services as an additional offering. Our SEO services include On-Page SEO (content optimization, meta tags, headings), Off-Page SEO (link building, social signals), Technical SEO (site speed, mobile optimization, structured data), and Local SEO (Google Business Profile, local citations) to help improve your website's search engine visibility and drive organic growth.
+              Our expertise covers modern frontend technologies, robust backend systems, and seamless third-party integrations. We work closely with our clients to understand their goals, challenges, and vision, ensuring every website is not only visually engaging but strategically built to perform.
+            </p>
+          </div>
+
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8 mt-16">
+            What We Specialize In
+          </h2>
+          <div className="space-y-10 text-muted-foreground leading-relaxed">
+            <div>
+              <h3 className="text-xl font-semibold text-foreground mb-4">
+                Custom Full-Stack Development
+              </h3>
+              <p>
+                We create tailored web solutions engineered specifically for your business requirements. No templates, no shortcuts. Just clean, efficient, and scalable development.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-foreground mb-4">
+                WordPress Development & Design
+              </h3>
+              <p className="mb-4">
+                We build powerful, flexible WordPress websites with:
+              </p>
+              <ul className="list-disc list-inside space-y-2 ml-2">
+                <li>Custom theme development</li>
+                <li>Plugin development & customization</li>
+                <li>WooCommerce integration</li>
+                <li>Performance optimization</li>
+                <li>Security hardening</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-foreground mb-4">
+                SEO & Growth Optimization
+              </h3>
+              <p className="mb-4">
+                Beyond development, we help businesses increase visibility and attract the right audience through comprehensive SEO strategies.
+              </p>
+              <ul className="space-y-3 ml-2">
+                <li>
+                  <span className="font-medium text-foreground">On-Page SEO</span>
+                  <br />
+                  <span className="text-sm">Content structure, keyword optimization, meta tags, headings</span>
+                </li>
+                <li>
+                  <span className="font-medium text-foreground">Off-Page SEO</span>
+                  <br />
+                  <span className="text-sm">Link building, authority signals, brand mentions</span>
+                </li>
+                <li>
+                  <span className="font-medium text-foreground">Technical SEO</span>
+                  <br />
+                  <span className="text-sm">Site speed, mobile optimization, structured data, crawlability</span>
+                </li>
+                <li>
+                  <span className="font-medium text-foreground">Local SEO</span>
+                  <br />
+                  <span className="text-sm">Google Business Profile optimization, local citations, map visibility</span>
+                </li>
+              </ul>
+              <p className="mt-4">
+                Our goal is simple: build websites that not only function flawlessly but also drive measurable growth.
+              </p>
+            </div>
+          </div>
+
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8 mt-16">
+            How We Work
+          </h2>
+          <div className="space-y-6 text-muted-foreground leading-relaxed">
+            <p>
+              We believe successful projects come from collaboration, transparency, and a clear understanding of business objectives. From planning to launch and beyond, we stay aligned with your vision and focused on delivering real results.
             </p>
           </div>
         </div>
