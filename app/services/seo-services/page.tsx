@@ -110,7 +110,7 @@ export default function SEOServicesPage() {
           ].map((benefit, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 20 }    }
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
@@ -123,15 +123,15 @@ export default function SEOServicesPage() {
           ))}
         </div>
       </section>
-
+          
       {/* Lifecycle Section */}
-      <section className="py-24 bg-primary-soft/30 px-6 relative overflow-hidden">
+      <section className="py-24  px-6 relative overflow-hidden">
         <div className="max-w-full mx-auto px-6">
           <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
               Our SEO Lifecycle
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-white/80 text-lg max-w-2xl mx-auto">
               A continuous optimization loop built around research, execution, and learning.
             </p>
           </div>
@@ -224,14 +224,14 @@ export default function SEOServicesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="flex gap-6 p-8 rounded-3xl border border-gray-100 hover:bg-gray-50 transition-colors"
+              className="flex gap-6 p-8 rounded-3xl border border-gray-100 hover:bg-gray-50 transition-colors group"
             >
-              <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary-soft/50 flex items-center justify-center font-bold text-foreground">
+              <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary-soft/50 flex items-center justify-center font-bold text-white group-hover:text-foreground">
                 {activity.num}
               </div>
               <div>
-                <h3 className="text-xl font-bold text-foreground mb-2">{activity.num} — {activity.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{activity.desc}</p>
+                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-foreground">{activity.num} — {activity.title}</h3>
+                <p className="text-white/80 text-sm leading-relaxed group-hover:text-foreground">{activity.desc}</p>
               </div>
             </motion.div>
           ))}

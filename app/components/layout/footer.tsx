@@ -127,11 +127,7 @@ export function Footer() {
                   About Us
                 </Link>
               </li>
-              <li>
-                <Link href="/case-studies" className="text-white/70 hover:text-primary-soft transition-colors text-sm">
-                  Case Studies
-                </Link>
-              </li>
+              
               <li>
                 <Link href="/process" className="text-white/70 hover:text-primary-soft transition-colors text-sm">
                   Our Process

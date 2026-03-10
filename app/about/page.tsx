@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Users, Code, Target, Award, FileCode, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -36,26 +35,13 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Main Content */}
-      <motion.section
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.1 }}
-        transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className="py-20 px-6 max-w-full mx-auto"
-      >
-        {/* About Text */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.5 }}
-          className="max-w-4xl mx-auto mb-20"
-        >
+      {/* About Text (non-animated) */}
+      <section className="pt-20 px-6 max-w-full mx-auto">
+        <div className="max-w-4xl mx-auto ">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
             Who We Are
           </h2>
-          <div className="space-y-6 text-white/80 leading-relaxed">
+          <div className="space-y-4 text-white/80 leading-relaxed">
             <p className="text-lg">
               We are a team of full-stack developers dedicated to building high-performance websites and digital platforms.
             </p>
@@ -66,37 +52,26 @@ export default function AboutPage() {
               Our expertise covers modern frontend technologies, robust backend systems, and seamless third-party integrations. We work closely with our clients to understand their goals, challenges, and vision, ensuring every website is not only visually engaging but strategically built to perform.
             </p>
           </div>
+        </div>
+      </section>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5 }}
-            className="text-4xl md:text-5xl font-bold text-white mb-8 mt-16"
-          >
+      {/* Main Content */}
+      <section className="pb-20 pt-10 px-6 max-w-full mx-auto">
+        <div className="max-w-4xl mx-auto mb-20">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 mt-16">
             What We Specialize In
-          </motion.h2>
+          </h2>
           <div className="space-y-10 text-white/80 leading-relaxed">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.4 }}
-            >
+            <div>
               <h3 className="text-xl font-semibold text-white mb-4">
                 Custom Full-Stack Development
               </h3>
               <p>
                 We create tailored web solutions engineered specifically for your business requirements. No templates, no shortcuts. Just clean, efficient, and scalable development.
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.4, delay: 0.05 }}
-            >
+            <div>
               <h3 className="text-xl font-semibold text-white mb-4">
                 WordPress Development & Design
               </h3>
@@ -110,14 +85,9 @@ export default function AboutPage() {
                 <li>Performance optimization</li>
                 <li>Security hardening</li>
               </ul>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.4, delay: 0.1 }}
-            >
+            <div>
               <h3 className="text-xl font-semibold text-white mb-4">
                 SEO & Growth Optimization
               </h3>
@@ -149,33 +119,21 @@ export default function AboutPage() {
               <p className="mt-4">
                 Our goal is simple: build websites that not only function flawlessly but also drive measurable growth.
               </p>
-            </motion.div>
+            </div>
           </div>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5 }}
-            className="text-4xl md:text-5xl font-bold text-white mb-8 mt-16"
-          >
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 mt-16">
             How We Work
-          </motion.h2>
+          </h2>
           <div className="space-y-6 text-white/80 leading-relaxed">
             <p>
               We believe successful projects come from collaboration, transparency, and a clear understanding of business objectives. From planning to launch and beyond, we stay aligned with your vision and focused on delivering real results.
             </p>
           </div>
-        </motion.div>
+        </div>
 
         {/* Meet the Team Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.6 }}
-          className="mb-20"
-        >
+        <div className="mb-20">
           <div className="max-w-4xl mx-auto mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Meet the Team
@@ -190,14 +148,7 @@ export default function AboutPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
             {teamMembers.map((member, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="group relative overflow-hidden rounded-3xl aspect-[4/5]"
-              >
+              <div key={i} className="group relative overflow-hidden rounded-3xl aspect-[4/5]">
                 <img
                   src={member.img}
                   alt={member.name}
@@ -209,29 +160,18 @@ export default function AboutPage() {
                   <p className="text-primary-soft font-medium mb-3">{member.role}</p>
                   <p className="text-white/80 text-sm leading-relaxed">{member.bio}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* Services Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto mb-20"
-        >
+        <div className="max-w-4xl mx-auto mb-20">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-12 text-center">
             Our Services
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100"
-            >
+            <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
               <div className="w-12 h-12 rounded-full bg-primary-soft flex items-center justify-center mb-6">
                 <Code className="w-6 h-6 text-foreground" />
               </div>
@@ -244,15 +184,9 @@ export default function AboutPage() {
               <p className="text-muted-foreground leading-relaxed">
                 Our full stack expertise ensures seamless integration between frontend and backend, creating fast, scalable, and maintainable websites.
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100"
-            >
+            <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
               <div className="w-12 h-12 rounded-full bg-primary-soft flex items-center justify-center mb-6">
                 <FileCode className="w-6 h-6 text-foreground" />
               </div>
@@ -265,15 +199,9 @@ export default function AboutPage() {
               <p className="text-muted-foreground leading-relaxed">
                 We build WordPress sites that are fast, secure, SEO-friendly, and easy to manage. From custom themes to plugin development, we deliver professional WordPress solutions.
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100"
-            >
+            <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
               <div className="w-12 h-12 rounded-full bg-primary-soft flex items-center justify-center mb-6">
                 <Globe className="w-6 h-6 text-foreground" />
               </div>
@@ -286,15 +214,9 @@ export default function AboutPage() {
               <p className="text-muted-foreground leading-relaxed">
                 We optimize content, build quality backlinks, improve site speed, and implement local SEO strategies to help your website rank better and attract more organic traffic.
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100"
-            >
+            <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
               <div className="w-12 h-12 rounded-full bg-primary-soft flex items-center justify-center mb-6">
                 <Award className="w-6 h-6 text-foreground" />
               </div>
@@ -307,18 +229,12 @@ export default function AboutPage() {
               <p className="text-muted-foreground leading-relaxed">
                 Our support includes regular updates, security monitoring, performance optimization, and technical assistance whenever you need it.
               </p>
-            </motion.div>
+            </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Values Grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.6 }}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20"
-        >
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           {[
             {
               icon: Code,
@@ -343,12 +259,8 @@ export default function AboutPage() {
           ].map((item, i) => {
             const IconComponent = item.icon;
             return (
-              <motion.div
+              <div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
                 className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
               >
                 <div className="w-12 h-12 rounded-full bg-primary-soft flex items-center justify-center mb-6">
@@ -360,19 +272,13 @@ export default function AboutPage() {
                 <p className="text-muted-foreground leading-relaxed text-sm">
                   {item.desc}
                 </p>
-              </motion.div>
+              </div>
             );
           })}
-        </motion.div>
+        </div>
 
         {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6 }}
-          className="relative z-10 bg-transparent rounded-[3rem] p-12 md:p-16 text-center"
-        >
+        <div className="relative z-10 bg-transparent rounded-[3rem] p-12 md:p-16 text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
             Ready to work with us?
           </h2>
@@ -391,8 +297,8 @@ export default function AboutPage() {
               </Button>
             </Link>
           </div>
-        </motion.div>
-      </motion.section>
+        </div>
+      </section>
     </div>
   );
 }
