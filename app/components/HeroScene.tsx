@@ -1,348 +1,200 @@
-// "use client";
+ "use client";
 
-// import { useMemo, useRef, useState, useEffect } from "react";
-// import { Canvas, useFrame } from "@react-three/fiber";
-// import { Float, MeshDistortMaterial, Sphere, Center, Text3D } from "@react-three/drei";
-// import * as THREE from "three";
-// import { Particles } from "./ParticleCardBackground";
-
-// function AnimatedConstruction() {
-//   const group = useRef<THREE.Group>(null);
-//   const [mounted, setMounted] = useState(false);
-
-//   useEffect(() => {
-//     setMounted(true);
-//   }, []);
-
-//   /* 
-//   // Old particles logic commented out to use unified Particles component
-//   const points = useMemo(() => {
-//     const p = new Float32Array(1000 * 3);
-//     for (let i = 0; i < 1000; i++) {
-//       p[i * 3] = (Math.random() - 0.5) * 10;
-//       p[i * 3 + 1] = (Math.random() - 0.5) * 10;
-//       p[i * 3 + 2] = (Math.random() - 0.5) * 10;
-//     }
-//     return p;
-//   }, []);
-//   */
-
-//   useFrame((state) => {
-//     if (group.current) {
-//       group.current.rotation.y = state.clock.getElapsedTime() * 0.1;
-//       group.current.rotation.x = state.clock.getElapsedTime() * 0.05;
-//     }
-//   });
-
-//   if (!mounted) return null;
-
-//   return (
-//     <group ref={group}>
-//       <Particles count={1500} color="#f7a042" />
-//       {/* 
-//       <Points positions={points} stride={3} frustumCulled={false}>
-//         <PointMaterial
-//           transparent
-//           color="#A76B2A"
-//           size={0.05}
-//           sizeAttenuation={true}
-//           depthWrite={false}
-//           opacity={0.4}
-//         />
-//       </Points>
-//       */}
-
-//       <Float speed={2} rotationIntensity={1} floatIntensity={1}>
-//         <Sphere args={[1, 64, 64]} scale={1.5}>
-//           <MeshDistortMaterial
-//             color="#f7a042"
-//             speed={3}
-//             distort={0.4}
-//             radius={1}
-//           />
-//         </Sphere>
-//       </Float>
-
-//       {/* First rotating torus line - Currently Warm Brown (#A76B2A) */}
-//       <mesh rotation={[Math.PI / 4, 0, 0]}>
-//         <torusGeometry args={[3, 0.02, 16, 100]} />
-//         <meshStandardMaterial color="#A76B2A" emissive="#A76B2A" emissiveIntensity={0.5} />
-//       </mesh>
-
-//       {/* Second rotating torus line - Currently Bright Orange (#f7a042) */}
-//       <mesh rotation={[-Math.PI / 4, Math.PI / 4, 0]}>
-//         <torusGeometry args={[3.5, 0.01, 16, 100]} />
-//         <meshStandardMaterial color="#f7a042" emissive="#f7a042" emissiveIntensity={0.2} transparent opacity={0.6} />
-//       </mesh>
-//     </group>
-
-
-
-//   );
-// }
-
-// export default function HeroScene() {
-//   return (
-//     <div className="absolute inset-0 w-full h-full pointer-events-none opacity-40 md:opacity-100">
-//       <Canvas camera={{ position: [0, 0, 8], fov: 45 }}>
-//         <ambientLight intensity={0.5} />
-//         <pointLight position={[10, 10, 10]} intensity={1} />
-//         <spotLight position={[-10, 10, 10]} angle={0.15} penumbra={1} />
-//         <AnimatedConstruction />
-//       </Canvas>
-//     </div>
-//   );
-// }
-
-
-"use client";
-
-import { useRef, useMemo, useState, useEffect, useCallback } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Float, MeshDistortMaterial, Sphere } from "@react-three/drei";
-import * as THREE from "three";
-
-function Particles({ count = 1500, color = "#f7a042" }: { count?: number; color?: string }) {
-  const mesh = useRef<THREE.Points>(null);
-  const positions = useMemo(() => {
-    const pos = new Float32Array(count * 3);
-    for (let i = 0; i < count; i++) {
-      const theta = Math.random() * Math.PI * 2;
-      const phi = Math.acos(2 * Math.random() - 1);
-      const r = 3 + Math.random() * 4;
-      pos[i * 3] = r * Math.sin(phi) * Math.cos(theta);
-      pos[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
-      pos[i * 3 + 2] = r * Math.cos(phi);
-    }
-    return pos;
-  }, [count]);
-
-  useFrame((state) => {
-    if (mesh.current) {
-      mesh.current.rotation.y = state.clock.getElapsedTime() * 0.03;
-      mesh.current.rotation.x = state.clock.getElapsedTime() * 0.02;
-    }
-  });
-
-  return (
-    <points ref={mesh}>
-      <bufferGeometry>
-        <bufferAttribute attach="attributes-position" args={[positions, 3]} />
-      </bufferGeometry>
-      <pointsMaterial
-        color={color}
-        size={0.025}
-        sizeAttenuation
-        transparent
-        opacity={0.6}
-        depthWrite={false}
-      />
-    </points>
-  );
-}
-
-function AnimatedSphere({ isMobile = false }: { isMobile?: boolean }) {
-  const group = useRef<THREE.Group>(null);
-  const ring1 = useRef<THREE.Mesh>(null);
-  const ring2 = useRef<THREE.Mesh>(null);
-  const ring3 = useRef<THREE.Mesh>(null);
-
-  const sphereSegments = isMobile ? 48 : 128;
-  const torusSegments = isMobile ? 80 : 200;
-  const particleCount = isMobile ? 600 : 2000;
-
-  useFrame((state) => {
-    const t = state.clock.getElapsedTime();
-    if (group.current) {
-      group.current.rotation.y = t * 0.08;
-      group.current.rotation.x = Math.sin(t * 0.05) * 0.1;
-    }
-    if (ring1.current) {
-      ring1.current.rotation.z = t * 0.3;
-      ring1.current.rotation.x = Math.sin(t * 0.2) * 0.2;
-    }
-    if (ring2.current) {
-      ring2.current.rotation.z = -t * 0.2;
-      ring2.current.rotation.y = Math.cos(t * 0.15) * 0.3;
-    }
-    if (ring3.current) {
-      ring3.current.rotation.x = t * 0.15;
-      ring3.current.rotation.z = Math.sin(t * 0.1) * 0.2;
-    }
-  });
-
-  return (
-    <group ref={group}>
-      <Particles count={particleCount} color="#DAF9A0" />
-
-      {/* Main glowing sphere */}
-      <Float speed={1.5} rotationIntensity={0.5} floatIntensity={0.8}>
-        <Sphere args={[1.2, sphereSegments, sphereSegments]} scale={1.4}>
-          <MeshDistortMaterial
-            color="#f7a042"
-            speed={2.5}
-            distort={0.35}
-            radius={1}
-            roughness={0.2}
-            metalness={0.8}
-          />
-        </Sphere>
-      </Float>
-
-      {/* Inner glow sphere */}
-      <Sphere args={[1.1, isMobile ? 32 : 64, isMobile ? 32 : 64]} scale={1.4}>
-        <meshStandardMaterial
-          color="#DAF9A0"
-          emissive="#DAF9A0"
-          emissiveIntensity={0.3}
-          transparent
-          opacity={0.15}
-        />
-      </Sphere>
-
-      {/* Orbital ring 1 */}
-      <mesh ref={ring1} rotation={[Math.PI / 3, 0, 0]}>
-        <torusGeometry args={[2.8, 0.008, 16, torusSegments]} />
-        <meshStandardMaterial
-          color="#f7a042"
-          emissive="#f7a042"
-          emissiveIntensity={0.8}
-          transparent
-          opacity={0.7}
-        />
-      </mesh>
-
-      {/* Orbital ring 2 */}
-      <mesh ref={ring2} rotation={[-Math.PI / 5, Math.PI / 3, 0]}>
-        <torusGeometry args={[3.2, 0.006, 16, torusSegments]} />
-        <meshStandardMaterial
-          color="#A76B2A"
-          emissive="#A76B2A"
-          emissiveIntensity={0.6}
-          transparent
-          opacity={0.5}
-        />
-      </mesh>
-
-      {/* Orbital ring 3 */}
-      <mesh ref={ring3} rotation={[Math.PI / 2.5, -Math.PI / 6, Math.PI / 4]}>
-        <torusGeometry args={[3.6, 0.004, 16, torusSegments]} />
-        <meshStandardMaterial
-          color="#f7a042"
-          emissive="#f7a042"
-          emissiveIntensity={0.4}
-          transparent
-          opacity={0.3}
-        />
-      </mesh>
-
-      {/* Accent dots on rings */}
-      {[0, 1, 2, 3, 4, 5].map((i) => {
-        const angle = (i / 6) * Math.PI * 2;
-        return (
-          <mesh
-            key={i}
-            position={[
-              Math.cos(angle) * 2.8,
-              Math.sin(angle) * 2.8 * Math.cos(Math.PI / 3),
-              Math.sin(angle) * 2.8 * Math.sin(Math.PI / 3),
-            ]}
-          >
-            <sphereGeometry args={[0.03, 16, 16]} />
-            <meshStandardMaterial
-              color="#f7a042"
-              emissive="#f7a042"
-              emissiveIntensity={2}
-            />
-          </mesh>
-        );
-      })}
-    </group>
-  );
-}
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 interface HeroSceneProps {
   onReady?: () => void;
 }
 
-export default function HeroScene({ onReady }: HeroSceneProps) {
-  const [mounted, setMounted] = useState(false);
-  const [contextLost, setContextLost] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+// const ICONS = [
+//   { label: "</>", color: "from-sky-400 to-cyan-300" },
+//   { label: "React", color: "from-cyan-400 to-sky-300" },
+//   { label: "<div>", color: "from-emerald-400 to-lime-300" },
+//   { label: "{state}", color: "from-fuchsia-400 to-purple-400" },
+//   { label: "API", color: "from-orange-400 to-amber-300" },
+//   { label: "<h1>", color: "from-blue-400 to-indigo-400" },
+// ];
+
+const CODE_LINES = [
+  "import express from 'express';",
+  "import React from 'react';",
+  "",
+  "const app = express();",
+  "",
+  "app.get('/', (_req, res) => {",
+  "  res.json({ status: 'ok', by: 'Nexiqo' });",
+  "});",
+  "",
+  "export function Hero() {",
+  "  return (",
+  "    <section className=\"max-w-5xl mx-auto\">",
+  "      <h1>Nexiqo Software Studio</h1>",
+  "    </section>",
+  "  );",
+  "}",
+];
+
+const FloatingBadge = ({
+  label,
+  color,
+  x,
+  y,
+  delay,
+}: {
+  label: string;
+  color: string;
+  x: string;
+  y: string;
+  delay: number;
+}) => {
+  return (
+    <motion.div
+      className="absolute px-3 py-1.5 rounded-full border border-white/10 bg-slate-900/60 backdrop-blur-sm shadow-[0_0_24px_rgba(15,23,42,0.8)] text-[11px] md:text-xs text-slate-50 font-medium"
+      style={{ left: x, top: y }}
+      initial={{ opacity: 0, y: 12, scale: 0.96 }}
+      animate={{ opacity: 0.9, y: [0, -10, 0], scale: [1, 1.03, 1] }}
+      transition={{
+        duration: 5,
+        repeat: Infinity,
+        delay,
+        ease: "easeInOut",
+      }}
+    >
+      <span
+        className={`mr-1.5 h-1.5 w-1.5 inline-block rounded-full bg-linear-to-r ${color} shadow-[0_0_12px_rgba(56,189,248,0.8)]`}
+      />
+      {label}
+    </motion.div>
+  );
+};
+
+const Ribbon = ({
+  className,
+  delay = 0,
+  baseRotate = 0,
+}: {
+  className: string;
+  delay?: number;
+  baseRotate?: number;
+}) => {
+  return (
+    <motion.div
+      className={`pointer-events-none absolute z-[1] rounded-full bg-linear-to-r from-cyan-400/70 via-emerald-300/60 to-transparent blur-md ${className}`}
+      initial={{ opacity: 0.4, rotate: baseRotate, borderRadius: "999px" }}
+      animate={{
+        opacity: [0.4, 0.9, 0.6, 0.8, 0.5],
+        rotate: [baseRotate - 18, baseRotate + 24, baseRotate - 8],
+        borderRadius: ["999px", "48px", "999px"],
+        x: [-10, 22, -18, 0],
+        y: [0, -12, 8, 0],
+      }}
+      transition={{
+        duration: 18,
+        repeat: Infinity,
+        ease: "easeInOut",
+        delay,
+      }}
+    />
+  );
+};
+
+export const CodePanel = () => {
+  const [typedCode, setTypedCode] = useState("");
 
   useEffect(() => {
-    setMounted(true);
-    const check = () => setIsMobile(typeof window !== "undefined" && (window.innerWidth < 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)));
-    check();
-    window.addEventListener("resize", check);
-    return () => window.removeEventListener("resize", check);
+    const full = CODE_LINES.join("\n");
+    const TYPE_SPEED = 40; // ms per character
+    const PAUSE_AFTER_FULL = 2000; // ms
+
+    let index = 0;
+    let cancelled = false;
+
+    const typeLoop = () => {
+      if (cancelled) return;
+
+      if (index <= full.length) {
+        setTypedCode(full.slice(0, index));
+        index += 1;
+        window.setTimeout(typeLoop, TYPE_SPEED);
+      } else {
+        window.setTimeout(() => {
+          if (cancelled) return;
+          index = 0;
+          setTypedCode("");
+          typeLoop();
+        }, PAUSE_AFTER_FULL);
+      }
+    };
+
+    typeLoop();
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
-  useEffect(() => {
-    if (!contextLost) return;
-    const onVisible = () => setContextLost(false);
-    document.addEventListener("visibilitychange", onVisible);
-    return () => document.removeEventListener("visibilitychange", onVisible);
-  }, [contextLost]);
+  return (
+    <div className="hidden md:block absolute right-[6%] top-[40%] -translate-y-1/2">
+      <div className="relative w-64 rounded-xl border border-slate-700/80 bg-slate-950/95 shadow-[0_18px_45px_rgba(15,23,42,1)] overflow-hidden">
+        <div className="flex items-center gap-1.5 px-3 py-1.5 border-b border-slate-800/80 text-[10px] text-slate-500">
+          <span className="h-2 w-2 rounded-full bg-rose-500/80" />
+          <span className="h-2 w-2 rounded-full bg-amber-400/80" />
+          <span className="h-2 w-2 rounded-full bg-emerald-400/80" />
+          <span className="ml-2 font-mono text-[10px] text-slate-400">
+            nexiqo.tsx
+          </span>
+        </div>
 
-  // When showing fallback (context lost), still signal ready so content shows
-  useEffect(() => {
-    if (contextLost) {
-      const t = setTimeout(() => onReady?.(), 200);
-      return () => clearTimeout(t);
-    }
-  }, [contextLost, onReady]);
+        <div className="py-2 px-3 text-[11px] font-mono leading-relaxed text-slate-300/90 min-h-[180px]">
+          <pre className="whitespace-pre-wrap text-left">
+            {typedCode}
+            <span className="animate-pulse text-slate-500">▍</span>
+          </pre>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-  const onCreated = useCallback((state: { gl: THREE.WebGLRenderer }) => {
-    const canvas = state.gl.domElement;
-    const handleLost = (e: Event) => {
-      e.preventDefault();
-      setContextLost(true);
-    };
-    const handleRestored = () => setContextLost(false);
-    canvas.addEventListener("webglcontextlost", handleLost, false);
-    canvas.addEventListener("webglcontextrestored", handleRestored, false);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (state.gl as any).forceContextLoss = null;
-    // Signal ready after first frames have rendered
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        onReady?.();
-      });
-    });
+export default function HeroScene({ onReady }: HeroSceneProps) {
+  useEffect(() => {
+    const t = setTimeout(() => onReady?.(), 700);
+    return () => clearTimeout(t);
   }, [onReady]);
 
-  if (!mounted || contextLost) return <div className="absolute inset-0 w-full h-full pointer-events-none bg-[#0f1729]" />;
-
-  const dpr = isMobile ? 1 : Math.min(2, typeof window !== "undefined" ? window.devicePixelRatio : 2);
-
   return (
-    <div className="absolute inset-0 w-full h-full pointer-events-none">
-      <Canvas
-        camera={{ position: [0, 0, 8], fov: 45 }}
-        dpr={[1, dpr]}
-        gl={{
-          antialias: !isMobile,
-          alpha: true,
-          powerPreference: isMobile ? "low-power" : "default",
-          failIfMajorPerformanceCaveat: false,
-        }}
-        onCreated={onCreated}
-      >
-        <color attach="background" args={["#0f1729"]} />
-        <fog attach="fog" args={["#0f1729", 8, 20]} />
-        <ambientLight intensity={0.3} />
-        <pointLight position={[10, 10, 10]} intensity={1.5} color="#DAF9A0" />
-        <pointLight position={[-10, -5, 5]} intensity={0.5} color="#DAF9A0" />
-        <spotLight
-          position={[0, 10, 5]}
-          angle={0.3}
-          penumbra={1}
-          intensity={1}
-          color="#DAF9A0"
-        />
-        <AnimatedSphere isMobile={isMobile} />
-      </Canvas>
+    <div className="absolute inset-0 w-full h-full poifnter-events-none">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#1d2a3f,transparent_55%),radial-gradient(circle_at_bottom_right,#020617,#020617)]" />
+
+      <motion.div
+        className="absolute -left-32 top-1/3 h-72 w-72 rounded-full bg-cyan-500/10 blur-3xl"
+        animate={{ x: [0, 25, 0], y: [0, -18, 0] }}
+        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute -right-40 top-1/4 h-80 w-80 rounded-full bg-emerald-400/8 blur-3xl"
+        animate={{ x: [0, -20, 0], y: [0, 18, 0] }}
+        transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+      />
+
+      <div className="absolute inset-0 opacity-[0.22] bg-[linear-gradient(to_right,rgba(148,163,184,0.24)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.22)_1px,transparent_1px)] bg-size-[80px_80px] md:bg-size-[96px_96px]" />
+
+      {/* Ribbon-like curves */}
+      <Ribbon className="-left-10 top-1/3 h-16 w-60 md:h-20 md:w-80" delay={0.3} baseRotate={-18} />
+      <Ribbon className="right-0 top-1/2 h-14 w-52 md:h-18 md:w-72" delay={1.1} baseRotate={12} />
+      <Ribbon className="left-1/4 bottom-6 h-12 w-64 md:h-16 md:w-80" delay={2.0} baseRotate={4} />
+
+      {/* <div className="absolute inset-0">
+        <FloatingBadge label={ICONS[0].label} color={ICONS[0].color} x="14%" y="22%" delay={0.2} />
+        <FloatingBadge label={ICONS[1].label} color={ICONS[1].color} x="68%" y="26%" delay={0.6} />
+        <FloatingBadge label={ICONS[2].label} color={ICONS[2].color} x="20%" y="62%" delay={1.0} />
+        <FloatingBadge label={ICONS[3].label} color={ICONS[3].color} x="58%" y="64%" delay={1.4} />
+        <FloatingBadge label={ICONS[4].label} color={ICONS[4].color} x="34%" y="38%" delay={0.9} />
+        <FloatingBadge label={ICONS[5].label} color={ICONS[5].color} x="78%" y="52%" delay={1.6} />
+      </div> */}
+
+      {/* <CodePanel /> */}
     </div>
   );
 }

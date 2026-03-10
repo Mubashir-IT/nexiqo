@@ -217,13 +217,13 @@ export function Navbar() {
                   <div className="grid grid-cols-2 gap-x-12 gap-y-10">
                     {/* Column 1 */}
                     <div className="space-y-8">
-                      <Link href="/technologies/wordpress" className="flex gap-4 group" onClick={closeAll}>
+                      {/* <Link href="/technologies/wordpress" className="flex gap-4 group" onClick={closeAll}>
                         <FileCode className="w-5 h-5 text-foreground mt-1 shrink-0 group-hover:text-primary-hover transition-colors" />
                         <div>
                           <h5 className="font-bold text-foreground text-base mb-1 group-hover:text-primary-hover transition-colors">WordPress</h5>
                           <p className="text-xs text-gray-500">Custom themes, plugins, and WooCommerce</p>
                         </div>
-                      </Link>
+                      </Link> */}
                       <Link href="/technologies/react-nextjs" className="flex gap-4 group" onClick={closeAll}>
                         <Code className="w-5 h-5 text-foreground mt-1 shrink-0 group-hover:text-primary-hover transition-colors" />
                         <div>
@@ -249,13 +249,13 @@ export function Navbar() {
                           <p className="text-xs text-gray-500">Type-safe development for reliability</p>
                         </div>
                       </Link>
-                      <Link href="/technologies/seo-tools" className="flex gap-4 group" onClick={closeAll}>
+                      {/* <Link href="/technologies/seo-tools" className="flex gap-4 group" onClick={closeAll}>
                         <Globe className="w-5 h-5 text-foreground mt-1 shrink-0 group-hover:text-primary-hover transition-colors" />
                         <div>
                           <h5 className="font-bold text-foreground text-base mb-1 group-hover:text-primary-hover transition-colors">SEO Tools</h5>
                           <p className="text-xs text-gray-500">Google Search Console, Analytics & more</p>
                         </div>
-                      </Link>
+                      </Link> */}
                       <Link href="/technologies/security-performance" className="flex gap-4 group" onClick={closeAll}>
                         <Shield className="w-5 h-5 text-foreground mt-1 shrink-0 group-hover:text-primary-hover transition-colors" />
                         <div>

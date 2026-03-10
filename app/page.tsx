@@ -9,6 +9,7 @@ import LogoLoop from "@/components/LogoLoop";
 import { teamMembers } from "@/lib/team-data";
 import Link from "next/link";
 import Image from "next/image";
+import { CodePanel } from "./components/HeroScene";
 
 // Lazy-load below-fold section components
 const ProcessCarousel = dynamic(() => import("@/components/sections/process-carousel").then(m => ({ default: m.ProcessCarousel })), { ssr: false });
@@ -16,20 +17,21 @@ const TestimonialSlider = dynamic(() => import("@/components/sections/testimonia
 const WhatWeDo = dynamic(() => import("@/components/sections/what-we-do").then(m => ({ default: m.WhatWeDo })), { ssr: false });
 const ProjectsCarousel = dynamic(() => import("@/components/sections/projects-carousel").then(m => ({ default: m.ProjectsCarousel })), { ssr: false });
 
+
 export default function Home() {
 
   return (
     <div className="min-h-screen bg-transparent font-sans selection:bg-primary-soft selection:text-foreground">
       {/* Hero Section */}
-      <section className="relative min-h-screen bg-transparent text-white pt-32 pb-10 px-0 overflow-hidden flex flex-col justify-center items-center">
-        <div className="relative z-10 max-w-full mx-auto text-center flex flex-col items-center gap-8">
+      <section className="relative min-h-screen bg-transparent text-white pt-32 pb-10 px-0 overflow-hidden flex flex-col justify-center">
+        <div className="relative z-10 max-w-5xl mx-auto flex flex-col gap-8 px-6 md:px-10 lg:px-0 md:pr-[260px] text-center md:text-left items-center md:items-start md:-left-[100px]">
           {/* Tags */}
           <div
-            className="flex flex-wrap justify-center gap-3 mb-4"
+            className="flex flex-wrap justify-center md:justify-start gap-3 mb-4"
             style={{ animation: "heroFadeUp 0.4s ease both" }}
           >
             {["Perceptive Design", "Reasoned Architecture", "Precise Development", "Iterative Learning", "SEO Strategy"].map((tag) => (
-              <span key={tag} className="px-4 py-1.5 text-center rounded-full border border-primary-soft/30 text-[10px] uppercase tracking-widest text-primary-soft bg-primary-soft/5 backdrop-blur-md">
+              <span key={tag} className="px-2 md:px-4 py-1.5 text-center rounded-full border border-primary-soft/30 text-[10px] uppercase tracking-widest text-primary-soft bg-primary-soft/5 backdrop-blur-md">
                 {tag}
               </span>
             ))}
@@ -37,7 +39,7 @@ export default function Home() {
 
           <h1
             style={{ animation: "heroFadeUp 0.45s 0.05s ease both" }}
-            className="text-5xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.9] md:leading-[0.85] text-balance uppercase"
+            className="text-4xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9] md:leading-[0.85] text-balance uppercase"
           >
             Building <span className="text-primary-soft">Digital</span> <br />
             Architectures
@@ -45,14 +47,14 @@ export default function Home() {
 
           <p
             style={{ animation: "heroFadeUp 0.45s 0.1s ease both" }}
-            className="max-w-2xl text-base md:text-lg text-white/60 leading-relaxed font-light"
+            className="max-w-2xl text-base md:text-lg text-white/60 leading-relaxed font-light mx-auto md:mx-0"
           >
             Cutting-edge web solutions that combine stunning design with enterprise-grade performance. We build digital experiences that captivate users and drive real business results.
           </p>
 
           <div
             style={{ animation: "heroFadeUp 0.4s 0.15s ease both" }}
-            className="flex flex-col sm:flex-row gap-4 mt-4"
+            className="flex flex-col sm:flex-row gap-4 mt-4 justify-center md:justify-start"
           >
             <Link href="/contact">
               <Button className="h-16 px-10 rounded-full bg-primary-soft text-foreground hover:bg-white text-base font-bold transition-all hover:scale-105 active:scale-95 group">
@@ -65,7 +67,7 @@ export default function Home() {
 
         {/* Decorative side element */}
         <div
-          className="absolute left-8 top-1/2 -translate-y-1/2 z-10 hidden xl:flex flex-col items-center gap-8"
+          className="absolute left-8 top-[45%] -translate-y-1/2 z-10 hidden xl:flex flex-col items-center gap-8"
           style={{ animation: "heroFadeIn 0.6s 0.3s ease both" }}
         >
           <div className="w-px h-24 bg-gradient-to-b from-transparent via-primary-soft/50 to-transparent" />
@@ -85,7 +87,7 @@ export default function Home() {
         </div> */}
         {/* Logo Loop */}
         <div className="w-full mt-20">
-          <div className="opacity-80" style={{ height: '40px' }}>
+          <div className="" style={{ height: '40px' }}>
             <LogoLoop
               logos={[
                 { node: <SiWordpress className="text-primary-soft" />, title: "WordPress", href: "https://wordpress.org" },
@@ -128,6 +130,11 @@ export default function Home() {
             />
           </div>
         </div>
+
+
+        <div className="hidden md:block shrink-0 w-[300px]">
+            <CodePanel />
+          </div>
       </section>
 
       {/* Logos Section */}
