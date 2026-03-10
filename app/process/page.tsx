@@ -265,7 +265,7 @@ export default function ProcessPage() {
       <section className="py-20 px-6 max-w-full mx-auto">
         <div className="grid lg:grid-cols-[1fr_300px] gap-12 items-start">
           {/* Left Content */}
-          <div className="max-w-3xl space-y-20">
+          <div className="max-w-4xl space-y-20">
             {processSteps.map((step, index) => (
               <div
                 key={step.id}
