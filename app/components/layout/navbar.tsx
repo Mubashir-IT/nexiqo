@@ -35,7 +35,8 @@ export function Navbar() {
     <nav
       onMouseLeave={() => setActiveMenu(null)}
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 bg-transparent",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4",
+        isScrolled ? "bg-black/50 backdrop-blur-md border-b border-white/5" : "bg-transparent",
       )}
     >
       <div className="max-w-[1400px] mx-auto px-6 flex items-center justify-between relative z-50">

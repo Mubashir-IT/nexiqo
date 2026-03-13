@@ -76,8 +76,60 @@ export default function BackendDevelopmentPage() {
         </div>
       </section>
 
+      {/* Key Activities Section */}
+      <section className="py-20 px-6 max-w-full mx-auto">
+        <div className="mb-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Key Activities of Nexiqo&apos;s Backend Service
+          </h2>
+          <p className="text-white/80 text-lg">
+            Concrete backend work that keeps your product stable, secure, and scalable.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          {[
+            {
+              title: "API & Service Design",
+              desc: "We define endpoints, contracts, and versioning strategies so your APIs remain clean and future‑proof."
+            },
+            {
+              title: "Data & Storage Strategy",
+              desc: "We select and model databases, caching layers, and queues tailored to your workload and growth trajectory."
+            },
+            {
+              title: "Security & Access Control",
+              desc: "We implement authentication, authorization, and auditing that protect your data and business logic."
+            },
+            {
+              title: "Ops & Observability",
+              desc: "We set up logging, monitoring, and deployment pipelines so your backend is easy to operate and debug."
+            }
+          ].map((activity, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="flex gap-6 p-8 rounded-3xl border border-gray-100/70 bg-white/5 hover:bg-white/10 transition-colors group"
+            >
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary-soft/60 flex items-center justify-center font-semibold text-foreground text-xs">
+                0{i + 1}
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-white mb-1 group-hover:text-primary-soft">
+                  {activity.title}
+                </h3>
+                <p className="text-white/80 text-sm leading-relaxed">{activity.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
       {/* Benefits Section */}
-      <section className="py-24 px-6 max-w-full mx-auto relative">
+      <section className="py-20 px-6 max-w-full mx-auto relative">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
             Benefits of Backend with Nexiqo
@@ -119,7 +171,7 @@ export default function BackendDevelopmentPage() {
       </section>
 
       {/* Lifecycle Section */}
-      <section className="py-24  px-6 relative overflow-hidden">
+      <section className="py-4  px-6 relative overflow-hidden">
         <div className="max-w-full mx-auto px-6">
           <div className="text-center mb-20">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
@@ -159,7 +211,7 @@ export default function BackendDevelopmentPage() {
       </section>
 
       {/* Banner CTA */}
-      <section className="py-24 px-6 max-w-full mx-auto text-center">
+      <section className="py-4 px-6 max-w-full mx-auto text-center">
         <div className="relative bg-transparent rounded-[3rem] p-12 md:p-20 overflow-hidden group">
           <div className="relative z-10">
             <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-8 tracking-tight">
@@ -177,56 +229,9 @@ export default function BackendDevelopmentPage() {
         </div>
       </section>
 
-      {/* Key Activities Section */}
-      <section className="py-24 px-6 max-w-full mx-auto">
-        <div className="mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Key Activities of Nexiqo&apos;s Backend Service
-          </h2>
-          <p className="text-white/80 text-lg">
-            Engineering excellence that powers modern web applications.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-6">
-          {[
-            {
-              title: "Modern API Architecture",
-              desc: "We develop high-performance REST and GraphQL APIs that ensure efficient data communication between all your systems."
-            },
-            {
-              title: "Scalable Database Design",
-              desc: "We design and optimize SQL and NoSQL databases to manage your data reliably as you grow from zero to millions of users."
-            },
-            {
-              title: "Secure Auth & Logic",
-              desc: "Deep implementation of JWT, OAuth, and RBAC to protect user identities and maintain strict control over application logic."
-            },
-            {
-              title: "Cloud infrastructure Setup",
-              desc: "We host and manage your backend on AWS, Vercel, or DigitalOcean, ensuring optimal deployment pipelines and uptime."
-            }
-          ].map((activity, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="flex gap-6 p-8 rounded-3xl border border-gray-100 hover:bg-gray-50 transition-colors group"
-            >
-              <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary-soft/50 flex items-center justify-center font-bold text-white group-hover:text-foreground">
-                0{i + 1}
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-foreground">{activity.title}</h3>
-                <p className="text-white/80 text-sm leading-relaxed group-hover:text-foreground">{activity.desc}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        <div className="mt-20 text-center">
+      {/* CTA: Talk About Your Backend */}
+      <section className="py-4 px-6 max-w-full mx-auto text-center">
+        <div className="mt-6">
           <Link href="/contact" className="inline-flex items-center gap-2 text-white font-bold hover:gap-4 transition-all">
             Book a call to discuss your backend <ArrowRight className="w-5 h-5 text-primary-soft" />
           </Link>

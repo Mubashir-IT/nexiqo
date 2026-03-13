@@ -78,13 +78,74 @@ export default function SEOServicesPage() {
         </div>
       </section>
 
+      {/* Key Activities Section */}
+      <section className="py-20 px-6 max-w-full mx-auto">
+        <div className="mb-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Key Activities of Nexiqo&apos;s SEO Services
+          </h2>
+          <p className="text-white text-lg">
+            The core levers we continuously work to keep your visibility growing.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          {[
+            {
+              num: "01",
+              title: "Research & Strategy",
+              desc: "Deep keyword research, SERP analysis, and competitor benchmarking that set the direction for all other work."
+            },
+            {
+              num: "02",
+              title: "On‑Page & Content",
+              desc: "We align pages, copy, and internal links with search intent so each URL has a clear job to do."
+            },
+            {
+              num: "03",
+              title: "Technical & Site Health",
+              desc: "We resolve indexing issues, speed bottlenecks, and structural problems that silently limit your rankings."
+            },
+            {
+              num: "04",
+              title: "Authority & Reporting",
+              desc: "We build quality backlinks and provide clear reporting so you see exactly how organic performance is moving."
+            },
+            {
+              num: "05",
+              title: "Local SEO",
+              desc: "Google Business Profile optimization, local citations, and geo-targeted visibility so you rank for \"near me\" and local searches."
+            }
+          ].map((activity, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="flex gap-6 p-8 rounded-3xl border border-gray-100/70 bg-white/5 hover:bg-white/10 transition-colors group"
+            >
+              <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary-soft/60 flex items-center justify-center font-bold text-foreground">
+                {activity.num}
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-soft">
+                  {activity.title}
+                </h3>
+                <p className="text-white/80 text-sm leading-relaxed">{activity.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
       {/* Benefits Section */}
-      <section className="py-24 px-6 max-w-full mx-auto relative">
+      <section className="py-4 px-6 max-w-full mx-auto relative">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
             Benefits of SEO with Nexiqo
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-white/80 text-lg max-w-2xl mx-auto">
             Experience growth powered by precision, performance, and strategy.
           </p>
         </div>
@@ -110,13 +171,13 @@ export default function SEOServicesPage() {
           ].map((benefit, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }    }
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
               className="bg-card rounded-[2rem] p-10 border border-gray-100 hover:shadow-xl transition-all duration-300 group"
             >
-              <CheckCircle2 className="w-10 h-10 text-primary-soft mb-6 group-hover:scale-110 transition-transform" />
+              <CheckCircle2 className="w-10 h-10 text-primary mb-6 group-hover:scale-110 transition-transform" />
               <h3 className="text-xl font-bold text-foreground mb-4">{benefit.title}</h3>
               <p className="text-muted-foreground leading-relaxed">{benefit.desc}</p>
             </motion.div>
@@ -125,7 +186,7 @@ export default function SEOServicesPage() {
       </section>
           
       {/* Lifecycle Section */}
-      <section className="py-24  px-6 relative overflow-hidden">
+      <section className="py-4  px-6 relative overflow-hidden">
         <div className="max-w-full mx-auto px-6">
           <div className="text-center mb-20">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
@@ -165,7 +226,7 @@ export default function SEOServicesPage() {
       </section>
 
       {/* Banner CTA */}
-      <section className="py-24 px-6 max-w-full mx-auto text-center">
+      <section className="py-4 px-6 max-w-full mx-auto text-center">
         <div className="relative bg-transparent rounded-[3rem] p-12 md:p-20 overflow-hidden group">
 
           <div className="relative z-10">
@@ -184,61 +245,10 @@ export default function SEOServicesPage() {
         </div>
       </section>
 
-      {/* Key Activities Section */}
-      <section className="py-24 px-6 max-w-full mx-auto">
-        <div className="mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Key Activities of Nexiqo&apos;s SEO Services
-          </h2>
-          <p className="text-muted-foreground text-lg">
-            A complete, modern SEO framework.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-6">
-          {[
-            {
-              num: "01",
-              title: "On-Page & Content Optimization",
-              desc: "Content structure, keyword alignment, metadata, internal linking, and relevance improvements."
-            },
-            {
-              num: "02",
-              title: "Backlink & Authority Development",
-              desc: "Quality-focused outreach and link acquisition to strengthen domain credibility."
-            },
-            {
-              num: "03",
-              title: "Technical SEO & Performance",
-              desc: "Site speed, indexing, crawlability, structured data, and error resolution."
-            },
-            {
-              num: "04",
-              title: "Local SEO & Map Visibility",
-              desc: "Google Business Profile optimization, local citations, and geo-targeted visibility."
-            }
-          ].map((activity, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="flex gap-6 p-8 rounded-3xl border border-gray-100 hover:bg-gray-50 transition-colors group"
-            >
-              <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary-soft/50 flex items-center justify-center font-bold text-white group-hover:text-foreground">
-                {activity.num}
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-foreground">{activity.num} — {activity.title}</h3>
-                <p className="text-white/80 text-sm leading-relaxed group-hover:text-foreground">{activity.desc}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        <div className="mt-20 text-center">
-          <Link href="/contact" className="inline-flex items-center gap-2 text-foreground font-bold hover:gap-4 transition-all">
+      {/* CTA: Talk About Your SEO */}
+      <section className="py-4 px-6 max-w-full mx-auto text-center">
+        <div className="mt-6">
+          <Link href="/contact" className="inline-flex items-center gap-2 text-white font-bold hover:gap-4 transition-all">
             Book a call to discuss your SEO <ArrowRight className="w-5 h-5 text-primary-soft" />
           </Link>
         </div>

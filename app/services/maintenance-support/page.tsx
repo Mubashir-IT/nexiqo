@@ -76,8 +76,60 @@ export default function MaintenanceSupportPage() {
         </div>
       </section>
 
+      {/* Key Activities Section */}
+      <section className="py-20 px-6 max-w-full mx-auto">
+        <div className="mb-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Key Activities of Nexiqo&apos;s Support Service
+          </h2>
+          <p className="text-white/80 text-lg">
+            What we actually do every month to keep your systems healthy.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          {[
+            {
+              title: "Security & Patch Management",
+              desc: "Immediate application of critical security updates to CMS cores, plugins, libraries, and servers."
+            },
+            {
+              title: "Uptime & Health Monitoring",
+              desc: "Automated checks for uptime, SSL, errors, and performance so issues are spotted before users see them."
+            },
+            {
+              title: "Bug Fixes & Change Requests",
+              desc: "We resolve bugs, minor UI issues, and small content or feature tweaks as part of your plan."
+            },
+            {
+              title: "Performance & Database Tuning",
+              desc: "Regular cleanup of logs, images, and databases so your platform stays fast as it grows."
+            }
+          ].map((activity, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="flex gap-6 p-8 rounded-3xl border border-gray-100/70 bg-white/5 hover:bg-white/10 transition-colors group"
+            >
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary-soft/60 flex items-center justify-center font-semibold text-foreground text-xs">
+                0{i + 1}
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-white mb-1 group-hover:text-primary-soft">
+                  {activity.title}
+                </h3>
+                <p className="text-white/80 text-sm leading-relaxed">{activity.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
       {/* Benefits Section */}
-      <section className="py-24 px-6 max-w-full mx-auto relative">
+      <section className="py-20 px-6 max-w-full mx-auto relative">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
             Benefits of Maintenance with Nexiqo
@@ -119,7 +171,7 @@ export default function MaintenanceSupportPage() {
       </section>
 
       {/* Lifecycle Section */}
-      <section className="py-24  px-6 relative overflow-hidden">
+      <section className="py-4  px-6 relative overflow-hidden">
         <div className="max-w-full mx-auto px-6">
           <div className="text-center mb-20">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
@@ -159,7 +211,7 @@ export default function MaintenanceSupportPage() {
       </section>
 
       {/* Banner CTA */}
-      <section className="py-24 px-6 max-w-full mx-auto text-center">
+      <section className="py-4 px-6 max-w-full mx-auto text-center">
         <div className="relative bg-transparent rounded-[3rem] p-12 md:p-20 overflow-hidden group">
           <div className="relative z-10">
             <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-8 tracking-tight">
@@ -177,56 +229,9 @@ export default function MaintenanceSupportPage() {
         </div>
       </section>
 
-      {/* Key Activities Section */}
-      <section className="py-24 px-6 max-w-full mx-auto">
-        <div className="mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Key Activities of Nexiqo&apos;s Support Service
-          </h2>
-          <p className="text-white/80 text-lg">
-            Proactive technical care that prevents issues and enhances performance.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-6">
-          {[
-            {
-              title: "Security & Patch Management",
-              desc: "Immediate application of critical security updates to CMS cores, plugins, and server environments."
-            },
-            {
-              title: "Uptime & Health Monitoring",
-              desc: "24/7 monitoring of server status and page health to ensure your business is always open for customers."
-            },
-            {
-              title: "Bug Fixes & Troubleshooting",
-              desc: "Rapid response to reported issues, ensuring minor glitches don't turn into major business disruptions."
-            },
-            {
-              title: "Performance & Database Tuning",
-              desc: "Regular cleanup and optimization of databases and assets to keep your site fast even as data grows."
-            }
-          ].map((activity, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="flex gap-6 p-8 rounded-3xl border border-gray-100 hover:bg-gray-50 transition-colors group"
-            >
-              <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary-soft/50 flex items-center justify-center font-bold text-white group-hover:text-foreground">
-                0{i + 1}
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-foreground">{activity.title}</h3>
-                <p className="text-white/80 text-sm leading-relaxed group-hover:text-foreground">{activity.desc}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        <div className="mt-20 text-center">
+      {/* CTA: Talk About Your Support Needs */}
+      <section className="py-4 px-6 max-w-full mx-auto text-center">
+        <div className="mt-6">
           <Link href="/contact" className="inline-flex items-center gap-2 text-white font-bold hover:gap-4 transition-all">
             Book a call to discuss your support needs <ArrowRight className="w-5 h-5 text-primary-soft" />
           </Link>

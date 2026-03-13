@@ -75,8 +75,60 @@ export default function FrontendDevelopmentPage() {
         </div>
       </section>
 
+      {/* Key Activities Section */}
+      <section className="py-20 px-6 max-w-full mx-auto">
+        <div className="mb-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Key Activities of Nexiqo&apos;s Frontend Service
+          </h2>
+          <p className="text-white/80 text-lg">
+            Day‑to‑day UI engineering work that turns designs into fast, reliable interfaces.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          {[
+            {
+              title: "React & Next.js Implementation",
+              desc: "We implement routes, layouts, and components with modern Next.js patterns (App Router, Server/Client Components)."
+            },
+            {
+              title: "Interactive UX & Motion",
+              desc: "We add considered animations and micro‑interactions using Framer Motion to guide attention without slowing the UI."
+            },
+            {
+              title: "Design System & Components",
+              desc: "We build reusable component libraries and tokens so every page feels consistent and is easy to extend."
+            },
+            {
+              title: "Frontend Performance & SEO",
+              desc: "We tune fonts, images, caching, and bundle size so your UI scores well on Web Vitals and remains SEO‑friendly."
+            }
+          ].map((activity, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="flex gap-6 p-8 rounded-3xl border border-gray-100/70 bg-white/5 hover:bg-white/10 transition-colors group"
+            >
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary-soft/60 flex items-center justify-center font-semibold text-foreground text-xs">
+                0{i + 1}
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-white mb-1 group-hover:text-primary-soft">
+                  {activity.title}
+                </h3>
+                <p className="text-white/80 text-sm leading-relaxed">{activity.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
       {/* Benefits Section */}
-      <section className="py-24 px-6 max-w-full mx-auto relative">
+      <section className="py-20 px-6 max-w-full mx-auto relative">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
             Benefits of Frontend with Nexiqo
@@ -118,7 +170,7 @@ export default function FrontendDevelopmentPage() {
       </section>
 
       {/* Lifecycle Section */}
-      <section className="py-24  px-6 relative overflow-hidden">
+      <section className="py-4  px-6 relative overflow-hidden">
         <div className="max-w-full mx-auto px-6">
           <div className="text-center mb-20">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
@@ -158,7 +210,7 @@ export default function FrontendDevelopmentPage() {
       </section>
 
       {/* Banner CTA */}
-      <section className="py-24 px-6 max-w-full mx-auto text-center">
+      <section className="py-4 px-6 max-w-full mx-auto text-center">
         <div className="relative bg-transparent rounded-[3rem] p-12 md:p-20 overflow-hidden group">
           <div className="relative z-10">
             <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-8 tracking-tight">
@@ -176,56 +228,9 @@ export default function FrontendDevelopmentPage() {
         </div>
       </section>
 
-      {/* Key Activities Section */}
-      <section className="py-24 px-6 max-w-full mx-auto">
-        <div className="mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Key Activities of Nexiqo&apos;s Frontend Service
-          </h2>
-          <p className="text-white/80 text-lg">
-            Strategic development that bridges the gap between design and technology.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-6">
-          {[
-            {
-              title: "React & Next.js Implementation",
-              desc: "We leverage the latest framework features like Server Components and App Router for optimal speed and SEO."
-            },
-            {
-              title: "Interactive UI Prototyping",
-              desc: "Highly interactive elements built with Framer Motion and modern CSS to create engaging, 'alive' interfaces."
-            },
-            {
-              title: "Component Library Development",
-              desc: "We build reusable, maintainable component systems that ensure design consistency and speed up future development."
-            },
-            {
-              title: "Frontend SEO & Web Vitals",
-              desc: "Advanced optimization of images, fonts, and scripts to ensure your site is favorited by both users and Google."
-            }
-          ].map((activity, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="flex gap-6 p-8 rounded-3xl border border-gray-100 hover:bg-gray-50 transition-colors group"
-            >
-              <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary-soft/50 flex items-center justify-center font-bold text-white group-hover:text-foreground">
-                0{i + 1}
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-foreground">{activity.title}</h3>
-                <p className="text-white/80 text-sm leading-relaxed group-hover:text-foreground">{activity.desc}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        <div className="mt-20 text-center">
+      {/* CTA: Talk About Your Frontend */}
+      <section className="py-4 px-6 max-w-full mx-auto text-center">
+        <div className="mt-6">
           <Link href="/contact" className="inline-flex items-center gap-2 text-white font-bold hover:gap-4 transition-all">
             Book a call to discuss your frontend <ArrowRight className="w-5 h-5 text-primary-soft" />
           </Link>

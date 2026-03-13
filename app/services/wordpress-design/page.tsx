@@ -75,8 +75,60 @@ export default function WordPressDesignPage() {
         </div>
       </section>
 
+      {/* Key Activities Section */}
+      <section className="py-20 px-6 max-w-full mx-auto">
+        <div className="mb-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Key Activities of Nexiqo&apos;s WordPress Service
+          </h2>
+          <p className="text-white/80 text-lg">
+            The concrete work we do to turn WordPress into a real business asset.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          {[
+            {
+              title: "Theme & Design System Setup",
+              desc: "We translate your brand into a modular design system and custom theme that stays consistent as content grows."
+            },
+            {
+              title: "Content Architecture & Fields",
+              desc: "We configure custom post types, taxonomies, and fields so your content team can manage complex layouts without touching code."
+            },
+            {
+              title: "E‑commerce & Conversion Paths",
+              desc: "We wire WooCommerce flows, checkout logic, and lead capture forms to align with your sales process."
+            },
+            {
+              title: "Ongoing Updates & Hardening",
+              desc: "We keep core, themes, and plugins updated while maintaining performance, security, and compatibility."
+            }
+          ].map((activity, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="flex gap-6 p-8 rounded-3xl border border-gray-100/70 bg-white/5 hover:bg-white/10 transition-colors group"
+            >
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary-soft/60 flex items-center justify-center font-semibold text-foreground text-xs">
+                0{i + 1}
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-white mb-1 group-hover:text-primary-soft">
+                  {activity.title}
+                </h3>
+                <p className="text-white/80 text-sm leading-relaxed">{activity.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
       {/* Benefits Section */}
-      <section className="py-24 px-6 max-w-full mx-auto relative">
+      <section className="py-20 px-6 max-w-full mx-auto relative">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
             Benefits of Custom WordPress with Nexiqo
@@ -118,7 +170,7 @@ export default function WordPressDesignPage() {
       </section>
 
       {/* Lifecycle Section */}
-      <section className="py-24  px-6 relative overflow-hidden">
+      <section className="py-4  px-6 relative overflow-hidden">
         <div className="max-w-full mx-auto px-6">
           <div className="text-center mb-20">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
@@ -158,7 +210,7 @@ export default function WordPressDesignPage() {
       </section>
 
       {/* Banner CTA */}
-      <section className="py-24 px-6 max-w-full mx-auto text-center">
+      <section className="py-4 px-6 max-w-full mx-auto text-center">
         <div className="relative bg-transparent rounded-[3rem] p-12 md:p-20 overflow-hidden group">
           <div className="relative z-10">
             <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-8 tracking-tight">
@@ -176,56 +228,9 @@ export default function WordPressDesignPage() {
         </div>
       </section>
 
-      {/* Key Activities Section */}
-      <section className="py-24 px-6 max-w-full mx-auto">
-        <div className="mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Key Activities of Nexiqo&apos;s WordPress Service
-          </h2>
-          <p className="text-white/80 text-lg">
-            Professional development that goes beyond standard templates.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-6">
-          {[
-            {
-              title: "Custom Theme Engineering",
-              desc: "We develop unique, lightweight themes that follow WordPress coding standards for maximum performance and security."
-            },
-            {
-              title: "Advanced Plugin Strategy",
-              desc: "We select and customize the right tools for your needs, ensuring compatibility and avoiding the pitfalls of 'plugin bloat'."
-            },
-            {
-              title: "WooCommerce & Shop Setup",
-              desc: "We build powerful e-commerce experiences with deep WooCommerce customization to drive conversions and sales."
-            },
-            {
-              title: "Hardened Security & Speed",
-              desc: "Every site we launch includes multi-layered security and advanced caching to protect your data and delight your users."
-            }
-          ].map((activity, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="flex gap-6 p-8 rounded-3xl border border-gray-100 hover:bg-gray-50 transition-colors group"
-            >
-              <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary-soft/50 flex items-center justify-center font-bold text-white group-hover:text-foreground">
-                0{i + 1}
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-foreground">{activity.title}</h3>
-                <p className="text-white/80 text-sm leading-relaxed group-hover:text-foreground">{activity.desc}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        <div className="mt-20 text-center">
+      {/* CTA: Talk About Your WordPress */}
+      <section className="py-4 px-6 max-w-full mx-auto text-center">
+        <div className="mt-6">
           <Link href="/contact" className="inline-flex items-center gap-2 text-white font-bold hover:gap-4 transition-all">
             Book a call to discuss your project <ArrowRight className="w-5 h-5 text-primary-soft" />
           </Link>

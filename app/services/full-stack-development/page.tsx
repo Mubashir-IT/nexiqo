@@ -76,8 +76,60 @@ export default function FullStackDevelopmentPage() {
         </div>
       </section>
 
+      {/* Key Activities Section */}
+      <section className="py-20 px-6 max-w-full mx-auto">
+        <div className="mb-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Key Activities of Nexiqo&apos;s Full Stack Service
+          </h2>
+          <p className="text-white/80 text-lg max-w-2xl mx-auto">
+            A clear, end-to-end workflow from discovery to deployment.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          {[
+            {
+              title: "System Discovery & Architecture",
+              desc: "We map user journeys, define data flows, and choose the right stack so frontend, backend, and infrastructure work as one system."
+            },
+            {
+              title: "Interface & API Design",
+              desc: "We translate requirements into reusable UI components and well-structured APIs that keep your product easy to extend."
+            },
+            {
+              title: "Implementation & Integration",
+              desc: "We build, connect, and integrate services, third‑party tools, and internal systems with clean, tested code."
+            },
+            {
+              title: "Validation & Optimization",
+              desc: "We ship with automated checks, performance tuning, and monitoring so your stack stays fast, stable, and ready to scale."
+            }
+          ].map((activity, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="flex gap-6 p-8 rounded-3xl border border-gray-100/70 bg-white/5 hover:bg-white/10 transition-colors group"
+            >
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary-soft/60 flex items-center justify-center font-semibold text-foreground text-xs">
+                0{i + 1}
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-white mb-1 group-hover:text-primary-soft">
+                  {activity.title}
+                </h3>
+                <p className="text-white/80 text-sm leading-relaxed">{activity.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
       {/* Benefits Section */}
-      <section className="py-24 px-6 max-w-full mx-auto relative">
+      <section className="py-20 px-6 max-w-full mx-auto relative">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
             Benefits of Full Stack with Nexiqo
@@ -119,7 +171,7 @@ export default function FullStackDevelopmentPage() {
       </section>
 
       {/* Lifecycle Section (Perceive, Reason, Act, Learn) */}
-      <section className="py-24  px-6 relative overflow-hidden">
+      <section className="py-4  px-6 relative overflow-hidden">
         <div className="max-w-full mx-auto px-6">
           <div className="text-center mb-20">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
@@ -160,7 +212,7 @@ export default function FullStackDevelopmentPage() {
       </section>
 
       {/* Banner CTA */}
-      <section className="py-24 px-6 max-w-full mx-auto text-center">
+      <section className="py-4 px-6 max-w-full mx-auto text-center">
         <div className="relative bg-transparent rounded-[3rem] p-12 md:p-20 overflow-hidden group">
           <div className="relative z-10">
             <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-8 tracking-tight">
@@ -178,56 +230,9 @@ export default function FullStackDevelopmentPage() {
         </div>
       </section>
 
-      {/* Key Activities Section */}
-      <section className="py-24 px-6 max-w-full mx-auto">
-        <div className="mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Key Activities of Nexiqo&apos;s Full Stack Service
-          </h2>
-          <p className="text-white/80 text-lg">
-            We manage the technical complexities so you can focus on growth.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-6">
-          {[
-            {
-              title: "System Integration & Discovery",
-              desc: "We start by integrating your business data into the discovery phase. We clean, organize, and prepare the technical foundation for your application."
-            },
-            {
-              title: "Architectural Optimization",
-              desc: "We test multiple stack configurations and data models to find the optimal path for reliability and performance."
-            },
-            {
-              title: "Seamless Implementation",
-              desc: "Once planned, we connect the model to real-world applications. We ensure your frontend and backend work in perfect harmony."
-            },
-            {
-              title: "Continuous Monitoring",
-              desc: "We monitor performance and error rates post-launch, ensuring your systems remain modern, secure, and highly functional."
-            }
-          ].map((activity, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="flex gap-6 p-8 rounded-3xl border border-gray-100 hover:bg-gray-50 transition-colors group"
-            >
-              <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary-soft/50 flex items-center justify-center font-bold text-white group-hover:text-foreground">
-                0{i + 1}
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-foreground">{activity.title}</h3>
-                <p className="text-white/80 text-sm leading-relaxed group-hover:text-foreground">{activity.desc}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        <div className="mt-20 text-center">
+      {/* CTA: Talk About Your Stack */}
+      <section className="py-4 px-6 max-w-full mx-auto text-center">
+        <div className="mt-6">
           <Link href="/contact" className="inline-flex items-center gap-2 text-white font-bold hover:gap-4 transition-all">
             Book a call to discuss your solution <ArrowRight className="w-5 h-5 text-primary-soft" />
           </Link>

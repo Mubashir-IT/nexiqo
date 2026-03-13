@@ -39,28 +39,31 @@ export function Footer() {
             {/* Social Links */}
             <div className="flex gap-4">
               <a
-                href="#"
+                href="https://www.linkedin.com/company/nexiqo-digital"
                 className="w-10 h-10 rounded-full bg-white/10 hover:bg-primary-soft hover:text-foreground flex items-center justify-center transition-colors"
                 aria-label="LinkedIn"
+                target="_blank"
               >
                 <Linkedin size={18} />
               </a>
               <a
-                href="#"
+                href="https://x.com/Nexiqo_digital"
                 className="w-10 h-10 rounded-full bg-white/10 hover:bg-primary-soft hover:text-foreground flex items-center justify-center transition-colors"
                 aria-label="Twitter"
+                target="_blank"
               >
                 <Twitter size={18} />
               </a>
               <a
-                href="#"
+                href="https://www.facebook.com/profile.php?id=61585476089125"
                 className="w-10 h-10 rounded-full bg-white/10 hover:bg-primary-soft hover:text-foreground flex items-center justify-center transition-colors"
                 aria-label="Facebook"
+                target="_blank"
               >
                 <Facebook size={18} />
               </a>
               <a
-                href="https://www.instagram.com/nexiqo_official/"
+                href="https://www.instagram.com/nexiqo_digital/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 hover:bg-primary-soft hover:text-foreground flex items-center justify-center transition-colors"
@@ -161,18 +164,25 @@ export function Footer() {
                   info@nexiqo.co
                 </a>
               </li>
-              {/* <li className="flex items-start gap-3">
+              <li className="flex items-start gap-3">
                 <Phone size={18} className="text-primary-soft mt-0.5 shrink-0" />
-                <a href="tel:+441234567890" className="text-white/70 hover:text-primary-soft transition-colors text-sm">
-                  +44 123 456 7890
+                <a href="tel:+923029090126" className="text-white/70 hover:text-primary-soft transition-colors text-sm">
+                +923029090126
                 </a>
-              </li> */}
+              </li>
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-primary-soft mt-0.5 shrink-0" />
                 <span className="text-white/70 text-sm">
-                  London, United Kingdom
+                  Islamabad, Pakistan
                 </span>
               </li>
+              {/* <li className="flex items-start gap-3">
+                <MapPin size={18} className="text-primary-soft mt-0.5 shrink-0" />
+                <span className="text-white/70 text-sm">
+                Office 403, 4th Floor, 18 Soho Square
+London, W1D 3QL, United Kingdom
+                </span>
+              </li> */}
             </ul>
           </motion.div>
         </div>

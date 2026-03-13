@@ -288,30 +288,32 @@ export default function Home() {
           </h2>
           <Link href="/about">
             <Button variant="link" className="text-white text-lg font-medium hidden md:flex items-center gap-2">
-              See all members <ArrowRight size={20} />
+              View About <ArrowRight size={20} />
             </Button>
           </Link>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="max-w-8xl mx-auto grid grid-cols-2 lg:grid-cols-3 gap-4">
           {teamMembers.map((member, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: 0.1 + i * 0.08 }}
-              className="group relative overflow-hidden rounded-3xl aspect-[4/5]"
+              className="group flex flex-row overflow-hidden rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors"
             >
-              <img
-                src={member.img}
-                alt={member.name}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
-              />
-                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-transparent to-transparent opacity-100" />
-              <div className="absolute bottom-0 left-0 p-8 w-full">
-                <h3 className="text-2xl font-bold text-white mb-1">{member.name}</h3>
-                <p className="text-primary-soft font-medium">{member.role}</p>
+              <div className="flex-shrink-0 w-40 h-40 sm:w-44 sm:h-44 md:w-48 md:h-48 overflow-hidden rounded-l-2xl">
+                <img
+                  src={member.img}
+                  alt={member.name}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 grayscale group-hover:grayscale-0"
+                />
+              </div>
+              <div className="flex flex-col justify-center py-2 pr-3 pl-2 min-w-0 flex-1">
+                <h3 className="text-sm sm:text-base font-bold text-white mb-0.5 leading-tight">{member.name}</h3>
+                <p className="text-primary-soft font-medium text-xs">{member.role}</p>
+                <p className="text-white/60 text-xs leading-snug line-clamp-4 mt-0.5">{member.bio}</p>
               </div>
             </motion.div>
           ))}
