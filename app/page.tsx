@@ -293,7 +293,7 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="max-w-8xl mx-auto grid grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="max-w-8xl mx-auto justify-center items-center flex flex-cols-2 lg:flex-cols-3 gap-4">
           {teamMembers.map((member, i) => (
             <motion.div
               key={i}

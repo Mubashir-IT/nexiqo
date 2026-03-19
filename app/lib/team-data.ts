@@ -5,12 +5,12 @@ export const teamMembers = [
     bio: "Drives organic growth through data-driven SEO: keyword research, technical audits, and content strategy. Focused on sustainable rankings and measurable results for clients.",
     img: "/images/developer-3.png"
   },
-  {
-    name: "Mubashir Ali Hassan",
-    role: "Full Stack Developer",
-    bio: "Full stack developer focused on building complete web solutions—from UI and client experience to APIs and data layer. Delivers integrated, production-ready applications that perform at scale.",
-    img: "/images/developer-1.jpg"
-  },
+  // {
+  //   name: "Mubashir Ali Hassan",
+  //   role: "Full Stack Developer",
+  //   bio: "Full stack developer focused on building complete web solutions—from UI and client experience to APIs and data layer. Delivers integrated, production-ready applications that perform at scale.",
+  //   img: "/images/developer-1.jpg"
+  // },
   {
     name: "Shahzad Ali",
     role: "Full Stack Developer",
