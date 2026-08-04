@@ -36,7 +36,7 @@ export function Navbar() {
       onMouseLeave={() => setActiveMenu(null)}
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4",
-        isScrolled ? "bg-black/50 backdrop-blur-md border-b border-white/5" : "bg-transparent",
+        isScrolled ? "bg-transparent" : "bg-transparent",
       )}
     >
       <div className="max-w-[1400px] mx-auto px-6 flex items-center justify-between relative z-50">
@@ -335,9 +335,9 @@ export function Navbar() {
                   exit={{ opacity: 0, height: 0 }}
                   className="mt-2 space-y-3 pl-4"
                 >
-                  <Link href="/technologies/wordpress" className="block text-base text-white/80 hover:text-primary-soft py-1" onClick={closeAll}>
+                  {/* <Link href="/technologies/wordpress" className="block text-base text-white/80 hover:text-primary-soft py-1" onClick={closeAll}>
                     WordPress
-                  </Link>
+                  </Link> */}
                   <Link href="/technologies/react-nextjs" className="block text-base text-white/80 hover:text-primary-soft py-1" onClick={closeAll}>
                     React & Next.js
                   </Link>
@@ -347,12 +347,12 @@ export function Navbar() {
                   <Link href="/technologies/typescript" className="block text-base text-white/80 hover:text-primary-soft py-1" onClick={closeAll}>
                     TypeScript
                   </Link>
-                  <Link href="/technologies/seo-tools" className="block text-base text-white/80 hover:text-primary-soft py-1" onClick={closeAll}>
+                  {/* <Link href="/technologies/seo-tools" className="block text-base text-white/80 hover:text-primary-soft py-1" onClick={closeAll}>
                     SEO Tools
                   </Link>
                   <Link href="/technologies/security-performance" className="block text-base text-white/80 hover:text-primary-soft py-1" onClick={closeAll}>
                     Security & Performance
-                  </Link>
+                  </Link> */}
                 </motion.div>
               )}
             </div>

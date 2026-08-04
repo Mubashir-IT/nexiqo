@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar, ArrowDown, ArrowUpRight, PenTool, Smartphone, FileText, MessageCircle, Award, Star } from "lucide-react";
@@ -19,19 +20,67 @@ const ProjectsCarousel = dynamic(() => import("@/components/sections/projects-ca
 
 
 export default function Home() {
+  const heroText = "Building Digital Architectures";
+  const [typedHeroText, setTypedHeroText] = useState("");
+  const [isResetting, setIsResetting] = useState(false);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    const TYPE_SPEED = 55;
+    const PAUSE_AFTER_COMPLETE = 3600;
+    const FADE_OUT_DURATION = 300;
+    let charIndex = 0;
+    let disposed = false;
+    const schedule = (fn: () => void, delay: number) => {
+      timeoutRef.current = setTimeout(fn, delay);
+    };
+
+    const startTypingLoop = () => {
+      if (disposed) return;
+
+      if (charIndex <= heroText.length) {
+        setTypedHeroText(heroText.slice(0, charIndex));
+        charIndex += 1;
+        schedule(startTypingLoop, TYPE_SPEED);
+        return;
+      }
+
+      schedule(() => {
+        if (disposed) return;
+        setIsResetting(true);
+
+        schedule(() => {
+          if (disposed) return;
+          charIndex = 0;
+          setTypedHeroText("");
+          setIsResetting(false);
+          schedule(startTypingLoop, 120);
+        }, FADE_OUT_DURATION);
+      }, PAUSE_AFTER_COMPLETE);
+    };
+
+    startTypingLoop();
+
+    return () => {
+      disposed = true;
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
-    <div className="min-h-screen bg-transparent font-sans selection:bg-primary-soft selection:text-foreground">
+    <div className="min-h-[90vh] md:min-h-screen overflow-hidden bg-transparent font-sans selection:bg-primary-soft selection:text-foreground">
       {/* Hero Section */}
       <section className="relative min-h-screen bg-transparent text-white pt-32 pb-10 px-0 overflow-hidden flex flex-col justify-center">
         <div className="relative z-10 max-w-5xl mx-auto flex flex-col gap-8 px-6 md:px-10 lg:px-0 md:pr-[260px] text-center md:text-left items-center md:items-start md:-left-[100px]">
           {/* Tags */}
           <div
-            className="flex flex-wrap justify-center md:justify-start gap-3 mb-4"
+            className="flex flex-wrap justify-center md:justify-start gap-2 mb-4"
             style={{ animation: "heroFadeUp 0.4s ease both" }}
           >
             {["Perceptive Design", "Reasoned Architecture", "Precise Development", "Iterative Learning", "SEO Strategy"].map((tag) => (
-              <span key={tag} className="px-2 md:px-4 py-1.5 text-center rounded-full border border-primary-soft/30 text-[10px] uppercase tracking-widest text-primary-soft bg-primary-soft/5 backdrop-blur-md">
+              <span key={tag} className="px-2 md:px-3 py-1.5 text-center rounded-full border border-primary-soft/30 text-[10px] uppercase tracking-widest text-primary-soft bg-primary-soft/5 backdrop-blur-md">
                 {tag}
               </span>
             ))}
@@ -39,10 +88,20 @@ export default function Home() {
 
           <h1
             style={{ animation: "heroFadeUp 0.45s 0.05s ease both" }}
-            className="text-4xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9] md:leading-[0.85] text-balance uppercase"
+            className="w-full max-w-[12ch] text-4xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.95] md:leading-[0.9] uppercase"
           >
-            Building <span className="text-primary-soft">Digital</span> <br />
-            Architectures
+            <span className="relative inline-block w-full whitespace-pre-wrap wrap-break-word">
+              <span aria-hidden="true" className="invisible">
+                {heroText}
+              </span>
+              <span className={`absolute inset-0 transition-opacity duration-300 ${isResetting ? "opacity-0" : "opacity-100"}`}>
+                {typedHeroText}
+                <span
+                  aria-hidden="true"
+                  className="ml-2 inline-block h-[0.82em] w-[0.04em] rounded-full bg-slate-600 animate-pulse align-[-0.06em]"
+                />
+              </span>
+            </span>
           </h1>
 
           <p
@@ -324,7 +383,7 @@ export default function Home() {
       <TestimonialSlider />
 
       {/* Recent Projects Section */}
-      <ProjectsCarousel />
+      {/* <ProjectsCarousel /> */}
 
       {/* Footer CTA */}
       <motion.section

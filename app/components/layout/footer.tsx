@@ -173,7 +173,7 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-primary-soft mt-0.5 shrink-0" />
                 <span className="text-white/70 text-sm">
-                  Islamabad, Pakistan
+                  Multan, Pakistan
                 </span>
               </li>
               {/* <li className="flex items-start gap-3">
