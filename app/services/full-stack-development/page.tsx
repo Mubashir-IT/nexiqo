@@ -47,28 +47,31 @@ const lifecycleStages = [
 
 export default function FullStackDevelopmentPage() {
   return (
-    <div className="min-h-screen bg-transparent font-sans">
+    <div className="min-h-screen bg-white font-sans">
       {/* Hero Section */}
-      <section className="relative min-h-[50vh] bg-transparent text-white pt-32 pb-20 px-6 overflow-hidden flex flex-col justify-center items-center z-10">
+      <section className="relative min-h-[50vh] pt-32 pb-20 px-6 overflow-hidden flex flex-col justify-center items-center z-10">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-20 right-0 w-[40vw] h-[40vw] rounded-full bg-primary/10 blur-[100px]" />
+        </div>
         <div className="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center gap-4">
           <div style={{ animation: "heroFadeUp 0.4s ease both" }}
             className="flex items-center justify-center gap-2 mb-6"
           >
-            <Code2 className="w-5 h-5 text-primary-soft" />
-            <span className="px-4 py-2 rounded-full border border-white/10 text-sm text-white/60 bg-white/5 backdrop-blur-sm">
+            <Code2 className="w-5 h-5 text-primary" />
+            <span className="px-4 py-2 rounded-full border border-foreground/10 text-sm text-foreground/60 bg-white shadow-sm">
               Full Stack Development
             </span>
           </div>
 
           <h1 style={{ animation: "heroFadeUp 0.45s 0.05s ease both" }}
-            className="text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] md:leading-[1.05]"
+            className="text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] md:leading-[1.05] text-foreground"
           >
             Intelligent full stack <br className="hidden md:block" />
-            <span className="text-primary-soft">solutions built to scale</span>
+            <span className="text-primary">solutions built to scale</span>
           </h1>
 
           <p style={{ animation: "heroFadeUp 0.45s 0.1s ease both" }}
-            className="max-w-2xl text-base md:text-lg text-white/70 leading-relaxed mt-6"
+            className="max-w-2xl text-base md:text-lg text-muted-foreground leading-relaxed mt-6"
           >
             We handle the entire journey of your digital product, from requirement discovery
             to complex backend architecture and high-performance frontend implementation.
@@ -79,10 +82,10 @@ export default function FullStackDevelopmentPage() {
       {/* Key Activities Section */}
       <section className="py-20 px-6 max-w-full mx-auto">
         <div className="mb-12 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Key Activities of Nexiqo&apos;s Full Stack Service
           </h2>
-          <p className="text-white/80 text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             A clear, end-to-end workflow from discovery to deployment.
           </p>
         </div>
@@ -112,16 +115,16 @@ export default function FullStackDevelopmentPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="flex gap-6 p-8 rounded-3xl border border-gray-100/70 bg-white/5 hover:bg-white/10 transition-colors group"
+              className="flex gap-6 p-8 rounded-3xl border border-foreground/10 bg-white hover:border-primary/20 transition-colors group"
             >
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary-soft/60 flex items-center justify-center font-semibold text-foreground text-xs">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center font-semibold text-primary text-xs">
                 0{i + 1}
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-white mb-1 group-hover:text-primary-soft">
+                <h3 className="text-lg font-semibold text-foreground mb-1 group-hover:text-primary">
                   {activity.title}
                 </h3>
-                <p className="text-white/80 text-sm leading-relaxed">{activity.desc}</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">{activity.desc}</p>
               </div>
             </motion.div>
           ))}
@@ -131,10 +134,10 @@ export default function FullStackDevelopmentPage() {
       {/* Benefits Section */}
       <section className="py-20 px-6 max-w-full mx-auto relative">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
             Benefits of Full Stack with Nexiqo
           </h2>
-          <p className="text-white/80 text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Experience the advantage of a unified development process that bridges the gap between vision and reality.
           </p>
         </div>
@@ -162,7 +165,7 @@ export default function FullStackDevelopmentPage() {
               transition={{ delay: i * 0.1 }}
               className="bg-card rounded-[2rem] p-10 border border-gray-100 hover:shadow-xl transition-all duration-300 group"
             >
-              <CheckCircle2 className="w-10 h-10 text-primary-soft mb-6 group-hover:scale-110 transition-transform" />
+              <CheckCircle2 className="w-10 h-10 text-primary mb-6 group-hover:scale-110 transition-transform" />
               <h3 className="text-xl font-bold text-foreground mb-4">{benefit.title}</h3>
               <p className="text-muted-foreground leading-relaxed">{benefit.desc}</p>
             </motion.div>
@@ -174,10 +177,10 @@ export default function FullStackDevelopmentPage() {
       <section className="py-4  px-6 relative overflow-hidden">
         <div className="max-w-full mx-auto px-6">
           <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-              Nexiqo's Intelligent Lifecycle
+            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
+              Nexiqo&apos;s Intelligent Lifecycle
             </h2>
-            <p className="text-white/80 text-lg max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               From initial discovery to continuous evolution, we follow a structured path to ensure project success.
             </p>
           </div>
@@ -213,16 +216,16 @@ export default function FullStackDevelopmentPage() {
 
       {/* Banner CTA */}
       <section className="py-4 px-6 max-w-full mx-auto text-center">
-        <div className="relative bg-transparent rounded-[3rem] p-12 md:p-20 overflow-hidden group">
+        <div className="rounded-[2.5rem] bg-foreground text-white p-10 md:p-16 relative overflow-hidden">
           <div className="relative z-10">
-            <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-8 tracking-tight">
+            <h2 className="text-4xl md:text-6xl font-extrabold mb-8 tracking-tight">
               Ready to revolutionize <br /> with Nexiqo?
             </h2>
             <p className="text-white/60 mb-12 text-lg max-w-2xl mx-auto">
               Let&apos;s turn your data and ideas into a smart, scalable full stack solution.
             </p>
             <Link href="/contact">
-              <Button className="h-16 px-10 rounded-full bg-primary-soft text-foreground hover:bg-primary-hover text-xl font-bold shadow-2xl hover:scale-105 transition-all">
+              <Button className="h-16 px-10 rounded-full bg-primary text-white hover:bg-primary/90 text-xl font-bold shadow-2xl hover:scale-105 transition-all">
                 Let&apos;s Make It Happen!
               </Button>
             </Link>
@@ -233,12 +236,11 @@ export default function FullStackDevelopmentPage() {
       {/* CTA: Talk About Your Stack */}
       <section className="py-4 px-6 max-w-full mx-auto text-center">
         <div className="mt-6">
-          <Link href="/contact" className="inline-flex items-center gap-2 text-white font-bold hover:gap-4 transition-all">
-            Book a call to discuss your solution <ArrowRight className="w-5 h-5 text-primary-soft" />
+          <Link href="/contact" className="inline-flex items-center gap-2 text-foreground font-bold hover:gap-4 transition-all">
+            Book a call to discuss your solution <ArrowRight className="w-5 h-5 text-primary" />
           </Link>
         </div>
       </section>
     </div>
   );
 }
-

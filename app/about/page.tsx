@@ -74,17 +74,17 @@ export default function AboutPage() {
 
             <div>
               <h3 className="text-xl font-semibold text-white mb-4">
-                WordPress Development & Design
+                AI Agent Development
               </h3>
               <p className="mb-4">
-                We build powerful, flexible WordPress websites with:
+                We build autonomous AI agents that plan, reason, and execute — with:
               </p>
               <ul className="list-disc list-inside space-y-2 ml-2">
-                <li>Custom theme development</li>
-                <li>Plugin development & customization</li>
-                <li>WooCommerce integration</li>
-                <li>Performance optimization</li>
-                <li>Security hardening</li>
+                <li>Custom single-task & multi-agent systems</li>
+                <li>Tool & API integrations (CRM, ERP, internal systems)</li>
+                <li>RAG & knowledge-grounded agents</li>
+                <li>Evaluation, observability & governance</li>
+                <li>Human-in-the-loop controls</li>
               </ul>
             </div>
 
@@ -200,13 +200,13 @@ export default function AboutPage() {
                 <FileCode className="w-6 h-6 text-foreground" />
               </div>
               <h3 className="text-2xl font-bold text-foreground mb-4">
-                WordPress Design
+                AI Agents
               </h3>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                We create custom WordPress websites with beautiful designs and powerful functionality. Our WordPress services include custom theme development, plugin creation, and WooCommerce integration.
+                We build autonomous AI agents that plan, reason, and execute multi-step work — connecting to your tools and APIs across support, sales, research, and operations.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                We build WordPress sites that are fast, secure, SEO-friendly, and easy to manage. From custom themes to plugin development, we deliver professional WordPress solutions.
+                From single-purpose agents to multi-agent systems, we deliver production-ready solutions with evaluation, observability, and governance built in.
               </p>
             </div>
 

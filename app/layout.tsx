@@ -22,18 +22,18 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Nexiqo - Full Stack Website Development & WordPress Design",
-  description: "Full stack developers specializing in website creation and development. We build custom websites from frontend to backend, create WordPress solutions, and provide comprehensive SEO services.",
-  keywords: ["full stack development", "website development", "WordPress design", "SEO services", "frontend development", "backend development", "custom websites"],
+  title: "Nexiqo - Full Stack Development, AI Agents & SEO",
+  description: "Full stack developers specializing in website creation, AI agent development, and SEO. We build custom websites, autonomous AI agents that plan and execute, and drive measurable growth.",
+  keywords: ["full stack development", "website development", "AI agents", "AI agent development", "SEO services", "frontend development", "backend development", "custom websites"],
   openGraph: {
-    title: "Nexiqo - Full Stack Website Development & WordPress Design",
-    description: "Full stack developers specializing in website creation and development. We build custom websites from frontend to backend, create WordPress solutions, and provide comprehensive SEO services.",
+    title: "Nexiqo - Full Stack Development, AI Agents & SEO",
+    description: "Full stack developers specializing in website creation, AI agent development, and SEO. We build custom websites, autonomous AI agents that plan and execute, and drive measurable growth.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nexiqo - Full Stack Website Development & WordPress Design",
-    description: "Full stack developers specializing in website creation and development. We build custom websites from frontend to backend, create WordPress solutions, and provide comprehensive SEO services.",
+    title: "Nexiqo - Full Stack Development, AI Agents & SEO",
+    description: "Full stack developers specializing in website creation, AI agent development, and SEO. We build custom websites, autonomous AI agents that plan and execute, and drive measurable growth.",
   },
   icons: {
     icon: "/images/favicon.png",
@@ -52,7 +52,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${plusJakartaSans.variable} ${poppins.variable} font-sans min-h-screen`} suppressHydrationWarning>
+      <body className={`${plusJakartaSans.variable} ${poppins.variable} font-sans min-h-screen bg-white text-foreground`} suppressHydrationWarning>
         <Providers>
           <BackgroundWithLoader>
             <Suspense fallback={null}>
