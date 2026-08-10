@@ -46,31 +46,28 @@ const lifecycleStages = [
 
 export default function FrontendDevelopmentPage() {
   return (
-    <div className="min-h-screen bg-white font-sans">
+    <div className="min-h-screen bg-transparent font-sans">
       {/* Hero Section */}
-      <section className="relative min-h-[50vh] pt-32 pb-20 px-6 overflow-hidden flex flex-col justify-center items-center z-10">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -top-20 right-0 w-[40vw] h-[40vw] rounded-full bg-primary/10 blur-[100px]" />
-        </div>
+      <section className="relative min-h-[50vh] bg-transparent text-white pt-32 pb-20 px-6 overflow-hidden flex flex-col justify-center items-center z-10">
         <div className="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center gap-4">
           <div style={{ animation: "heroFadeUp 0.4s ease both" }}
             className="flex items-center justify-center gap-2 mb-6"
           >
-            <Smartphone className="w-5 h-5 text-primary" />
-            <span className="px-4 py-2 rounded-full border border-foreground/10 text-sm text-foreground/60 bg-white shadow-sm">
+            <Smartphone className="w-5 h-5 text-primary-soft" />
+            <span className="px-4 py-2 rounded-full border border-white/10 text-sm text-white/60 bg-white/5 backdrop-blur-sm">
               Frontend Development
             </span>
           </div>
 
           <h1 style={{ animation: "heroFadeUp 0.45s 0.05s ease both" }}
-            className="text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] md:leading-[1.05] text-foreground"
+            className="text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] md:leading-[1.05]"
           >
             Responsive interfaces <br className="hidden md:block" />
-            <span className="text-primary">built for users</span>
+            <span className="text-primary-soft">built for users</span>
           </h1>
 
           <p style={{ animation: "heroFadeUp 0.45s 0.1s ease both" }}
-            className="max-w-2xl text-base md:text-lg text-muted-foreground leading-relaxed mt-6"
+            className="max-w-2xl text-base md:text-lg text-white/70 leading-relaxed mt-6"
           >
             We build high-performance, pixel-perfect user interfaces that combine
             strategic UX reasoning with modern React and Next.js technology.
@@ -81,10 +78,10 @@ export default function FrontendDevelopmentPage() {
       {/* Key Activities Section */}
       <section className="py-20 px-6 max-w-full mx-auto">
         <div className="mb-12 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Key Activities of Nexiqo&apos;s Frontend Service
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-white/80 text-lg">
             Day‑to‑day UI engineering work that turns designs into fast, reliable interfaces.
           </p>
         </div>
@@ -114,16 +111,16 @@ export default function FrontendDevelopmentPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="flex gap-6 p-8 rounded-3xl border border-foreground/10 bg-white hover:border-primary/20 transition-colors group"
+              className="flex gap-6 p-8 rounded-3xl border border-gray-100/70 bg-white/5 hover:bg-white/10 transition-colors group"
             >
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center font-semibold text-primary text-xs">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary-soft/60 flex items-center justify-center font-semibold text-foreground text-xs">
                 0{i + 1}
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-foreground mb-1 group-hover:text-primary">
+                <h3 className="text-lg font-semibold text-white mb-1 group-hover:text-primary-soft">
                   {activity.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{activity.desc}</p>
+                <p className="text-white/80 text-sm leading-relaxed">{activity.desc}</p>
               </div>
             </motion.div>
           ))}
@@ -133,10 +130,10 @@ export default function FrontendDevelopmentPage() {
       {/* Benefits Section */}
       <section className="py-20 px-6 max-w-full mx-auto relative">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
             Benefits of Frontend with Nexiqo
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-white/80 text-lg max-w-2xl mx-auto">
             Experience the synergy of high-speed performance and stunning visual design.
           </p>
         </div>
@@ -164,7 +161,7 @@ export default function FrontendDevelopmentPage() {
               transition={{ delay: i * 0.1 }}
               className="bg-card rounded-[2rem] p-10 border border-gray-100 hover:shadow-xl transition-all duration-300 group"
             >
-              <CheckCircle2 className="w-10 h-10 text-primary mb-6 group-hover:scale-110 transition-transform" />
+              <CheckCircle2 className="w-10 h-10 text-primary-soft mb-6 group-hover:scale-110 transition-transform" />
               <h3 className="text-xl font-bold text-foreground mb-4">{benefit.title}</h3>
               <p className="text-muted-foreground leading-relaxed">{benefit.desc}</p>
             </motion.div>
@@ -176,10 +173,10 @@ export default function FrontendDevelopmentPage() {
       <section className="py-4  px-6 relative overflow-hidden">
         <div className="max-w-full mx-auto px-6">
           <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
               Our Frontend Lifecycle
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-white/80 text-lg max-w-2xl mx-auto">
               A systematic approach to crafting interactive and engaging digital experiences.
             </p>
           </div>
@@ -214,16 +211,16 @@ export default function FrontendDevelopmentPage() {
 
       {/* Banner CTA */}
       <section className="py-4 px-6 max-w-full mx-auto text-center">
-        <div className="rounded-[2.5rem] bg-foreground text-white p-10 md:p-16 relative overflow-hidden">
+        <div className="relative bg-transparent rounded-[3rem] p-12 md:p-20 overflow-hidden group">
           <div className="relative z-10">
-            <h2 className="text-4xl md:text-6xl font-extrabold mb-8 tracking-tight">
+            <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-8 tracking-tight">
               Ready to elevate your <br /> user interface?
             </h2>
             <p className="text-white/60 mb-12 text-lg max-w-2xl mx-auto">
               Let&apos;s build a modern, high-converting frontend that delights your users and drives your business forward.
             </p>
             <Link href="/contact">
-              <Button className="h-16 px-10 rounded-full bg-primary text-white hover:bg-primary/90 text-xl font-bold shadow-2xl hover:scale-105 transition-all">
+              <Button className="h-16 px-10 rounded-full bg-primary-soft text-foreground hover:bg-primary-hover text-xl font-bold shadow-2xl hover:scale-105 transition-all">
                 Let&apos;s Get Started!
               </Button>
             </Link>
@@ -234,11 +231,12 @@ export default function FrontendDevelopmentPage() {
       {/* CTA: Talk About Your Frontend */}
       <section className="py-4 px-6 max-w-full mx-auto text-center">
         <div className="mt-6">
-          <Link href="/contact" className="inline-flex items-center gap-2 text-foreground font-bold hover:gap-4 transition-all">
-            Book a call to discuss your frontend <ArrowRight className="w-5 h-5 text-primary" />
+          <Link href="/contact" className="inline-flex items-center gap-2 text-white font-bold hover:gap-4 transition-all">
+            Book a call to discuss your frontend <ArrowRight className="w-5 h-5 text-primary-soft" />
           </Link>
         </div>
       </section>
     </div>
   );
 }
+

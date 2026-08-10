@@ -1,6 +1,6 @@
 "use client";
 
-import { Search, Users, GitBranch, Layout, Palette, Code, Settings, Globe, Bot } from "lucide-react";
+import { Search, Users, GitBranch, Layout, Palette, Code, Settings, Globe, FileCode } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
@@ -86,7 +86,7 @@ const processSteps = [
     content: {
       title: "Frontend Development",
       description: "We build the frontend of your website using modern technologies. This includes creating responsive layouts, interactive components, and ensuring everything looks and works perfectly.",
-      additional: "We use frameworks like React, Next.js, or Vue to build fast, interactive user interfaces. We provide excellent user experiences across all platforms.",
+      additional: "We use frameworks like React, Next.js, or Vue to build fast, interactive user interfaces. For WordPress projects, we create custom themes and templates. We provide excellent user experiences across all platforms.",
       details: [
         "We develop responsive frontend components that work seamlessly across all devices and screen sizes.",
         "We implement interactive features, animations, and user interface elements that enhance the user experience.",
@@ -115,22 +115,22 @@ const processSteps = [
     }
   },
   {
-    id: "ai-agents",
-    label: "AI Agents",
-    icon: Bot,
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=800&fit=crop",
+    id: "wordpress",
+    label: "WordPress",
+    icon: FileCode,
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&h=800&fit=crop",
     content: {
-      title: "AI Agent Development",
-      description: "We build autonomous AI agents that plan, reason, and execute — going beyond chatbots to complete multi-step work across your tools and systems.",
-      additional: "Our AI agent services cover custom agents, multi-agent orchestration, tool integrations, RAG, and production governance so agents deliver outcomes — not just demos.",
+      title: "WordPress Design & Development",
+      description: "We create custom WordPress websites with beautiful designs and powerful functionality. Our WordPress services include custom theme development, plugin creation, WooCommerce integration, and WordPress optimization.",
+      additional: "We specialize in building WordPress sites that are fast, secure, SEO-friendly, and easy to manage. Whether you need a custom theme, custom plugins, or a complete WordPress solution, we deliver professional results.",
       details: [
-        "We develop custom agents for support, sales, research, document analysis, and internal operations.",
-        "We design multi-agent systems with clear roles so specialized agents collaborate toward shared goals.",
-        "We connect agents to CRMs, APIs, databases, and internal tools so they can take real action.",
-        "We implement memory, RAG, and evaluation loops for grounded, reliable responses.",
-        "We add observability, guardrails, and human-in-the-loop controls for production safety.",
-        "We monitor agent quality and refine prompts, tools, and workflows based on real outcomes.",
-        "We document and train your team so agents stay maintainable after launch."
+        "We develop custom WordPress themes tailored to your brand and business needs, ensuring unique design and functionality.",
+        "We create custom WordPress plugins to add specific features and functionality that aren't available in standard plugins.",
+        "We integrate WooCommerce for e-commerce functionality, including product management, shopping cart, and payment processing.",
+        "We optimize WordPress sites for speed and performance, including image optimization, caching, and database optimization.",
+        "We implement WordPress security best practices, including security plugins, regular updates, and protection against vulnerabilities.",
+        "We ensure WordPress sites are mobile-responsive and work seamlessly across all devices and screen sizes.",
+        "We provide WordPress training and documentation so you can manage your site effectively after launch."
       ]
     }
   },
@@ -242,32 +242,27 @@ export default function ProcessPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white font-sans">
+    <div className="min-h-screen bg-transparent font-sans pt-8">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-12 px-6 overflow-hidden flex flex-col justify-center items-center">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -top-24 right-0 w-[40vw] h-[40vw] rounded-full bg-primary/10 blur-[100px]" />
-        </div>
-        <div className="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center gap-5">
-          <h1
-            style={{ animation: "heroFadeUp 0.45s 0.05s ease both" }}
-            className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-foreground"
+      <section className="relative min-h-[40vh] bg-transparent text-white pt-26 pb-10 px-6 overflow-hidden flex flex-col justify-center items-center">
+        <div className="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center gap-4">
+          <h1 style={{ animation: "heroFadeUp 0.45s 0.05s ease both" }}
+            className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] md:leading-[1.05] text-white"
           >
-            Our development{" "}
-            <span className="text-primary">process</span>
+            Our development <br className="hidden md:block" />
+            <span className="text-white">process</span>
           </h1>
 
-          <p
-            style={{ animation: "heroFadeUp 0.45s 0.1s ease both" }}
-            className="max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed"
+          <p style={{ animation: "heroFadeUp 0.45s 0.1s ease both" }}
+            className="max-w-md text-sm md:text-md text-white/80 leading-relaxed"
           >
-            Our full stack development process from discovery to launch. We build custom websites with frontend, backend, AI agents, and SEO — tailored to your business needs.
+            Our full stack development process from discovery to launch. We build custom websites with frontend and backend development, tailored to your business needs.
           </p>
         </div>
       </section>
 
       {/* Main Content */}
-      <section className="py-16 px-6 max-w-[1400px] mx-auto">
+      <section className="py-20 px-6 max-w-full mx-auto">
         <div className="grid lg:grid-cols-[1fr_300px] gap-12 items-start">
           {/* Left Content */}
           <div className="max-w-4xl space-y-20">
@@ -280,12 +275,15 @@ export default function ProcessPage() {
                 id={step.id}
                 className="scroll-mt-32"
               >
-                <div className="transition-all duration-500">
-                  <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+                <div
+                  className="transition-all duration-500"
+                >
+                  <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                     {step.content.title}
                   </h2>
 
-                  <div className="mb-8 rounded-3xl overflow-hidden shadow-lg border border-foreground/5">
+                  {/* Image */}
+                  <div className="mb-8 rounded-3xl overflow-hidden shadow-lg">
                     <img
                       src={step.image}
                       alt={step.content.title}
@@ -293,16 +291,22 @@ export default function ProcessPage() {
                     />
                   </div>
 
-                  <div className="space-y-6 text-muted-foreground leading-relaxed text-lg">
-                    <p>{step.content.description}</p>
-                    {step.content.additional && <p>{step.content.additional}</p>}
+                  <div className="space-y-6 text-white leading-relaxed text-lg">
+                    <p>
+                      {step.content.description}
+                    </p>
+                    {step.content.additional && (
+                      <p>
+                        {step.content.additional}
+                      </p>
+                    )}
                     {step.content.details && (
                       <div className="mt-8 space-y-4">
-                        <h3 className="text-xl font-bold text-foreground mb-4">What This Includes:</h3>
+                        <h3 className="text-xl font-bold text-white mb-4">What This Includes:</h3>
                         <ul className="space-y-3">
                           {step.content.details.map((detail, idx) => (
-                            <li key={idx} className="flex items-start gap-3 text-muted-foreground">
-                              <span className="text-primary font-bold mt-1 shrink-0">•</span>
+                            <li key={idx} className="flex items-start gap-3 text-white">
+                              <span className="text-primary-soft font-bold mt-1 shrink-0">•</span>
                               <span>{detail}</span>
                             </li>
                           ))}
@@ -314,19 +318,20 @@ export default function ProcessPage() {
               </div>
             ))}
 
+            {/* Sticky Notes Image */}
             <div className="mt-16 relative">
               <img
                 src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=1200&h=800&fit=crop"
                 alt="Discovery process sticky notes"
-                className="w-full h-auto rounded-3xl shadow-lg object-cover border border-foreground/5"
+                className="w-full h-auto rounded-3xl shadow-lg object-cover"
               />
             </div>
           </div>
 
           {/* Right Navigation Sidebar */}
-          <div className="lg:sticky lg:top-24">
-            <div className="bg-white rounded-3xl p-4 shadow-sm border border-foreground/10">
-              <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-wider mb-3 px-2">
+          <div className="lg:sticky lg:top-18">
+            <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-4 shadow-sm border border-white/20">
+              <h3 className="text-sm font-bold text-white/70 uppercase tracking-wider mb-1">
                 Process Steps
               </h3>
               <nav className="space-y-2 relative">
@@ -340,20 +345,18 @@ export default function ProcessPage() {
                         className={`
                           w-full flex items-center gap-2 p-2 rounded-xl transition-all duration-200 text-left relative z-10
                           ${isActive
-                            ? "bg-primary text-white font-bold shadow-sm"
-                            : "text-foreground/70 hover:bg-foreground/5 hover:text-foreground"
+                            ? "bg-primary-soft text-foreground font-bold shadow-sm"
+                            : "text-white/80 hover:bg-white/10 hover:text-white"
                           }
                         `}
                       >
-                        <div
-                          className={`
+                        <div className={`
                           w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 relative
                           ${isActive
-                            ? "bg-white text-primary"
-                            : "bg-foreground/5 text-foreground/60"
+                            ? "bg-foreground text-primary-soft"
+                            : "bg-white/20 text-white"
                           }
-                        `}
-                        >
+                        `}>
                           <IconComponent size={18} />
                         </div>
                         <span className="text-sm font-medium">{step.label}</span>
@@ -362,7 +365,7 @@ export default function ProcessPage() {
                         <div
                           className={`
                             absolute left-[29px] top-[56px] w-0.5 h-8 z-0
-                            ${isActive ? "bg-primary/40" : "bg-foreground/10"}
+                            ${isActive ? "bg-primary-soft/50" : "bg-white/30"}
                           `}
                         />
                       )}
@@ -375,32 +378,28 @@ export default function ProcessPage() {
         </div>
 
         {/* CTA Section */}
-        <div className="mt-20 max-w-4xl mx-auto text-center rounded-[2.5rem] bg-foreground text-white p-10 md:p-16 relative overflow-hidden">
-          <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-primary/30 blur-3xl pointer-events-none" />
-          <h2 className="relative z-10 text-3xl md:text-5xl font-bold mb-6">
-            Ready to work with <span className="text-primary">us</span>?
+        <div className="mt-20 bg-transparent rounded-[3rem] p-12 md:p-16 text-center relative z-10">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+            Ready to work with us?
           </h2>
-          <p className="relative z-10 text-white/70 mb-8 max-w-2xl mx-auto">
-            Let&apos;s discuss your website development project and see how we can help bring your vision to life.
+          <p className="text-white/80 mb-8 max-w-2xl mx-auto">
+            Let's discuss your website development project and see how we can help bring your vision to life.
           </p>
-          <div className="relative z-10 flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact">
-              <Button className="h-14 px-8 rounded-full bg-primary text-white hover:bg-primary/90 text-lg font-bold">
+              <Button className="h-14 px-8 rounded-full bg-primary-soft text-foreground hover:bg-primary-hover text-lg font-bold">
                 Get in Touch
               </Button>
             </Link>
-            <Link href="/about">
-              <Button
-                variant="outline"
-                className="h-14 px-8 rounded-full bg-transparent border-white/20 text-white hover:bg-white/10 text-lg font-medium"
-              >
-                Learn About Us
+            <Link href="/case-studies">
+              <Button variant="outline" className="h-14 px-8 rounded-full bg-transparent border-white/20 text-white hover:bg-white/10 text-lg font-medium">
+                View Our Work
               </Button>
             </Link>
           </div>
         </div>
-      </section>
-    </div>
+      </section >
+    </div >
   );
 }
 

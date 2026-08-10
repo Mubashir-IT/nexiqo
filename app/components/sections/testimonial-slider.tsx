@@ -31,7 +31,7 @@ const testimonials = [
   },
   {
     id: 4,
-    quote: "Outstanding AI agent development. Their custom agents and SEO optimization significantly improved our operations and site performance.",
+    quote: "Outstanding WordPress development. Custom theme and SEO optimization significantly improved our site's performance.",
     author: "Sarah Johnson",
     role: "CEO, Tech Solutions Inc.",
     color: "#54559b",
@@ -39,7 +39,7 @@ const testimonials = [
   },
   {
     id: 5,
-    quote: "Their SEO services helped us rank higher. Combined with excellent AI agent automation, our traffic and capacity increased dramatically.",
+    quote: "Their SEO services helped us rank higher. Combined with excellent WordPress development, our traffic increased dramatically.",
     author: "Michael Chen",
     role: "Marketing Director, Digital Agency",
     color: "#604b81",

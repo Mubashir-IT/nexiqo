@@ -36,17 +36,18 @@ export function Navbar() {
       onMouseLeave={() => setActiveMenu(null)}
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4",
-        isScrolled || isMenuOpen ? "bg-white/90 backdrop-blur-md border-b border-foreground/5 shadow-sm" : "bg-transparent",
+        isScrolled ? "bg-transparent" : "bg-transparent",
       )}
     >
       <div className="max-w-[1400px] mx-auto px-6 flex items-center justify-between relative z-50">
-        {/* Logo — darkened for white navbar (asset is white-on-transparent) */}
+        {/* Logo */}
         <Link href="/" className="flex items-center gap-2" onClick={closeAll}>
           <img
             src="/images/nexiqo.png"
             alt="Nexiqo"
-            className="h-14 w-auto transition-all duration-300 brightness-0"
+            className={cn("h-14 w-auto transition-all duration-300")}
           />
+          {/* <span className="sr-only">Nexiqo</span> */}
         </Link>
 
         {/* Desktop Nav - Custom Full Width Menu */}
@@ -56,8 +57,8 @@ export function Navbar() {
             onMouseEnter={() => setActiveMenu('industry')}
             className={cn(
               "flex items-center gap-1 text-sm font-medium transition-colors py-2 px-1",
-              "text-foreground/80 hover:text-primary",
-              activeMenu === 'industry' && "text-primary"
+              "text-white hover:text-primary-soft",
+              activeMenu === 'industry' && "text-primary-soft"
             )}
           >
             Services <ChevronDown size={14} className={cn("transition-transform duration-200", activeMenu === 'industry' && "rotate-180")} />
@@ -68,31 +69,42 @@ export function Navbar() {
             onMouseEnter={() => setActiveMenu('cms')}
             className={cn(
               "flex items-center gap-1 text-sm font-medium transition-colors py-2 px-1",
-              "text-foreground/80 hover:text-primary",
-              activeMenu === 'cms' && "text-primary"
+              "text-white hover:text-primary-soft",
+              activeMenu === 'cms' && "text-primary-soft"
             )}
           >
             Technologies <ChevronDown size={14} className={cn("transition-transform duration-200", activeMenu === 'cms' && "rotate-180")} />
           </button>
 
-          <Link href="/about" className={cn("text-sm font-medium transition-colors", "text-foreground/80 hover:text-primary")} onMouseEnter={() => setActiveMenu(null)} onClick={closeAll}>
+          <Link href="/about" className={cn("text-sm font-medium transition-colors", "text-white hover:text-primary-soft")} onMouseEnter={() => setActiveMenu(null)} onClick={closeAll}>
             About
           </Link>
 
-          <Link href="/process" className={cn("text-sm font-medium transition-colors", "text-foreground/80 hover:text-primary")} onMouseEnter={() => setActiveMenu(null)} onClick={closeAll}>
+          <Link href="/process" className={cn("text-sm font-medium transition-colors", "text-white hover:text-primary-soft")} onMouseEnter={() => setActiveMenu(null)} onClick={closeAll}>
             Process
           </Link>
         </div>
 
         {/* Desktop Actions */}
         <div className="hidden lg:flex items-center gap-6 ml-8">
+          {/* <Link
+            href="/case-studies"
+            className={cn(
+              "font-medium text-sm transition-colors",
+              "text-white/90 hover:text-primary-soft"
+            )}
+            onMouseEnter={() => setActiveMenu(null)}
+            onClick={closeAll}
+          >
+            Case Studies
+          </Link> */}
           <div className="flex items-center gap-3">
             <Link href="/action-plan" onClick={closeAll}>
               <Button
                 variant="outline"
                 className={cn(
-                  "rounded-full px-6 h-11 text-sm font-medium border transition-all duration-300 cursor-pointer",
-                  "border-foreground/15 bg-white text-foreground hover:bg-primary hover:border-primary hover:text-white hover:shadow-md"
+                  "rounded-lg px-6 h-11 text-sm font-medium border transition-all duration-300 cursor-pointer",
+                  "border-white/20 bg-transparent text-white hover:bg-primary-soft hover:border-primary-soft hover:text-foreground hover:shadow-md"
                 )}
               >
                 Action Plan
@@ -101,7 +113,7 @@ export function Navbar() {
             <Link href="/contact" className="cursor-pointer" onClick={closeAll}>
               <Button
                 className={cn(
-                  "rounded-full px-6 h-11 text-sm font-semibold transition-colors cursor-pointer",
+                  "rounded-lg px-6 h-11 text-sm font-semibold transition-colors cursor-pointer",
                   "bg-foreground text-white hover:bg-foreground/90"
                 )}
               >
@@ -113,7 +125,7 @@ export function Navbar() {
 
         {/* Mobile Toggle */}
         <button
-          className="lg:hidden relative z-50 text-foreground"
+          className="lg:hidden relative z-50 text-white"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -150,11 +162,11 @@ export function Navbar() {
                           <p className="text-xs text-gray-500">Complete website development from frontend to backend</p>
                         </div>
                       </Link>
-                      <Link href="/services/ai-agents" className="flex gap-4 group" onClick={closeAll}>
+                      <Link href="/services/wordpress-design" className="flex gap-4 group" onClick={closeAll}>
                         <Factory className="w-5 h-5 text-foreground mt-1 shrink-0 group-hover:text-primary-hover transition-colors" />
                         <div>
-                          <h5 className="font-bold text-foreground text-base mb-1 group-hover:text-primary-hover transition-colors">AI Agents</h5>
-                          <p className="text-xs text-gray-500">Custom agents that plan, act, and execute across your tools</p>
+                          <h5 className="font-bold text-foreground text-base mb-1 group-hover:text-primary-hover transition-colors">WordPress Design</h5>
+                          <p className="text-xs text-gray-500">Custom WordPress themes, plugins, and WooCommerce</p>
                         </div>
                       </Link>
                       <Link href="/services/seo-services" className="flex gap-4 group" onClick={closeAll}>
@@ -294,8 +306,8 @@ export function Navbar() {
                   <Link href="/services/backend-development" className="block text-base text-white/80 hover:text-primary-soft py-1" onClick={closeAll}>
                     Backend Development
                   </Link>
-                  <Link href="/services/ai-agents" className="block text-base text-white/80 hover:text-primary-soft py-1" onClick={closeAll}>
-                    AI Agents
+                  <Link href="/services/wordpress-design" className="block text-base text-white/80 hover:text-primary-soft py-1" onClick={closeAll}>
+                    WordPress Design
                   </Link>
                   <Link href="/services/seo-services" className="block text-base text-white/80 hover:text-primary-soft py-1" onClick={closeAll}>
                     SEO Services

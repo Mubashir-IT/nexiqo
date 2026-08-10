@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, Search, FileText, Layers, Layout, Server, Bot, Sparkles } from "lucide-react";
+import { ArrowUpRight, Search, MousePointer2, FileText, Palette, Layers, Layout, Server, PenTool } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const tabIcons = { Layers, Layout, Server, Bot, Search };
+const tabIcons = { Layers, Layout, Server, PenTool, Search };
 const tabs = [
   {
     id: "full-stack",
@@ -35,13 +35,13 @@ const tabs = [
     link: "/services/backend-development"
   },
   {
-    id: "ai-agents",
-    label: "AI Agents",
-    icon: "Bot",
-    content: "We build autonomous AI agents that plan, reason, and execute — connecting to your tools and APIs to complete multi-step work across support, sales, research, and operations.",
-    tags: ["Custom Agents", "Multi-Agent Systems", "Tool Use", "RAG", "Observability", "Governance"],
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=800&fit=crop",
-    link: "/services/ai-agents"
+    id: "wordpress",
+    label: "Custom WordPress",
+    icon: "PenTool",
+    content: "We transform WordPress into a custom-built enterprise engine. Beautiful management interfaces paired with lightweight, hardened themes and plugins tailored strictly to your objectives.",
+    tags: ["Theme Engineering", "WooCommerce", "Plugin Strategy", "Performance", "Security", "SEO Ready"],
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&h=800&fit=crop",
+    link: "/services/wordpress-design"
   },
   {
     id: "seo",
@@ -71,9 +71,9 @@ export function WhatWeDo() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-          className="text-4xl md:text-5xl font-bold text-foreground mb-12 tracking-tight"
+          className="text-4xl md:text-5xl font-bold text-white mb-12 tracking-tight"
         >
-          Intelligent <span className="text-primary">Web Services</span>
+          Intelligent Web Services
         </motion.h2>
 
         <motion.div
@@ -138,7 +138,7 @@ export function WhatWeDo() {
                   <div className="flex flex-wrap gap-x-4 gap-y-1 md:gap-x-6 md:gap-y-2 text-white/50 text-xs md:text-sm font-bold tracking-wider uppercase">
                     {activeTab.tags.map((tag, i) => (
                       <span key={i} className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary-soft" />
                         {tag}
                       </span>
                     ))}
@@ -148,7 +148,7 @@ export function WhatWeDo() {
                 {/* Explore Link Button */}
                 <div className="absolute top-3 right-3 md:top-5 md:right-5 flex flex-col items-center gap-3">
                   <a href={activeTab.link}>
-                    <button className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-primary flex items-center justify-center text-white hover:scale-110 hover:bg-white hover:text-foreground transition-all duration-500 shadow-xl group/btn">
+                    <button className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-primary-soft flex items-center justify-center text-foreground hover:scale-110 hover:bg-white transition-all duration-500 shadow-xl group/btn">
                       <ArrowUpRight size={28} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
                     </button>
                   </a>
@@ -162,9 +162,9 @@ export function WhatWeDo() {
         <div className="grid md:grid-cols-3 gap-6">
           {[
             {
-              title: "AI Agent Platforms",
-              desc: "From single-task agents to multi-agent crews — we build autonomous systems your team can trust. Every solution is engineered for production, not just demos.",
-              icon: Sparkles
+              title: "Modern CMS Hub",
+              desc: "From custom WordPress to headless architectures — we build content systems your team can own and your users will love. Every solution is built to scale, not just to ship.",
+              icon: MousePointer2
             },
             {
               title: "Strategic SEO Growth",
@@ -191,7 +191,7 @@ export function WhatWeDo() {
                   {item.desc}
                 </p>
               </div>
-              <item.icon className="w-10 h-10 text-primary mt-8 opacity-40 group-hover:opacity-100 transition-opacity" />
+              <item.icon className="w-10 h-10 text-primary-soft mt-8 opacity-40 group-hover:opacity-100 transition-opacity" />
             </motion.div>
           ))}
         </div>

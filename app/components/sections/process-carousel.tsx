@@ -86,8 +86,8 @@ export function ProcessCarousel() {
     >
       <div className="max-w-[1500px] mx-auto px-0">
         <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-6">
-          <h2 className="pl-8 text-5xl md:text-7xl font-bold text-foreground tracking-tight">
-            Process <span className="text-primary">Overview</span>
+          <h2 className="pl-8 text-5xl md:text-7xl font-bold text-white tracking-tight">
+            Process Overview
           </h2>
 
 

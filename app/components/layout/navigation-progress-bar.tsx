@@ -86,14 +86,14 @@ export function NavigationProgressBar() {
 
   return (
     <div
-      className="fixed top-0 left-0 right-0 z-[9999] h-[3px] bg-foreground/5"
+      className="fixed top-0 left-0 right-0 z-[9999] h-[3px] bg-white/5"
       role="progressbar"
       aria-valuenow={progress}
       aria-valuemin={0}
       aria-valuemax={100}
     >
       <div
-        className="h-full bg-primary transition-[width] duration-150 ease-out"
+        className="h-full bg-white transition-[width] duration-150 ease-out"
         style={{ width: `${progress}%` }}
       />
     </div>

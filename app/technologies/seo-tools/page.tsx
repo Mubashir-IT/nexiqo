@@ -7,31 +7,28 @@ import { Search, BarChart, TrendingUp, FileText, Globe, Target, TrendingDown, Al
 
 export default function SEOToolsPage() {
   return (
-    <div className="min-h-screen bg-white font-sans pt-8">
+    <div className="min-h-screen bg-transparent font-sans pt-8">
       {/* Hero Section */}
-      <section className="relative min-h-[40vh] pt-22 pb-10 px-6 overflow-hidden flex flex-col justify-center items-center z-10">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -top-20 right-0 w-[40vw] h-[40vw] rounded-full bg-primary/10 blur-[100px]" />
-        </div>
+      <section className="relative min-h-[40vh] bg-transparent text-white pt-22 pb-10 px-6 overflow-hidden flex flex-col justify-center items-center z-10">
         <div className="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center gap-4">
           <div style={{ animation: "heroFadeUp 0.4s ease both" }}
             className="flex items-center justify-center gap-2 mb-6"
           >
-            <Search className="w-5 h-5 text-primary" />
-            <span className="px-4 py-2 rounded-full border border-foreground/10 text-sm text-foreground/60 bg-white shadow-sm">
+            <Search className="w-5 h-5 text-primary-soft" />
+            <span className="px-4 py-2 rounded-full border border-white/10 text-sm text-white/60 bg-white/5 backdrop-blur-sm">
               SEO Tools
             </span>
           </div>
 
           <h1 style={{ animation: "heroFadeUp 0.45s 0.05s ease both" }}
-            className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] md:leading-[1.05] text-foreground"
+            className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] md:leading-[1.05]"
           >
             SEO tools & <br className="hidden md:block" />
-            <span className="text-primary">analytics</span>
+            <span className="text-primary-soft">analytics</span>
           </h1>
 
           <p style={{ animation: "heroFadeUp 0.45s 0.1s ease both" }}
-            className="max-w-md text-sm md:text-md text-muted-foreground leading-relaxed"
+            className="max-w-md text-sm md:text-md text-white/80 leading-relaxed"
           >
             We use industry-leading SEO tools including Google Search Console, Google Analytics, Google Trends, SEMrush, MozBar, Ahrefs, and other analytics platforms to optimize your website's search visibility.
           </p>
@@ -43,13 +40,13 @@ export default function SEOToolsPage() {
         <section className="py-16 sm:py-20 md:py-24 lg:py-32 px-6 sm:px-12 md:px-20 lg:px-40 max-w-full mx-auto relative z-10">
           <div className="flex flex-col text-center justify-center items-center relative">
             <div className="relative w-full">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-[950] tracking-tight text-foreground leading-tight sm:leading-none mb-6 sm:mb-8 relative z-10 px-4 sm:px-0">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-[950] tracking-tight text-white leading-tight sm:leading-none mb-6 sm:mb-8 relative z-10 px-4 sm:px-0">
                 Data-driven SEO <br className="hidden md:block" />
                 optimization & analytics
               </h2>
             </div>
             <div className="space-y-4 sm:space-y-6 max-w-2xl px-4 sm:px-0">
-              <p className="text-sm sm:text-base md:text-md text-muted-foreground leading-relaxed sm:leading-tight">
+              <p className="text-sm sm:text-base md:text-md text-white/80 leading-relaxed sm:leading-tight">
                 We leverage industry-leading SEO tools and analytics platforms to optimize your website's search engine visibility, track performance, and make data-driven decisions. Our comprehensive toolkit provides insights into search performance, user behavior, and optimization opportunities.
               </p>
             </div>
@@ -60,13 +57,13 @@ export default function SEOToolsPage() {
       {/* Benefits Grid */}
       <section className="py-20 px-6 max-w-full mx-auto">
         <div className="flex flex-col gap-8">
-          {/* Benefits Panel */}
-          <div className="relative rounded-[3rem] p-4 md:p-8 lg:p-12 flex flex-col justify-between min-h-[200px] overflow-hidden z-10">
+          {/* Dark Panel */}
+          <div className="relative bg-transparent rounded-[3rem] p-4 md:p-8 lg:p-12 flex flex-col justify-between min-h-[200px] overflow-hidden z-10">
             <div className="flex flex-col items-center justify-center h-full">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-12 leading-tight text-center">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-soft mb-12 leading-tight text-center">
                 professional seo toolkit
               </h2>
-              <p className="text-muted-foreground text-sm leading-tight text-center max-w-2xl">
+              <p className="text-white text-sm leading-tight text-center max-w-2xl">
                 Our comprehensive SEO toolkit includes Google Search Console, Google Analytics, Google Tag Manager, Google Trends, SEMrush, MozBar, Ahrefs, and various analytics platforms. We implement proper tracking, set up conversion goals, create custom reports, and provide regular SEO audits and recommendations.
               </p>
             </div>
@@ -118,7 +115,7 @@ export default function SEOToolsPage() {
             ].map((item, i) => {
               const IconComponent = item.icon;
               return (
-                <div key={i} className="bg-card rounded-3xl p-6 md:p-8 flex flex-col justify-between shadow-sm border border-foreground/10 hover:shadow-md transition-shadow duration-300">
+                <div key={i} className="bg-card rounded-3xl p-6 md:p-8 flex flex-col justify-between shadow-sm border border-input hover:shadow-md transition-shadow duration-300">
                   <div>
                     <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4">
                       {item.title}
@@ -139,21 +136,21 @@ export default function SEOToolsPage() {
 
       {/* Google Updates Recovery Section */}
       <section className="py-20 px-6 max-w-full mx-auto">
-        <div className="rounded-[3rem] p-8 md:p-12 lg:p-16 overflow-hidden relative border border-foreground/10 bg-white">
+        <div className="bg-transparent rounded-[3rem] p-8 md:p-12 lg:p-16 overflow-hidden relative">
           <div className="relative z-10">
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-6">
-                  <AlertCircle className="w-6 h-6 text-primary" />
-                  <span className="px-4 py-2 rounded-full border border-foreground/10 text-sm text-foreground/60 bg-white shadow-sm">
+                  <AlertCircle className="w-6 h-6 text-primary-soft" />
+                  <span className="px-4 py-2 rounded-full border border-white/10 text-sm text-white/80 bg-white/5 backdrop-blur-sm">
                     Google Algorithm Updates
                   </span>
                 </div>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
                   Recover from Google <br className="hidden md:block" />
-                  <span className="text-primary">Algorithm Updates</span>
+                  <span className="text-primary-soft">Algorithm Updates</span>
                 </h2>
-                <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-8 max-w-2xl">
+                <p className="text-white/90 text-sm md:text-base leading-relaxed mb-8 max-w-2xl">
                   Has your website's ranking dropped or traffic decreased due to a Google algorithm update? We specialize in helping websites recover from ranking penalties and traffic drops caused by Google's algorithm changes. Our team analyzes what went wrong, implements necessary fixes, and rebuilds your search visibility.
                 </p>
                 <div className="space-y-4">
@@ -187,16 +184,16 @@ export default function SEOToolsPage() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: i * 0.1 }}
-                        className="flex gap-4 items-start bg-card rounded-2xl p-4 border border-foreground/10"
+                        className="flex gap-4 items-start bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-white/10"
                       >
-                        <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                          <IconComponent className="w-5 h-5 text-primary" />
+                        <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-primary-soft/20 flex items-center justify-center">
+                          <IconComponent className="w-5 h-5 text-primary-soft" />
                         </div>
                         <div className="flex-1">
-                          <h3 className="text-foreground font-bold mb-1 text-base md:text-lg">
+                          <h3 className="text-white font-bold mb-1 text-base md:text-lg">
                             {item.title}
                           </h3>
-                          <p className="text-muted-foreground text-sm leading-relaxed">
+                          <p className="text-white/80 text-sm leading-relaxed">
                             {item.desc}
                           </p>
                         </div>
@@ -213,10 +210,10 @@ export default function SEOToolsPage() {
       {/* Additional Features Section */}
       <section className="py-20 px-6 max-w-full mx-auto">
         <div className="max-w-4xl mx-auto mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8 text-center">
-            Why Professional <span className="text-primary">SEO Tools</span>?
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 text-center">
+            Why Professional SEO Tools?
           </h2>
-          <p className="text-muted-foreground leading-relaxed text-center text-lg">
+          <p className="text-white/80 leading-relaxed text-center text-lg">
             Data-driven SEO decisions lead to measurable improvements in search rankings and business outcomes.
           </p>
         </div>
@@ -242,7 +239,7 @@ export default function SEOToolsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-white rounded-3xl p-8 shadow-sm border border-foreground/10 text-center"
+              className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 text-center"
             >
               <h3 className="text-xl font-bold text-foreground mb-4">
                 {item.title}
@@ -257,8 +254,8 @@ export default function SEOToolsPage() {
 
       {/* CTA Section */}
       <section className="py-20 px-6 max-w-full mx-auto">
-        <div className="rounded-[2.5rem] bg-foreground text-white p-10 md:p-16 relative overflow-hidden text-center z-10">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+        <div className="relative bg-transparent rounded-[3rem] p-12 md:p-16 text-center z-10">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
             Ready to improve your SEO?
           </h2>
           <p className="text-white/80 mb-8 max-w-2xl mx-auto">
@@ -266,7 +263,7 @@ export default function SEOToolsPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact">
-              <Button className="h-14 px-8 rounded-full bg-primary text-white hover:bg-primary/90 text-lg font-bold">
+              <Button className="h-14 px-8 rounded-full bg-primary-soft text-foreground hover:bg-primary-hover text-lg font-bold">
                 Get in Touch
               </Button>
             </Link>
@@ -281,3 +278,4 @@ export default function SEOToolsPage() {
     </div>
   );
 }
+

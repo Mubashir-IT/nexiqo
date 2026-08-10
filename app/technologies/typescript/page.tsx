@@ -7,31 +7,28 @@ import { Code, Shield, Zap, CheckCircle, Bug, FileCode } from "lucide-react";
 
 export default function TypeScriptPage() {
   return (
-    <div className="min-h-screen bg-white font-sans pt-8">
+    <div className="min-h-screen bg-transparent font-sans pt-8">
       {/* Hero Section */}
-      <section className="relative min-h-[40vh] pt-22 pb-10 px-6 overflow-hidden flex flex-col justify-center items-center z-10">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -top-20 right-0 w-[40vw] h-[40vw] rounded-full bg-primary/10 blur-[100px]" />
-        </div>
+      <section className="relative min-h-[40vh] bg-transparent text-white pt-22 pb-10 px-6 overflow-hidden flex flex-col justify-center items-center z-10">
         <div className="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center gap-4">
           <div style={{ animation: "heroFadeUp 0.4s ease both" }}
             className="flex items-center justify-center gap-2 mb-6"
           >
-            <Code className="w-5 h-5 text-primary" />
-            <span className="px-4 py-2 rounded-full border border-foreground/10 text-sm text-foreground/60 bg-white shadow-sm">
+            <Code className="w-5 h-5 text-primary-soft" />
+            <span className="px-4 py-2 rounded-full border border-white/10 text-sm text-white/60 bg-white/5 backdrop-blur-sm">
               TypeScript
             </span>
           </div>
 
           <h1 style={{ animation: "heroFadeUp 0.45s 0.05s ease both" }}
-            className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] md:leading-[1.05] text-foreground"
+            className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] md:leading-[1.05]"
           >
             Type-safe <br className="hidden md:block" />
-            <span className="text-primary">development</span>
+            <span className="text-primary-soft">development</span>
           </h1>
 
           <p style={{ animation: "heroFadeUp 0.45s 0.1s ease both" }}
-            className="max-w-md text-sm md:text-md text-muted-foreground leading-relaxed"
+            className="max-w-md text-sm md:text-md text-white/80 leading-relaxed"
           >
             TypeScript adds static type checking to JavaScript, helping us catch errors early, improve code quality, and build more reliable applications.
           </p>
@@ -43,13 +40,13 @@ export default function TypeScriptPage() {
         <section className="py-16 sm:py-20 md:py-24 lg:py-32 px-6 sm:px-12 md:px-20 lg:px-40 max-w-full mx-auto relative z-10">
           <div className="flex flex-col text-center justify-center items-center relative">
             <div className="relative w-full">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-[950] tracking-tight text-foreground leading-tight sm:leading-none mb-6 sm:mb-8 relative z-10 px-4 sm:px-0">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-[950] tracking-tight text-white leading-tight sm:leading-none mb-6 sm:mb-8 relative z-10 px-4 sm:px-0">
                 Type-safe development <br className="hidden md:block" />
                 for reliable applications
               </h2>
             </div>
             <div className="space-y-4 sm:space-y-6 max-w-2xl px-4 sm:px-0">
-              <p className="text-sm sm:text-base md:text-md text-muted-foreground leading-relaxed sm:leading-tight">
+              <p className="text-sm sm:text-base md:text-md text-white/80 leading-relaxed sm:leading-tight">
                 We use TypeScript extensively in our projects to improve code quality, maintainability, and developer productivity. TypeScript's type system helps catch errors during development rather than at runtime, significantly reducing bugs and improving code reliability.
               </p>
             </div>
@@ -60,13 +57,13 @@ export default function TypeScriptPage() {
       {/* Benefits Grid */}
       <section className="py-20 px-6 max-w-full mx-auto">
         <div className="flex flex-col gap-8">
-          {/* Benefits Panel */}
-          <div className="relative rounded-[3rem] p-4 md:p-8 lg:p-12 flex flex-col justify-between min-h-[200px] overflow-hidden z-10">
+          {/* Dark Panel */}
+          <div className="relative bg-transparent rounded-[3rem] p-4 md:p-8 lg:p-12 flex flex-col justify-between min-h-[200px] overflow-hidden z-10">
             <div className="flex flex-col items-center justify-center h-full">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-12 leading-tight text-center">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-soft mb-12 leading-tight text-center">
                 typescript expertise
               </h2>
-              <p className="text-muted-foreground text-sm leading-tight text-center max-w-2xl">
+              <p className="text-white text-sm leading-tight text-center max-w-2xl">
                 According to the 2023 Stack Overflow Developer Survey, TypeScript is the 5th most loved programming language. Major companies like Google, Microsoft, and Airbnb use it for large-scale applications. Our TypeScript implementation includes strict type checking, proper interface definitions, and advanced TypeScript features.
               </p>
             </div>
@@ -108,7 +105,7 @@ export default function TypeScriptPage() {
             ].map((item, i) => {
               const IconComponent = item.icon;
               return (
-                <div key={i} className="bg-card rounded-3xl p-6 md:p-8 flex flex-col justify-between shadow-sm border border-foreground/10 hover:shadow-md transition-shadow duration-300">
+                <div key={i} className="bg-card rounded-3xl p-6 md:p-8 flex flex-col justify-between shadow-sm border border-input hover:shadow-md transition-shadow duration-300">
                   <div>
                     <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4">
                       {item.title}
@@ -130,10 +127,10 @@ export default function TypeScriptPage() {
       {/* Additional Features Section */}
       <section className="py-20 px-6 max-w-full mx-auto">
         <div className="max-w-4xl mx-auto mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8 text-center">
-            Why <span className="text-primary">TypeScript</span>?
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 text-center">
+            Why TypeScript?
           </h2>
-          <p className="text-muted-foreground leading-relaxed text-center text-lg">
+          <p className="text-white/80 leading-relaxed text-center text-lg">
             TypeScript adds static type checking to JavaScript, making development safer and more productive.
           </p>
         </div>
@@ -159,7 +156,7 @@ export default function TypeScriptPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-white rounded-3xl p-8 shadow-sm border border-foreground/10 text-center"
+              className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 text-center"
             >
               <h3 className="text-xl font-bold text-foreground mb-4">
                 {item.title}
@@ -174,8 +171,8 @@ export default function TypeScriptPage() {
 
       {/* CTA Section */}
       <section className="py-20 px-6 max-w-full mx-auto">
-        <div className="rounded-[2.5rem] bg-foreground text-white p-10 md:p-16 relative overflow-hidden text-center z-10">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+        <div className="relative bg-transparent rounded-[3rem] p-12 md:p-16 text-center z-10">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
             Ready to build with TypeScript?
           </h2>
           <p className="text-white/80 mb-8 max-w-2xl mx-auto">
@@ -183,7 +180,7 @@ export default function TypeScriptPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact">
-              <Button className="h-14 px-8 rounded-full bg-primary text-white hover:bg-primary/90 text-lg font-bold">
+              <Button className="h-14 px-8 rounded-full bg-primary-soft text-foreground hover:bg-primary-hover text-lg font-bold">
                 Get in Touch
               </Button>
             </Link>
@@ -198,3 +195,4 @@ export default function TypeScriptPage() {
     </div>
   );
 }
+

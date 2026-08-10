@@ -45,36 +45,33 @@ const lifecycleStages = [
 
 export default function SEOServicesPage() {
   return (
-    <div className="min-h-screen bg-white font-sans">
+    <div className="min-h-screen bg-transparent font-sans">
       {/* Hero Section */}
-      <section className="relative min-h-[50vh] pt-32 pb-20 px-6 overflow-hidden flex flex-col justify-center items-center z-10">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -top-20 right-0 w-[40vw] h-[40vw] rounded-full bg-primary/10 blur-[100px]" />
-        </div>
+      <section className="relative min-h-[50vh] bg-transparent text-white pt-32 pb-20 px-6 overflow-hidden flex flex-col justify-center items-center z-10">
         <div className="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center gap-4">
           <div style={{ animation: "heroFadeUp 0.4s ease both" }}
             className="flex items-center justify-center gap-2 mb-6"
           >
-            <Search className="w-5 h-5 text-primary" />
-            <span className="px-4 py-2 rounded-full border border-foreground/10 text-sm text-foreground/60 bg-white shadow-sm">
+            <Search className="w-5 h-5 text-primary-soft" />
+            <span className="px-4 py-2 rounded-full border border-white/10 text-sm text-white/60 bg-white/5 backdrop-blur-sm">
               SEO Services
             </span>
           </div>
 
           <h1 style={{ animation: "heroFadeUp 0.45s 0.05s ease both" }}
-            className="text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] md:leading-[1.05] text-foreground"
+            className="text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] md:leading-[1.05]"
           >
             Intelligent Visibility. <br className="hidden md:block" />
-            <span className="text-primary">Built for Growth.</span>
+            <span className="text-primary-soft">Built for Growth.</span>
           </h1>
 
           <p style={{ animation: "heroFadeUp 0.45s 0.1s ease both" }}
-            className="max-w-2xl text-base md:text-lg text-muted-foreground leading-relaxed mt-6"
+            className="max-w-2xl text-base md:text-lg text-white/70 leading-relaxed mt-6"
           >
             We drive sustainable organic growth through a data-driven SEO lifecycle designed to research, execute, measure, and continuously refine.
           </p>
           <p style={{ animation: "heroFadeUp 0.45s 0.15s ease both" }}
-            className="max-w-2xl text-base md:text-lg text-muted-foreground leading-relaxed"
+            className="max-w-2xl text-base md:text-lg text-white/60 leading-relaxed"
           >
             Search is constantly evolving. Our strategies ensure your business stays visible, competitive, and positioned for long-term success.
           </p>
@@ -84,10 +81,10 @@ export default function SEOServicesPage() {
       {/* Key Activities Section */}
       <section className="py-20 px-6 max-w-full mx-auto">
         <div className="mb-12 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Key Activities of Nexiqo&apos;s SEO Services
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-white text-lg">
             The core levers we continuously work to keep your visibility growing.
           </p>
         </div>
@@ -126,16 +123,16 @@ export default function SEOServicesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="flex gap-6 p-8 rounded-3xl border border-foreground/10 bg-white hover:border-primary/20 transition-colors group"
+              className="flex gap-6 p-8 rounded-3xl border border-gray-100/70 bg-white/5 hover:bg-white/10 transition-colors group"
             >
-              <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary">
+              <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary-soft/60 flex items-center justify-center font-bold text-foreground">
                 {activity.num}
               </div>
               <div>
-                <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary">
+                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-soft">
                   {activity.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{activity.desc}</p>
+                <p className="text-white/80 text-sm leading-relaxed">{activity.desc}</p>
               </div>
             </motion.div>
           ))}
@@ -145,10 +142,10 @@ export default function SEOServicesPage() {
       {/* Benefits Section */}
       <section className="py-4 px-6 max-w-full mx-auto relative">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
             Benefits of SEO with Nexiqo
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-white/80 text-lg max-w-2xl mx-auto">
             Experience growth powered by precision, performance, and strategy.
           </p>
         </div>
@@ -192,10 +189,10 @@ export default function SEOServicesPage() {
       <section className="py-4  px-6 relative overflow-hidden">
         <div className="max-w-full mx-auto px-6">
           <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
               Our SEO Lifecycle
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-white/80 text-lg max-w-2xl mx-auto">
               A continuous optimization loop built around research, execution, and learning.
             </p>
           </div>
@@ -230,16 +227,17 @@ export default function SEOServicesPage() {
 
       {/* Banner CTA */}
       <section className="py-4 px-6 max-w-full mx-auto text-center">
-        <div className="rounded-[2.5rem] bg-foreground text-white p-10 md:p-16 relative overflow-hidden">
+        <div className="relative bg-transparent rounded-[3rem] p-12 md:p-20 overflow-hidden group">
+
           <div className="relative z-10">
-            <h2 className="text-4xl md:text-6xl font-extrabold mb-8 tracking-tight">
+            <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-8 tracking-tight">
               Ready to Strengthen Your Rankings?
             </h2>
             <p className="text-white/60 mb-12 text-lg max-w-2xl mx-auto">
               Let&apos;s build an SEO strategy that attracts targeted traffic, increases authority, and drives consistent growth.
             </p>
             <Link href="/contact">
-              <Button className="h-16 px-10 rounded-full bg-primary text-white hover:bg-primary/90 text-xl font-bold shadow-2xl hover:scale-105 transition-all">
+              <Button className="h-16 px-10 rounded-full bg-primary-soft text-foreground hover:bg-primary-hover text-xl font-bold shadow-2xl hover:scale-105 transition-all">
                 Let&apos;s Make It Happen.
               </Button>
             </Link>
@@ -250,11 +248,12 @@ export default function SEOServicesPage() {
       {/* CTA: Talk About Your SEO */}
       <section className="py-4 px-6 max-w-full mx-auto text-center">
         <div className="mt-6">
-          <Link href="/contact" className="inline-flex items-center gap-2 text-foreground font-bold hover:gap-4 transition-all">
-            Book a call to discuss your SEO <ArrowRight className="w-5 h-5 text-primary" />
+          <Link href="/contact" className="inline-flex items-center gap-2 text-white font-bold hover:gap-4 transition-all">
+            Book a call to discuss your SEO <ArrowRight className="w-5 h-5 text-primary-soft" />
           </Link>
         </div>
       </section>
     </div>
   );
 }
+
